@@ -9,6 +9,9 @@ Displays:
   - Overall robustness gauge: large centered score with Robust / Moderate / Fragile label
   - 4-column parameter robustness summary cards
   - 2x2 parameter sweep charts: each shows 4 metric lines vs the swept parameter
+
+Note: Stop-loss and take-profit are approximated as per-bar return caps, not true
+exit-at-price logic. Drawdown figures will appear lower than real trading results.
 """
 
 from __future__ import annotations
@@ -33,7 +36,7 @@ st.set_page_config(
 # Core imports
 # ---------------------------------------------------------------------------
 from core.data import date_range_default, load_ohlcv
-from core.design_system import REGIME_COLORS, get_plotly_layout
+from core.design_system import get_plotly_layout
 
 # ---------------------------------------------------------------------------
 # Design tokens (local to this dashboard — clean minimal palette)
@@ -291,9 +294,14 @@ def _sweep_fast_ma(
 ) -> dict[str, list[Any]]:
     """Sweep fast_ma from 5 to 30 (step 1) holding other params fixed."""
     prices = pd.Series(prices_tuple)
-    param_values = list(range(5, 31, 1))
+    fast_range = (5, 30)
+    fast_step = 1
     rows: list[dict[str, float]] = []
-    for v in param_values:
+    param_values: list[int] = []
+    for v in range(fast_range[0], fast_range[1] + 1, fast_step):
+        if v >= slow:
+            continue  # skip: fast MA must be < slow MA
+        param_values.append(v)
         rows.append(_sma_backtest(prices, fast=v, slow=slow,
                                   stop_loss_pct=stop_loss_pct,
                                   take_profit_pct=take_profit_pct))
@@ -309,12 +317,15 @@ def _sweep_slow_ma(
 ) -> dict[str, list[Any]]:
     """Sweep slow_ma from 20 to 100 (step 5) holding other params fixed."""
     prices = pd.Series(prices_tuple)
-    param_values = list(range(20, 101, 5))
+    slow_range = (20, 100)
+    slow_step = 5
     rows: list[dict[str, float]] = []
-    for v in param_values:
-        # Ensure fast < slow to keep the strategy valid
-        effective_fast = min(fast, v - 1)
-        rows.append(_sma_backtest(prices, fast=effective_fast, slow=v,
+    param_values: list[int] = []
+    for v in range(slow_range[0], slow_range[1] + 1, slow_step):
+        if v <= fast:
+            continue  # skip: slow MA must be > fast MA
+        param_values.append(v)
+        rows.append(_sma_backtest(prices, fast=fast, slow=v,
                                   stop_loss_pct=stop_loss_pct,
                                   take_profit_pct=take_profit_pct))
     return {"values": param_values, "metrics": rows}
@@ -455,6 +466,10 @@ def render_sidebar() -> tuple[str, datetime.date, datetime.date, int, int, float
     take_profit_pct = float(
         st.sidebar.slider("Take Profit (%)", min_value=1.0, max_value=10.0,
                           value=4.0, step=0.5, key="sa_take_profit")
+    )
+    st.sidebar.caption(
+        "⚠ Stop-loss / take-profit approximated as per-bar return caps. "
+        "Drawdown figures are optimistic."
     )
 
     st.sidebar.markdown(
@@ -833,6 +848,10 @@ def main() -> None:
 
     # ---- Run analysis when button clicked ----
     if run_clicked:
+        if start_date >= end_date:
+            st.error("End date must be after start date.")
+            st.stop()
+
         st.session_state["sa_status"] = "running"
         # Clear previous results
         for key in ("sa_result", "sa_ticker_display"):
