@@ -1,5 +1,6 @@
 # Environment secrets — never commit
 .env
+.env.*
 
 # Python bytecode
 __pycache__/
@@ -16,4 +17,11 @@ __pycache__/
 
 # Runtime JSON files written by safety.py, broker.py, etc.
 # Keep logs/.gitkeep but ignore actual runtime files
-logs/*.json
+logs/*
+!logs/.gitkeep
+
+dist/
+.pytest_cache/
+htmlcov/
+*.pyd
+*.so
