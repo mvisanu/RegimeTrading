@@ -12,6 +12,10 @@ Rules enforced by this module:
 
 from __future__ import annotations
 
+import copy
+import html as _html
+from typing import Any
+
 # ---------------------------------------------------------------------------
 # Color tokens
 # ---------------------------------------------------------------------------
@@ -52,8 +56,8 @@ def regime_badge(regime: str, confidence: float, glow: bool = True) -> str:
         st.markdown(html, unsafe_allow_html=True)
     """
     color = REGIME_COLORS.get(regime, REGIME_COLORS["Uncertain"])
-    pct = round(confidence * 100)
-    label = f"{regime} {pct}%"
+    pct = round(max(0.0, min(1.0, confidence)) * 100)
+    label = f"{_html.escape(regime)} {pct}%"
 
     shadow_css = (
         f"box-shadow: 0 0 8px 2px {color}88, 0 0 2px 1px {color};"
@@ -138,8 +142,8 @@ def metric_card(
 
     return (
         f'<div style="{container_style}">'
-        f'<span style="{label_style}">{label}</span>'
-        f'<span style="{value_style}">{value}</span>'
+        f'<span style="{label_style}">{_html.escape(label)}</span>'
+        f'<span style="{value_style}">{_html.escape(value)}</span>'
         f"</div>"
     )
 
@@ -173,7 +177,7 @@ def section_header(text: str) -> None:
         "padding-left:10px;"
     )
 
-    st.markdown(f'<h3 style="{style}">{text}</h3>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="{style}">{_html.escape(text)}</h3>', unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------------------------
@@ -186,7 +190,7 @@ _TEXT_COLOR = "#e2e8f0"
 _FONT_FAMILY = "Inter, 'Segoe UI', sans-serif"
 
 
-def get_plotly_layout(theme: str = "dark") -> dict:
+def get_plotly_layout(theme: str = "dark") -> dict[str, Any]:
     """Return a base Plotly layout dict suitable for dark-theme dashboards.
 
     Args:
@@ -225,8 +229,8 @@ def get_plotly_layout(theme: str = "dark") -> dict:
             "family": _FONT_FAMILY,
             "size": 12,
         },
-        "xaxis": dict(axis_defaults),
-        "yaxis": dict(axis_defaults),
+        "xaxis": copy.deepcopy(axis_defaults),
+        "yaxis": copy.deepcopy(axis_defaults),
         "legend": {
             "bgcolor": "#1e2130",
             "bordercolor": _GRID_COLOR,
