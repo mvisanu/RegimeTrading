@@ -259,15 +259,10 @@ class TickerSentiment:
 # Helpers
 # ---------------------------------------------------------------------------
 
-_SIA: SentimentIntensityAnalyzer | None = None
-
-
+@st.cache_resource
 def _get_sia() -> SentimentIntensityAnalyzer:
-    """Return a cached SentimentIntensityAnalyzer instance."""
-    global _SIA
-    if _SIA is None:
-        _SIA = SentimentIntensityAnalyzer()
-    return _SIA
+    """Return a cached SentimentIntensityAnalyzer instance (one per process)."""
+    return SentimentIntensityAnalyzer()
 
 
 def _score_color(score: float) -> str:
@@ -300,15 +295,16 @@ def _momentum_color(momentum: float) -> str:
 def _parse_published(entry: Any) -> datetime:
     """Convert feedparser ``published_parsed`` (time.struct_time) to datetime.
 
-    Falls back to ``datetime.now(UTC)`` if the field is absent or malformed.
+    Returns a timezone-aware UTC datetime. Falls back to ``datetime.now(UTC)``
+    if the field is absent or malformed.
     """
     parsed = getattr(entry, "published_parsed", None)
     if parsed is None:
-        return datetime.now(timezone.utc).replace(tzinfo=None)
+        return datetime.now(timezone.utc)
     try:
-        return datetime(*parsed[:6])
+        return datetime(*parsed[:6], tzinfo=timezone.utc)
     except (TypeError, ValueError):
-        return datetime.now(timezone.utc).replace(tzinfo=None)
+        return datetime.now(timezone.utc)
 
 
 def _article_weight(published: datetime) -> float:
@@ -318,7 +314,10 @@ def _article_weight(published: datetime) -> float:
     - Older than 3 days → 0.5×
     - Otherwise → 1×
     """
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
+    # Ensure published is timezone-aware for comparison
+    if published.tzinfo is None:
+        published = published.replace(tzinfo=timezone.utc)
     age_hours = (now - published).total_seconds() / 3600.0
     if age_hours <= 24.0:
         return 2.0
@@ -347,30 +346,50 @@ def fetch_and_score(ticker: str) -> TickerSentiment:
 
     try:
         feed = feedparser.parse(url)
-        entries = feed.entries if feed and feed.entries else []
     except Exception:
-        entries = []
+        return TickerSentiment(
+            ticker=ticker,
+            weighted_score=0.0,
+            momentum=0.0,
+            article_count=0,
+            articles=[],
+        )
+
+    # Bozo flag means feedparser encountered a parse error; if there are also
+    # no entries the feed is unusable (e.g. network failure or blocked host).
+    if getattr(feed, "bozo", False) and not list(getattr(feed, "entries", [])):
+        return TickerSentiment(
+            ticker=ticker,
+            weighted_score=0.0,
+            momentum=0.0,
+            article_count=0,
+            articles=[],
+        )
+
+    entries = list(getattr(feed, "entries", []))
 
     sia = _get_sia()
     articles: list[ArticleData] = []
 
     for entry in entries:
-        title: str = getattr(entry, "title", "") or ""
-        snippet: str = getattr(entry, "summary", "") or ""
+        # Unescape HTML entities BEFORE scoring — feedparser sometimes delivers
+        # entity-encoded RSS text (e.g. &amp;, &#39;) which VADER mis-scores.
+        raw_title: str = _html.unescape(getattr(entry, "title", "") or "")
+        raw_snippet: str = _html.unescape(getattr(entry, "summary", "") or "")
         source_obj = getattr(entry, "source", None)
         source: str = getattr(source_obj, "title", "Unknown") if source_obj else "Unknown"
         published = _parse_published(entry)
 
-        text = title + " " + snippet
+        text = raw_title + " " + raw_snippet
         compound = sia.polarity_scores(text)["compound"]
         weight = _article_weight(published)
 
         articles.append(
             ArticleData(
-                title=title,
+                title=raw_title,
                 source=source,
                 published=published,
-                snippet=snippet,
+                snippet=raw_snippet,
                 compound_score=compound,
                 weight=weight,
             )
@@ -467,7 +486,6 @@ def _render_ticker_card(result: TickerSentiment, selected: bool) -> str:
     """
     score = result.weighted_score
     border_color = _score_color(score)
-    border_width = "3px" if selected else "3px"
     extra_bg = f"background:{_CARD_BG};" if not selected else f"background:#1f2330;"
 
     arrow = _momentum_arrow(result.momentum)
@@ -625,11 +643,11 @@ def main() -> None:
         refresh = st.button("Refresh Sentiment", use_container_width=True)
 
         if refresh:
-            st.cache_data.clear()
+            fetch_and_score.clear()
             st.rerun()
 
         st.markdown('<hr style="border-top:1px solid #2a2d35;margin:12px 0;">', unsafe_allow_html=True)
-        last_updated = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        last_updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
         st.markdown(
             f'<div style="font-size:11px;color:{_NEUTRAL};">Last updated<br>{last_updated}</div>',
             unsafe_allow_html=True,
@@ -665,8 +683,7 @@ def main() -> None:
     # 1. Header section
     # -----------------------------------------------------------------------
     total_articles = sum(r.article_count for r in results)
-    now = datetime.utcnow()
-    date_display = now.strftime("%A, %B %-d, %Y") if hasattr(time, "struct_time") else now.strftime("%A, %B %d, %Y")
+    now = datetime.now(timezone.utc)
 
     # Cross-platform date format (%-d fails on Windows)
     try:
@@ -703,6 +720,9 @@ def main() -> None:
 
     n_tickers = len(results)
     card_cols = st.columns(n_tickers if n_tickers <= 6 else 6)
+
+    if n_tickers > 6:
+        st.caption(f"Showing first 6 of {n_tickers} tickers. Reduce the list to see all.")
 
     for i, (col, result) in enumerate(zip(card_cols, results)):
         with col:
