@@ -881,13 +881,6 @@ def main() -> None:
     _render_stress_section(ranked_tickers, results, ticker_colors)
 
 
-@st.cache_data(ttl=3600)
-def _fit_regime(ticker: str, start: str, end: str) -> RegimeResult:
-    """Fit HMM for regime timeline visualization; cached for 1 hour."""
-    df = load_ohlcv(ticker, start, end)
-    return fit_and_filter(df)
-
-
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
