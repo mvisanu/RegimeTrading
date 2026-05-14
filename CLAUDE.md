@@ -2,79 +2,101 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository status
+## Project status: COMPLETE
 
-This repo is **spec-only**. The single file `prompt.md` is the complete build specification for a regime-aware automated trading system with seven Streamlit dashboards. No code, tests, dependencies, or `.env.example` exist yet — they are all to be created per the spec.
+All 8 core modules, 7 dashboards, and 38 tests are implemented and passing.
+`prompt.md` remains the authoritative spec for requirements and exact design tokens.
 
-Treat `prompt.md` as the source of truth for requirements. When in doubt, re-read the relevant section rather than guessing — the spec pins exact hex codes, font names, regime thresholds, and acceptance criteria.
+## Commands
 
-## Architecture (planned)
+```bash
+# Setup
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+pip install -e .                         # makes core/ importable everywhere
+copy .env.example .env                   # fill in Alpaca credentials
+python -m nltk.downloader vader_lexicon  # required for Dashboard 6
 
-Monorepo with a single shared `core/` package consumed by seven independent Streamlit dashboards:
+# Run
+streamlit run app.py
 
-- `core/hmm_utils.py` — Gaussian HMM regime detector. **Must use forward filtering** (`_do_forward_log_pass`), never `model.predict()` (Viterbi smooths the full sequence and is look-ahead biased). Sweeps `n_components` 3–6 by BIC. Regimes are labeled by ascending realized vol (`"Low Vol"`, `"Medium Vol"`, ...) — never by returns. Stability filter: regime is "active" only after 3 consecutive bars; >4 label flips in any rolling 20-bar window flags `"Uncertain"`.
-- `core/verify.py` — Self-check harness comparing streaming forward-filter output to a refit at each `t` using only `X[:t+1]`. Tolerance 1e-6. Surfaces a ✅ badge on dashboards; failure must block the dashboard from rendering results.
-- `core/allocation.py` — Pure `target_exposure(regime, confidence) -> float`. Fixed mapping: Low 95%, Medium 80%, High 60%, Extreme 30%, Uncertain 50%.
-- `core/safety.py` — Five circuit breakers (daily 2%, weekly 5%, max DD 15%, position concentration 25%, order rate 20/60s). **Must be independent of the HMM** — if the model is wrong, safety still works. State persists to `logs/safety_state.json`.
-- `core/broker.py` — Alpaca wrapper. Defaults to paper; live trading requires both `LIVE_TRADING=true` env var **and** an in-dashboard confirmation. Every `submit_order` calls `safety.check()` first.
-- `core/data.py` — yfinance loader. Every caller in a Streamlit page must wrap with `@st.cache_data(ttl=3600)`.
-- `core/backtest.py` — Walk-forward only (e.g., 1y train / 6mo test rolling). No full-period in-sample backtests.
-- `core/design_system.py` — Single source of `REGIME_COLORS` and the helpers `regime_badge`, `metric_card`, `section_header`, `get_plotly_layout`. **Dashboards import these — never redefine them locally.**
+# Tests
+pytest tests/test_no_lookahead.py        # gate: must pass
+pytest tests/test_safety.py              # gate: must pass
+pytest                                   # all 38 tests
+pytest tests/test_no_lookahead.py::test_name -v  # single test
+```
 
-`logs/alerts.json` and `logs/trades.json` must be appended atomically (no truncation on concurrent writes).
+## Architecture
+
+Monorepo: shared `core/` package consumed by 7 independent Streamlit dashboards in `pages/`.
+
+```
+RegimeTrading/
+├── core/
+│   ├── design_system.py   # REGIME_COLORS + regime_badge/metric_card/section_header/get_plotly_layout
+│   ├── data.py            # yfinance loader — callers use @st.cache_data(ttl=3600)
+│   ├── hmm_utils.py       # Gaussian HMM, forward filter, BIC sweep, stability filter
+│   ├── verify.py          # look-ahead bias check — runs on every import of hmm_utils
+│   ├── allocation.py      # target_exposure(regime, confidence) → float
+│   ├── safety.py          # 5 circuit breakers, atomic state to logs/safety_state.json
+│   ├── broker.py          # Alpaca wrapper, paper default, safety gate on every order
+│   └── backtest.py        # walk-forward backtest (1y train / 6mo test)
+├── pages/
+│   ├── 1_Regime_Detection.py   # Bloomberg terminal — HMM regime timeline
+│   ├── 2_Monte_Carlo.py        # Deep space nebula — 200-curve fan chart
+│   ├── 3_Sensitivity.py        # Clean minimal — SMA crossover parameter sweep
+│   ├── 4_Portfolio_Risk.py     # Premium fintech — gradient cards, stress tests
+│   ├── 5_Multi_Asset_Backtest.py  # Asset-colored — CSS --accent per tab
+│   ├── 6_Sentiment.py          # Newsroom serif — VADER + Google News RSS
+│   └── 7_Correlation_Breaks.py # SOC dark — z-score breaks, pulse animations
+├── tests/
+│   ├── test_no_lookahead.py    # GATE: causal HMM guarantee
+│   ├── test_safety.py          # GATE: breakers independent of HMM
+│   └── test_allocation.py
+├── logs/                       # alerts.json, trades.json, safety_state.json (atomic writes)
+├── app.py                      # Streamlit entry point
+├── pyproject.toml
+└── requirements.txt
+```
+
+## Core module details
+
+- **`hmm_utils.py`** — Uses `_hmmc.forward_log` (C extension), NOT `model.predict()` (Viterbi is look-ahead biased). BIC sweeps n_components 3–6. Regimes labeled by ascending realized vol. Stability filter: 3-bar minimum + rolling chop detection flags "Uncertain". Triggers `verify.py` on every import.
+- **`verify.py`** — Compares `forward_filter(model, X)[t]` vs `forward_filter(model, X[:t+1])[-1]` at 20 random time points. Tolerance 1e-6. Sets `LOOKAHEAD_CHECK_PASSED: bool` at module level. Dashboards check this before rendering.
+- **`safety.py`** — Daily 2%, weekly 5%, max DD 15%, concentration 25%, rate 20/60s. State persisted via `os.replace()` atomic writes. `reset_state()` available for tests.
+- **`broker.py`** — `submit_order()` calls `safety.check_all()` first. `LIVE_TRADING=true` (exact string, case-sensitive) required for live orders. Appends to `logs/trades.json` atomically.
 
 ## Non-negotiable invariants
 
-These are load-bearing — get them right from day one:
+1. **No look-ahead bias.** Forward filtering only. Walk-forward backtests only.
+2. **Safety is independent of HMM.** Circuit breakers must fire even if HMM is broken.
+3. **`REGIME_COLORS` in exactly one place** — `core/design_system.py`. Import it; never redefine it.
+4. **Paper trading is the default.** `LIVE_TRADING=true` env var + dashboard confirmation for live.
+5. **Dashboard CSS is scoped to its page.** Seven distinct design languages — no cross-leakage.
 
-1. **No look-ahead bias anywhere.** Forward filtering for HMM, walk-forward for backtests. `tests/test_no_lookahead.py` enforces this in CI and must pass before anything else is considered done.
-2. **Safety is independent of HMM.** `tests/test_safety.py` must prove every breaker fires regardless of regime state.
-3. **`REGIME_COLORS` lives in exactly one place** (`core/design_system.py`). Importing it anywhere else is required; redefining it anywhere else is a bug.
-4. **Paper trading is the default.** Live orders require `LIVE_TRADING=true` env + dashboard confirmation.
-5. **Each dashboard's CSS is scoped to its page.** The seven dashboards have intentionally different design languages (Bloomberg terminal, deep-space nebula, minimal Jupyter, premium fintech, asset-colored, newsroom serif, SOC) — leakage between them is a regression. Fonts, hex codes, radii, and spacing in `prompt.md` are exact, not suggestions.
+## Dashboard design languages
 
-## Dashboard design languages (quick reference)
+| # | Dashboard | Aesthetic | Key tokens |
+|---|-----------|-----------|-----------|
+| 1 | Regime Detection | Bloomberg terminal | `#0e1117` bg, `#00d4ff` cyan, monospace |
+| 2 | Monte Carlo | Deep space nebula | `#060614` bg, Space Mono / DM Sans, glow curves |
+| 3 | Sensitivity | Clean minimal | `#0f1117` bg, IBM Plex, `#22c55e` green, no glow |
+| 4 | Portfolio Risk | Premium fintech | `#0e1016` bg, `#6366f1` indigo, Plus Jakarta Sans |
+| 5 | Multi-Asset | Asset-colored | `#0c0c14` bg, `--accent` CSS var, Outfit / Fira Code |
+| 6 | Sentiment | Newsroom serif | `#111318` bg, Newsreader font, 4px radius |
+| 7 | Correlation Break | SOC dark | `#08080c` bg, Share Tech Mono, pulse @keyframes |
 
-The seven dashboards deliberately look different. When working on one, do not reach for tokens from another:
+## Environment variables
 
-1. **Regime Detection** — Bloomberg terminal, dark + cyan accent (`#00d4ff`), monospace numbers.
-2. **Monte Carlo** — Deep space nebula, `#060614` bg, Space Mono / DM Sans, low-alpha overlapping curves create the glow.
-3. **Sensitivity** — Clean minimal Jupyter, `#0f1117` bg, IBM Plex Mono/Sans, muted green `#22c55e`, no glow.
-4. **Portfolio Risk** — Premium fintech, gradient cards, Plus Jakarta Sans + JetBrains Mono, indigo `#6366f1`, hover lift.
-5. **Multi-Asset Backtester** — Asset-colored: a single `--accent` CSS variable swaps to the selected asset's color (SPY cyan, BTC orange, GLD gold, TLT purple) and re-tints the whole page.
-6. **Sentiment** — Newsroom serif (Newsreader for headers), `#111318` bg, 4px card radius, editorial near-white accent.
-7. **Correlation Break** — SOC-style, `#08080c` bg, Share Tech Mono. Normal cards intentionally bland; only Significant/Extreme alerts pulse via `@keyframes`.
-
-## Commands (to be created)
-
-None of these exist yet — they're what the spec implies should work once built:
-
-```bash
-# Install
-pip install -r requirements.txt
-
-# Run a dashboard (Streamlit picks up pages from the dashboards/ folder)
-streamlit run dashboards/1_regime_detection.py
-
-# Tests — the first two are acceptance gates
-pytest tests/test_no_lookahead.py
-pytest tests/test_safety.py
-pytest                                # all tests
-pytest tests/test_no_lookahead.py::test_name -v   # single test
-```
-
-Required env vars (in `.env`, loaded via `python-dotenv`): `ALPACA_KEY_ID`, `ALPACA_SECRET`, `ALPACA_BASE_URL` (default paper), `LIVE_TRADING` (must be `true` to allow live orders).
-
-## Build order
-
-The spec prescribes this order — follow it. The first two items block everything else:
-
-1. `core/design_system.py`, `core/data.py`
-2. `core/hmm_utils.py` + `core/verify.py` + `tests/test_no_lookahead.py` — **do not proceed until this test passes**
-3. `core/allocation.py`, `core/safety.py` + `tests/test_safety.py`
-4. `core/broker.py` (paper-only first), `core/backtest.py`
-5. Dashboards 1–7 in order. Ship each fully styled before starting the next — styling is not a polish pass.
+| Var | Default | Notes |
+|-----|---------|-------|
+| `ALPACA_KEY_ID` | — | Required for broker.py |
+| `ALPACA_SECRET` | — | Required for broker.py |
+| `ALPACA_BASE_URL` | `https://paper-api.alpaca.markets` | Paper endpoint default |
+| `LIVE_TRADING` | `false` | Must be exact string `"true"` to enable live orders |
 
 ## Python conventions
 
-Python 3.11+. Type hints on all public functions, docstrings on every module. Drop NaNs before fitting the HMM, not during feature engineering downstream.
+Python 3.11+. Type hints on all public functions. Module docstrings on every module. NaN rows dropped before HMM fitting (not mid-stream). `numpy < 2.0` required (hmmlearn C-extension incompatibility with numpy 2.x).
