@@ -33,6 +33,7 @@ st.set_page_config(
 # Core imports
 # ---------------------------------------------------------------------------
 from core.data import date_range_default, load_ohlcv
+from core.design_system import REGIME_COLORS, get_plotly_layout
 
 # ---------------------------------------------------------------------------
 # Design tokens (local to this dashboard — clean minimal palette)
@@ -675,6 +676,9 @@ def _build_sweep_chart(
             )
         )
 
+    # Start from the shared dark-theme base, then apply Dashboard-3-specific overrides.
+    _base_layout = get_plotly_layout(theme="dark")
+    fig.update_layout(**_base_layout)
     fig.update_layout(
         paper_bgcolor=_CARD_BG,
         plot_bgcolor=_CARD_BG,
