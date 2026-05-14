@@ -1,0 +1,19 @@
+# Environment secrets — never commit
+.env
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+
+# Build artifacts
+*.egg-info/
+
+# Git worktrees managed by Claude Code
+.worktrees/
+
+# Runtime JSON files written by safety.py, broker.py, etc.
+# Keep logs/.gitkeep but ignore actual runtime files
+logs/*.json
