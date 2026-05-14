@@ -148,9 +148,9 @@ def _select_n_components(
             random_state=42,
         )
         model.fit(X)
-        log_likelihood = model.score(X)
+        log_likelihood = model.score(X)  # total log-likelihood (sum over T samples)
         n_params = _n_params_full_cov(n, n_features=X.shape[1])
-        bic = -2.0 * log_likelihood * T + n_params * np.log(T)
+        bic = -2.0 * log_likelihood + n_params * np.log(T)
         if bic < best_bic:
             best_bic = bic
             best_model = model
@@ -264,15 +264,21 @@ def apply_stability_filter(labels: list[str]) -> list[str]:
     WINDOW = 20
     MAX_TRANSITIONS = 4
 
+    # Snapshot Stage 1 output so Stage 2 reads consistent values even as it
+    # overwrites the live list.  Without this, earlier "Uncertain" writes
+    # reduce apparent transition counts in later windows, letting trailing
+    # bars escape the chop filter.
+    stage1_snapshot = stable[:]
+
     for i in range(T):
         window_start = max(0, i - WINDOW + 1)
-        window = stable[window_start : i + 1]
+        window = stage1_snapshot[window_start : i + 1]  # read from snapshot
         transitions = sum(
             1 for j in range(1, len(window)) if window[j] != window[j - 1]
         )
         if transitions > MAX_TRANSITIONS:
             for j in range(window_start, i + 1):
-                stable[j] = "Uncertain"
+                stable[j] = "Uncertain"  # write to live list
 
     return stable
 
