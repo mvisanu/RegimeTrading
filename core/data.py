@@ -23,6 +23,7 @@ from datetime import date
 
 import pandas as pd
 import yfinance as yf
+from dateutil.relativedelta import relativedelta
 
 
 def load_ohlcv(ticker: str, start: str, end: str) -> pd.DataFrame:
@@ -80,8 +81,16 @@ def load_ohlcv(ticker: str, start: str, end: str) -> pd.DataFrame:
     # yfinance may return a MultiIndex column when downloading a single ticker
     # in certain versions (e.g. columns like ("Close", "SPY")).  Flatten to
     # simple string column names so callers always see the same interface.
+    # Level order has historically varied across yfinance versions, so detect
+    # which level holds the price-field names rather than assuming level 0.
     if isinstance(raw.columns, pd.MultiIndex):
-        raw.columns = raw.columns.get_level_values(0)
+        price_fields = {"Open", "High", "Low", "Close", "Volume", "Adj Close"}
+        level = next(
+            (i for i, level_vals in enumerate(raw.columns.levels)
+             if price_fields & set(level_vals)),
+            0  # fallback to level 0 if detection fails
+        )
+        raw.columns = raw.columns.get_level_values(level)
 
     ohlcv_cols = ["Open", "High", "Low", "Close", "Volume"]
     missing = [c for c in ohlcv_cols if c not in raw.columns]
@@ -118,7 +127,7 @@ def date_range_default(years: int = 3) -> tuple[str, str]:
     True
     """
     today = date.today()
-    start = date(today.year - years, today.month, today.day)
+    start = today - relativedelta(years=years)
     return start.isoformat(), today.isoformat()
 
 
