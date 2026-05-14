@@ -99,12 +99,19 @@ def _run_backtest(ticker: str, start: str, end: str) -> BacktestResult:
     return walk_forward_backtest(df, train_years=1, test_months=6)
 
 
+@st.cache_data(ttl=3600)
+def _fit_regime(ticker: str, start: str, end: str) -> RegimeResult:
+    """Fit HMM for regime timeline visualization; cached for 1 hour."""
+    df = load_ohlcv(ticker, start, end)
+    return fit_and_filter(df)
+
+
 # ---------------------------------------------------------------------------
 # Stress-test drawdown helper
 # ---------------------------------------------------------------------------
 
 
-def _compute_stress_drawdown(equity_curve: pd.Series, start: str, end: str) -> float:
+def _compute_stress_drawdown(equity_curve: pd.Series, start: str, end: str) -> float | None:
     """Return max drawdown during [start, end] period.
 
     Parameters
@@ -118,13 +125,13 @@ def _compute_stress_drawdown(equity_curve: pd.Series, start: str, end: str) -> f
 
     Returns
     -------
-    float
+    float | None
         Maximum drawdown in the period as a negative fraction (e.g. -0.35).
-        Returns 0.0 if fewer than 2 bars fall within the range.
+        Returns None if fewer than 2 bars fall within the range.
     """
     segment = equity_curve.loc[start:end]
     if len(segment) < 2:
-        return 0.0
+        return None
     peak = segment.cummax()
     dd = (segment / peak - 1).min()
     return float(dd)
@@ -331,6 +338,8 @@ def _render_comparison_table(
         for pname, (ps, pe) in STRESS_PERIODS.items():
             strat_dd = _compute_stress_drawdown(result.equity_curve, ps, pe)
             bh_dd = _compute_stress_drawdown(result.benchmark_equity, ps, pe)
+            if strat_dd is None or bh_dd is None:
+                continue
             # Better if strategy drawdown is less negative than benchmark
             improvement = strat_dd - bh_dd  # positive = less drawdown = better
             if improvement > best_val:
@@ -466,16 +475,16 @@ def _render_stress_section(
                 strat_dd = _compute_stress_drawdown(result.equity_curve, ps, pe)
                 bh_dd = _compute_stress_drawdown(result.benchmark_equity, ps, pe)
 
+                no_data = strat_dd is None or bh_dd is None
+
                 # Convert drawdowns to display percentages (already negative or zero)
-                strat_pct = abs(strat_dd) * 100
-                bh_pct = abs(bh_dd) * 100
+                strat_pct = abs(strat_dd) * 100 if strat_dd is not None else 0.0
+                bh_pct = abs(bh_dd) * 100 if bh_dd is not None else 0.0
 
                 # Bar widths: scale to max 100% of container (relative to max 50% dd)
                 max_scale = max(strat_pct, bh_pct, 1.0)
                 strat_w = min(100, strat_pct / max_scale * 100)
                 bh_w = min(100, bh_pct / max_scale * 100)
-
-                no_data = strat_dd == 0.0 and bh_dd == 0.0
                 na_text = '<span style="color:#475569;font-size:0.75rem;">no data in range</span>' if no_data else ""
 
                 st.markdown(
@@ -643,6 +652,9 @@ def _render_lookahead_badge() -> None:
 
 def main() -> None:
     """Entry point for Dashboard 5 — Multi-Asset Regime Backtester."""
+    today = date.today().isoformat()
+    five_years_ago = (date.today() - relativedelta(years=5)).isoformat()
+
     # ---- Sidebar --------------------------------------------------------
     st.sidebar.markdown(
         '<h2 style="font-family:Outfit,sans-serif; color:#f8fafc; '
@@ -677,10 +689,7 @@ def main() -> None:
 
     # Default selected tab = first ticker
     selected_ticker = tickers[0] if tickers else "SPY"
-    accent = ticker_colors.get(selected_ticker, EXTRA_COLORS[0])
-
-    # ---- CSS (injected with current accent, updates on tab change) -----
-    _inject_global_css(accent)
+    accent = ticker_colors.get(selected_ticker, EXTRA_COLORS[0])  # noqa: F841 — kept for future use
 
     # ---- Page header ---------------------------------------------------
     st.markdown(
@@ -706,15 +715,11 @@ def main() -> None:
 
     # ---- Run or retrieve results ----------------------------------------
     if session_key not in st.session_state:
-        today = date.today().isoformat()
-        five_years_ago = (date.today() - relativedelta(years=5)).isoformat()
-
         results: dict[str, BacktestResult] = {}
         errors: dict[str, str] = {}
 
         with st.spinner(f"Running backtest for {len(tickers)} asset(s)..."):
             for ticker in tickers:
-                safe = _html.escape(ticker)
                 try:
                     result = _run_backtest(ticker, five_years_ago, today)
                     results[ticker] = result
@@ -825,23 +830,20 @@ def main() -> None:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(
         '<h3 style="font-family:Outfit,sans-serif; font-size:1.1rem; '
-        'font-weight:600; color:#f8fafc; border-left:3px solid #00d4ff; '
+        'font-weight:600; color:#f8fafc; border-left:3px solid var(--accent);'
         'padding-left:10px; margin-bottom:1rem;">Regime Timeline</h3>',
         unsafe_allow_html=True,
     )
 
     # Fit regimes for all successful tickers (cached separately)
-    today = date.today().isoformat()
-    five_years_ago = (date.today() - relativedelta(years=5)).isoformat()
-
     regime_results: dict[str, RegimeResult] = {}
     for ticker in tab_labels:
         try:
-            df = _load_data(ticker, five_years_ago, today)
             rr = _fit_regime(ticker, five_years_ago, today)
             regime_results[ticker] = rr
-        except Exception:
-            pass  # silently skip regime timeline for failed tickers
+        except Exception as exc:
+            import logging
+            logging.getLogger(__name__).warning("Regime fit failed for %s: %s", ticker, exc)
 
     if regime_results:
         timeline_fig = build_regime_timeline_chart(
@@ -856,7 +858,7 @@ def main() -> None:
     # ---- Asset ranking table ---------------------------------------------
     st.markdown(
         '<h3 style="font-family:Outfit,sans-serif; font-size:1.1rem; '
-        'font-weight:600; color:#f8fafc; border-left:3px solid #00d4ff; '
+        'font-weight:600; color:#f8fafc; border-left:3px solid var(--accent);'
         'padding-left:10px; margin:1.5rem 0 0.5rem 0;">Asset Comparison</h3>',
         unsafe_allow_html=True,
     )
@@ -872,7 +874,7 @@ def main() -> None:
     # ---- Stress test section ---------------------------------------------
     st.markdown(
         '<h3 style="font-family:Outfit,sans-serif; font-size:1.1rem; '
-        'font-weight:600; color:#f8fafc; border-left:3px solid #00d4ff; '
+        'font-weight:600; color:#f8fafc; border-left:3px solid var(--accent);'
         'padding-left:10px; margin:1.5rem 0 0.5rem 0;">Stress Test Periods</h3>',
         unsafe_allow_html=True,
     )
