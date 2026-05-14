@@ -75,7 +75,14 @@ def _engineer_features(df: pd.DataFrame) -> np.ndarray:
     -------
     X : np.ndarray, shape (T, 3)
         Columns: [log_return, realized_vol, hl_range_pct].
-        All NaN rows have been dropped.
+        All NaN/Inf rows have been dropped.
+
+    Raises
+    ------
+    ValueError
+        If fewer than 30 rows remain after cleaning, or any feature column
+        has near-zero variance (which would make the covariance matrix
+        singular and cause hmmlearn to raise a positive-definite error).
     """
     close = df["close"]
     high = df["high"]
@@ -93,7 +100,29 @@ def _engineer_features(df: pd.DataFrame) -> np.ndarray:
         }
     ).dropna()
 
-    return combined.to_numpy(dtype=float)
+    # Drop rows containing Inf/-Inf (can arise from zero close price).
+    combined = combined.replace([np.inf, -np.inf], np.nan).dropna()
+
+    X = combined.to_numpy(dtype=float)
+
+    if len(X) < 30:
+        raise ValueError(
+            f"Only {len(X)} rows remain after cleaning — need at least 30 "
+            "to fit a GaussianHMM. Widen the date range or check for bad data."
+        )
+
+    # Guard against constant / near-constant columns which produce singular
+    # covariance matrices regardless of regularisation.
+    col_names = ["log_return", "realized_vol", "hl_range_pct"]
+    for i, name in enumerate(col_names):
+        col_std = X[:, i].std()
+        if col_std < 1e-10:
+            raise ValueError(
+                f"Feature '{name}' has near-zero standard deviation ({col_std:.2e}). "
+                "The input price series may be constant or contain repeated values."
+            )
+
+    return X
 
 
 # ---------------------------------------------------------------------------
@@ -112,6 +141,23 @@ def _n_params_full_cov(n: int, n_features: int = 3) -> int:
     means = n * n_features
     cov = n * (n_features * (n_features + 1) // 2)
     return transition + means + cov
+
+
+_MIN_COVAR = 1e-3  # Diagonal regularisation floor for GaussianHMM covariance matrices.
+
+
+def _make_hmm(n_components: int, covariance_type: str = "full") -> GaussianHMM:
+    """
+    Construct a GaussianHMM with standard hyperparameters and covariance
+    regularisation (min_covar) to prevent positive-definite failures during EM.
+    """
+    return GaussianHMM(
+        n_components=n_components,
+        covariance_type=covariance_type,
+        n_iter=200,
+        random_state=42,
+        min_covar=_MIN_COVAR,
+    )
 
 
 def _select_n_components(
@@ -134,21 +180,34 @@ def _select_n_components(
     Returns
     -------
     (best_model, best_n)
+
+    Notes
+    -----
+    Each candidate model is fitted with ``min_covar`` regularisation to keep
+    covariance matrices positive-definite.  If a given ``n`` still fails to
+    converge (e.g. due to too few observations relative to states), that
+    candidate is silently skipped rather than raising.  If every candidate
+    fails, a final fallback to ``covariance_type="diag"`` is attempted.
     """
+    import warnings  # noqa: PLC0415
+
     T = len(X)
     best_bic = np.inf
     best_model: GaussianHMM | None = None
     best_n = min_n
 
     for n in range(min_n, max_n + 1):
-        model = GaussianHMM(
-            n_components=n,
-            covariance_type="full",
-            n_iter=200,
-            random_state=42,
-        )
-        model.fit(X)
-        log_likelihood = model.score(X)  # total log-likelihood (sum over T samples)
+        try:
+            model = _make_hmm(n_components=n, covariance_type="full")
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                model.fit(X)
+            log_likelihood = model.score(X)
+        except Exception:  # noqa: BLE001
+            # This n failed (e.g. non-positive-definite even with regularisation).
+            # Skip it and try the next candidate.
+            continue
+
         n_params = _n_params_full_cov(n, n_features=X.shape[1])
         bic = -2.0 * log_likelihood + n_params * np.log(T)
         if bic < best_bic:
@@ -156,7 +215,18 @@ def _select_n_components(
             best_model = model
             best_n = n
 
-    assert best_model is not None
+    if best_model is None:
+        # All full-covariance candidates failed — fall back to diagonal covariance.
+        warnings.warn(
+            "[hmm_utils] All full-covariance models failed BIC sweep. "
+            "Falling back to covariance_type='diag' with n_components=3.",
+            RuntimeWarning,
+            stacklevel=3,
+        )
+        best_model = _make_hmm(n_components=min_n, covariance_type="diag")
+        best_model.fit(X)
+        best_n = min_n
+
     return best_model, best_n
 
 
@@ -308,16 +378,26 @@ def fit_and_filter(
     """
     from core.verify import forward_filter  # noqa: PLC0415
 
+    import warnings  # noqa: PLC0415
+
     X = _engineer_features(df)
 
     if n_override is not None:
-        model = GaussianHMM(
-            n_components=n_override,
-            covariance_type="full",
-            n_iter=200,
-            random_state=42,
-        )
-        model.fit(X)
+        model = _make_hmm(n_components=n_override, covariance_type="full")
+        try:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                model.fit(X)
+        except Exception:  # noqa: BLE001
+            # full-covariance failed; fall back to diagonal
+            warnings.warn(
+                f"[hmm_utils] GaussianHMM(full, n={n_override}) fit failed. "
+                "Falling back to covariance_type='diag'.",
+                RuntimeWarning,
+                stacklevel=2,
+            )
+            model = _make_hmm(n_components=n_override, covariance_type="diag")
+            model.fit(X)
         n = n_override
     else:
         model, n = _select_n_components(X)

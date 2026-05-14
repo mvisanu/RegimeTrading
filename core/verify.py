@@ -194,6 +194,7 @@ def _run_import_check() -> None:
             covariance_type="full",
             n_iter=200,
             random_state=42,
+            min_covar=1e-3,
         )
         model.fit(X)
 

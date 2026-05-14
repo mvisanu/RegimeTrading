@@ -216,7 +216,7 @@ def get_plotly_layout(theme: str = "dark") -> dict[str, Any]:
         "zerolinecolor": _GRID_COLOR,
         "zerolinewidth": 1,
         "tickfont": {"color": _TEXT_COLOR, "family": _FONT_FAMILY, "size": 11},
-        "titlefont": {"color": _TEXT_COLOR, "family": _FONT_FAMILY, "size": 12},
+        "title": {"font": {"color": _TEXT_COLOR, "family": _FONT_FAMILY, "size": 12}},
         "linecolor": _GRID_COLOR,
         "showgrid": True,
     }

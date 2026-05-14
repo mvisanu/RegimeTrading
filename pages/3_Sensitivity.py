@@ -721,7 +721,7 @@ def _build_sweep_chart(
             "gridwidth": 1,
             "zeroline": False,
             "tickfont": {"color": _TEXT_MUTED, "size": 10},
-            "titlefont": {"color": _TEXT_MUTED, "size": 10},
+            "title": {"font": {"color": _TEXT_MUTED, "size": 10}},
         },
         yaxis={
             "showgrid": True,
@@ -730,9 +730,8 @@ def _build_sweep_chart(
             "zeroline": False,
             "range": [-0.05, 1.05],
             "tickformat": ".1f",
-            "title": "Normalised",
+            "title": {"text": "Normalised", "font": {"color": _TEXT_MUTED, "size": 10}},
             "tickfont": {"color": _TEXT_MUTED, "size": 10},
-            "titlefont": {"color": _TEXT_MUTED, "size": 10},
         },
         legend={
             "bgcolor": "rgba(0,0,0,0)",

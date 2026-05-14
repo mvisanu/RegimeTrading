@@ -21,6 +21,7 @@ import html as _html
 import math
 import time
 import urllib.parse
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any
 
@@ -213,46 +214,27 @@ section[data-testid="stSidebar"] {{
 # Data types
 # ---------------------------------------------------------------------------
 
+@dataclass
 class ArticleData:
     """Parsed and scored article from RSS feed."""
 
-    __slots__ = ("title", "source", "published", "snippet", "compound_score", "weight")
-
-    def __init__(
-        self,
-        title: str,
-        source: str,
-        published: datetime,
-        snippet: str,
-        compound_score: float,
-        weight: float,
-    ) -> None:
-        self.title = title
-        self.source = source
-        self.published = published
-        self.snippet = snippet
-        self.compound_score = compound_score
-        self.weight = weight
+    title: str
+    source: str
+    published: datetime
+    snippet: str
+    compound_score: float
+    weight: float
 
 
+@dataclass
 class TickerSentiment:
     """Aggregated sentiment result for a single ticker."""
 
-    __slots__ = ("ticker", "weighted_score", "momentum", "article_count", "articles")
-
-    def __init__(
-        self,
-        ticker: str,
-        weighted_score: float,
-        momentum: float,
-        article_count: int,
-        articles: list[ArticleData],
-    ) -> None:
-        self.ticker = ticker
-        self.weighted_score = weighted_score
-        self.momentum = momentum
-        self.article_count = article_count
-        self.articles = articles
+    ticker: str
+    weighted_score: float
+    momentum: float
+    article_count: int
+    articles: list[ArticleData] = field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------

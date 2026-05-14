@@ -81,6 +81,30 @@ def _ticker_color(ticker: str, index: int = 0) -> str:
     return ASSET_COLORS.get(ticker.upper(), EXTRA_COLORS[index % len(EXTRA_COLORS)])
 
 
+def _hex_alpha_to_rgba(hex6: str, alpha_hex: str) -> str:
+    """Convert a 6-digit hex color + 2-digit hex alpha to an rgba() string.
+
+    Plotly does not accept 8-digit hex colors (#rrggbbAA).  This helper
+    produces the equivalent ``rgba(r,g,b,a)`` string that Plotly accepts.
+
+    Parameters
+    ----------
+    hex6:
+        6-digit hex color, with or without leading ``#`` (e.g. ``"#f87171"``).
+    alpha_hex:
+        2-digit hexadecimal alpha value (e.g. ``"0d"`` → 13/255 ≈ 0.051).
+
+    Returns
+    -------
+    str
+        Valid Plotly color string, e.g. ``"rgba(248,113,113,0.051)"``.
+    """
+    h = hex6.lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    a = round(int(alpha_hex, 16) / 255, 4)
+    return f"rgba({r},{g},{b},{a})"
+
+
 # ---------------------------------------------------------------------------
 # Cached data-loading and backtest helpers
 # ---------------------------------------------------------------------------
@@ -190,8 +214,8 @@ def _build_equity_chart(
     # Override backgrounds and grid to asset accent
     layout["paper_bgcolor"] = "#0c0c14"
     layout["plot_bgcolor"] = "#0c0c14"
-    layout["xaxis"]["gridcolor"] = f"{accent}0d"  # 5% opacity
-    layout["yaxis"]["gridcolor"] = f"{accent}0d"
+    layout["xaxis"]["gridcolor"] = _hex_alpha_to_rgba(accent, "0d")  # ~5% opacity
+    layout["yaxis"]["gridcolor"] = _hex_alpha_to_rgba(accent, "0d")
     layout["title"] = dict(
         text=f"<b>{_html.escape(ticker)}</b> — Equity Curve",
         font=dict(family="Outfit, sans-serif", size=16, color="#f8fafc"),
