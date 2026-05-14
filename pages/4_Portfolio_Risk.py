@@ -14,7 +14,9 @@ Sidebar: Run Analysis button, portfolio editor (text area + CSV upload), watchli
 
 from __future__ import annotations
 
+import html as _html
 import io
+import logging
 import sys
 import os
 from datetime import datetime, date
@@ -42,7 +44,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from core.data import load_ohlcv, date_range_default
 from core.design_system import REGIME_COLORS, get_plotly_layout, regime_badge
 from core.hmm_utils import fit_and_filter, RegimeResult
-from core.allocation import target_exposure
+from core import verify as _verify
 
 # ---------------------------------------------------------------------------
 # Design tokens — Premium Fintech palette (scoped to this page only)
@@ -473,6 +475,7 @@ def parse_positions(raw: str) -> pd.DataFrame:
         df["entry"] = pd.to_numeric(df["entry"], errors="coerce")
         df["current"] = pd.to_numeric(df["current"], errors="coerce")
         df = df.dropna(subset=["entry", "current"])
+        df = df[df["shares"] > 0]
         return df.reset_index(drop=True)
     except Exception as exc:  # noqa: BLE001
         st.error(f"Failed to parse portfolio: {exc}")
@@ -517,6 +520,11 @@ def cached_fit_regime(ticker: str, start: str, end: str) -> dict[str, Any]:
     """
     try:
         df = cached_load_ohlcv(ticker, start, end)
+        if len(df) < 30:
+            logging.getLogger(__name__).warning(
+                "cached_fit_regime(%s): insufficient data (%d rows)", ticker, len(df)
+            )
+            return {"regime": "Uncertain", "confidence": 0.5, "days_in_regime": 0}
         result: RegimeResult = fit_and_filter(df)
         labels = result.stable_labels
         conf_arr = result.confidence
@@ -539,6 +547,9 @@ def cached_fit_regime(ticker: str, start: str, end: str) -> dict[str, Any]:
             "days_in_regime": days,
         }
     except Exception:  # noqa: BLE001
+        logging.getLogger(__name__).warning(
+            "cached_fit_regime(%s): HMM fit failed, returning Uncertain", ticker
+        )
         return {"regime": "Uncertain", "confidence": 0.5, "days_in_regime": 0}
 
 
@@ -623,6 +634,8 @@ def _position_card_html(
 ) -> str:
     """Return the full HTML for a position card."""
     name = _TICKER_NAMES.get(ticker, ticker)
+    ticker = _html.escape(ticker)
+    name = _html.escape(name)
     pnl_dollar = shares * (current - entry)
     pnl_pct = (current - entry) / entry
 
@@ -677,14 +690,12 @@ def _stress_row_html(
         row_class = "stress-row-danger"
         color = _DANGER
 
-    sign = "" if portfolio_loss >= 0 else ""
     if portfolio_loss >= 0:
         loss_display = f'+${portfolio_loss:,.0f}'
     else:
         loss_display = f'−${abs(portfolio_loss):,.0f}'
 
     # damage bar width proportional to abs loss vs max scenario loss
-    bar_width = min(abs(portfolio_loss) / max(abs_loss_pct * 10, 1) * 2, 100) if max_abs_loss > 0 else 0
     bar_width = min(abs(portfolio_loss) / (max_abs_loss + 1) * 100, 100)
 
     loss_pct_display = f"{'+' if loss_pct >= 0 else ''}{loss_pct*100:.1f}%"
@@ -881,7 +892,14 @@ with st.sidebar:
 
     uploaded = st.file_uploader("Upload CSV", type=["csv"], label_visibility="collapsed")
     if uploaded is not None:
-        raw_csv = uploaded.read().decode("utf-8")
+        try:
+            raw_csv = uploaded.read().decode("utf-8")
+        except UnicodeDecodeError:
+            st.error(
+                "CSV file must be UTF-8 encoded. "
+                "Re-save from Excel as 'CSV UTF-8 (Comma delimited)'."
+            )
+            raw_csv = _DEFAULT_POSITIONS_CSV
     else:
         raw_csv = _DEFAULT_POSITIONS_CSV
 
@@ -922,6 +940,10 @@ st.markdown(
     "Portfolio Risk</h1>",
     unsafe_allow_html=True,
 )
+
+if not _verify.LOOKAHEAD_CHECK_PASSED:
+    st.error("Look-ahead bias check FAILED. HMM results may be unreliable.")
+    st.stop()
 
 # ---------------------------------------------------------------------------
 # Run analysis block
@@ -1130,6 +1152,13 @@ with right_col:
         )
         st.markdown(row_html, unsafe_allow_html=True)
 
+    covered = set(_STRESS_SCENARIOS[0]["returns"].keys())
+    uncovered = [row["ticker"] for _, row in positions_df.iterrows() if row["ticker"] not in covered]
+    if uncovered:
+        st.caption(
+            f"Stress impact is 0% for tickers not in historical scenarios: {', '.join(uncovered)}"
+        )
+
     st.markdown("</div>", unsafe_allow_html=True)
 
     # ── Watchlist ───────────────────────────────────────────────────────────
@@ -1160,7 +1189,7 @@ with right_col:
                 # Not yet loaded — show placeholder
                 st.markdown(
                     f'<div class="watchlist-row">'
-                    f'<span class="watchlist-ticker">{wt}</span>'
+                    f'<span class="watchlist-ticker">{_html.escape(wt)}</span>'
                     f'<span style="font-family:\'JetBrains Mono\',monospace; font-size:0.72rem; color:#64748b;">pending…</span>'
                     f"</div>",
                     unsafe_allow_html=True,
@@ -1178,7 +1207,7 @@ with right_col:
             st.markdown(
                 f"""
 <div class="watchlist-row">
-  <span class="watchlist-ticker">{wt}</span>
+  <span class="watchlist-ticker">{_html.escape(wt)}</span>
   <span class="watchlist-price">{price_str}</span>
   {w_badge}
   <div class="watchlist-conf-bar">
