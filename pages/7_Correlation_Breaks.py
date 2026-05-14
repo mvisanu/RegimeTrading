@@ -25,7 +25,6 @@ from __future__ import annotations
 import html as _html
 import json
 import os
-import tempfile
 from datetime import datetime, timezone
 from typing import NamedTuple
 
@@ -256,34 +255,22 @@ _ALERTS_PATH = os.path.join(_LOGS_DIR, "alerts.json")
 
 
 def _append_alert(record: dict) -> None:
-    """Atomically append a single alert record to logs/alerts.json.
+    """Append alert record to logs/alerts.json as a newline-delimited JSON line.
 
-    Uses write-to-tempfile + os.replace to guarantee no partial writes
-    even under concurrent Streamlit re-renders.
+    Append-mode writes eliminate the read-modify-write race that would lose
+    alerts under concurrent Streamlit re-renders.
 
     Args:
         record: Dict to append. Should contain at minimum: timestamp, pair,
                 z_score, severity, corr_60d.
     """
-    os.makedirs(_LOGS_DIR, exist_ok=True)
+    import logging
+    os.makedirs(os.path.dirname(_ALERTS_PATH) or ".", exist_ok=True)
     try:
-        with open(_ALERTS_PATH, "r") as fh:
-            data: list[dict] = json.load(fh)
-    except (FileNotFoundError, json.JSONDecodeError):
-        data = []
-
-    data.append(record)
-
-    fd, tmp_path = tempfile.mkstemp(dir=_LOGS_DIR)
-    try:
-        with os.fdopen(fd, "w") as fh:
-            json.dump(data, fh, indent=2, default=str)
-        os.replace(tmp_path, _ALERTS_PATH)
-    except Exception:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
+        with open(_ALERTS_PATH, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(record, default=str) + "\n")
+    except Exception as exc:
+        logging.getLogger(__name__).warning("Failed to append alert: %s", exc)
 
 
 # ---------------------------------------------------------------------------
@@ -773,7 +760,7 @@ def _main_correlation_chart(result: PairResult) -> go.Figure:
 
     layout["shapes"] = shapes
     layout["title"] = dict(
-        text=f"{_html.escape(result.pair)} — 60-Day Rolling Correlation",
+        text=f"{result.pair} — 60-Day Rolling Correlation",
         font=dict(family=_FONT, size=13, color="#94a3b8"),
         x=0,
         xanchor="left",
@@ -830,8 +817,10 @@ def _render_alert_log() -> None:
     """Render the alert log expander from logs/alerts.json."""
     with st.expander("Alert Log", expanded=False):
         try:
-            with open(_ALERTS_PATH, "r") as fh:
-                alerts: list[dict] = json.load(fh)
+            with open(_ALERTS_PATH, "r", encoding="utf-8") as fh:
+                lines = [ln.strip() for ln in fh if ln.strip()]
+            alerts: list[dict] = [json.loads(ln) for ln in lines]
+            alerts.reverse()  # most recent first
         except (FileNotFoundError, json.JSONDecodeError):
             alerts = []
 
@@ -843,7 +832,7 @@ def _render_alert_log() -> None:
             )
             return
 
-        for alert in reversed(alerts[-50:]):  # most recent first, cap at 50
+        for alert in alerts[:50]:  # cap at 50
             ts = alert.get("timestamp", "—")
             pair = _html.escape(str(alert.get("pair", "—")))
             z = alert.get("z_score", 0.0)
@@ -911,8 +900,10 @@ def _render_sidebar() -> tuple[list[str], int]:
         unsafe_allow_html=True,
     )
 
-    if not run and "cb_results" not in st.session_state:
+    if not run and "cb_completed" not in st.session_state:
         return [], lookback_years
+    if run:
+        st.session_state["cb_completed"] = True
 
     return pairs, lookback_years
 
@@ -936,15 +927,6 @@ def main() -> None:
     # --- Sidebar ---
     pairs, lookback_years = _render_sidebar()
 
-    # Check if user pressed the button
-    run_pressed = st.sidebar.button(
-        "↻ Re-check",
-        key="recheck_btn",
-        help="Force a fresh computation (bypasses cache)",
-        use_container_width=True,
-    )
-    _ = run_pressed  # re-render triggers recomputation via Streamlit's natural rerun
-
     if not pairs:
         st.markdown(
             f'<p style="font-family:{_FONT};font-size:13px;color:{_MUTED};text-align:center;margin-top:60px;">'
@@ -956,18 +938,24 @@ def main() -> None:
 
     start, end = date_range_default(years=lookback_years)
 
-    # --- Compute all pairs ---
-    results: list[PairResult | str] = []
-    status_placeholder = st.empty()
+    # --- Compute all pairs (or restore from session state on widget re-renders) ---
+    results: list[PairResult | str]
+    if "cb_results" in st.session_state:
+        results = st.session_state["cb_results"]
+    else:
+        results = []
+        status_placeholder = st.empty()
 
-    with st.spinner("Computing correlations..."):
-        for pair_str in pairs:
-            parts = pair_str.split("/", 1)
-            ta, tb = parts[0].strip(), parts[1].strip()
-            res = _compute_pair_result(pair_str, ta, tb, start, end)
-            results.append(res)
+        with st.spinner("Computing correlations..."):
+            for pair_str in pairs:
+                parts = pair_str.split("/", 1)
+                ta, tb = parts[0].strip(), parts[1].strip()
+                res = _compute_pair_result(pair_str, ta, tb, start, end)
+                results.append(res)
 
-    status_placeholder.empty()
+        status_placeholder.empty()
+        st.session_state["cb_completed"] = True
+        st.session_state["cb_results"] = results
 
     # --- Persist alerts to logs/alerts.json (once per page run, not re-render) ---
     run_key = f"alerts_saved_{start}_{end}_{'_'.join(pairs)}"
@@ -995,12 +983,13 @@ def main() -> None:
     grid_cols = st.columns(len(results))
     valid_results: list[PairResult] = []
 
-    for col, res in zip(grid_cols, results):
+    for idx, (col, res) in enumerate(zip(grid_cols, results)):
         with col:
             if isinstance(res, str):
+                pair_name = pairs[idx] if idx < len(pairs) else "Unknown"
                 st.markdown(
                     f'<div class="pair-card" style="border-left-color:{_MUTED};">'
-                    f'<p class="pair-name">{_html.escape(pairs[results.index(res)])}</p>'
+                    f'<p class="pair-name">{_html.escape(pair_name)}</p>'
                     f'<p class="pair-metric" style="color:{_EXTREME_COLOR};">ERROR</p>'
                     f'<p style="font-size:10px;color:{_MUTED};">{_html.escape(res)}</p>'
                     f"</div>",
