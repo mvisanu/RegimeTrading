@@ -11,7 +11,7 @@ from alpaca.trading.client import TradingClient
 from alpaca.trading.enums import OrderSide, TimeInForce
 from alpaca.trading.requests import MarketOrderRequest
 
-from core import safety
+from core import notify, safety
 
 # ---------------------------------------------------------------------------
 # Module-level constants
@@ -170,6 +170,29 @@ class AlpacaBroker:
         except Exception as exc:
             raise RuntimeError(f"get_clock failed: {exc}") from exc
 
+    def get_portfolio_history(self, period: str = "1M", timeframe: str = "1D") -> dict:
+        """Return portfolio equity history for charting.
+
+        Args:
+            period: Alpaca period string — "1D", "1W", "1M", "3M", "1A".
+            timeframe: Alpaca timeframe string — "5Min", "1H", "1D".
+
+        Returns:
+            Dict with keys ``timestamps`` (list[int] of Unix epoch seconds) and
+            ``equity`` (list[float|None]).
+
+        Raises:
+            RuntimeError: On API errors.
+        """
+        try:
+            history = self._client.get_portfolio_history(period=period, timeframe=timeframe)
+            return {
+                "timestamps": list(history.timestamp),
+                "equity": [float(v) if v is not None else None for v in history.equity],
+            }
+        except Exception as exc:
+            raise RuntimeError(f"get_portfolio_history failed: {exc}") from exc
+
     # ------------------------------------------------------------------
     # Order submission
     # ------------------------------------------------------------------
@@ -182,6 +205,9 @@ class AlpacaBroker:
         order_type: str = "market",
         time_in_force: str = "day",
         live_confirmed: bool = False,
+        price: float | None = None,
+        tp_ladder: list[float] | None = None,
+        stop: float | None = None,
     ) -> dict:
         """Submit an order after passing safety checks and live-trading guard.
 
@@ -265,6 +291,7 @@ class AlpacaBroker:
         if triggered:
             record = _build_log_record(symbol, qty, side, "REJECTED_SAFETY", str(triggered))
             _append_log(_TRADES_FILE, record)
+            notify.trade(symbol, qty, side, "REJECTED_SAFETY", str(triggered[0][1]), live=self._live)
             raise RuntimeError(f"Order rejected by safety check: {triggered[0][1]}")
 
         # ------------------------------------------------------------------
@@ -311,6 +338,13 @@ class AlpacaBroker:
                 str(order_dict.get("id", "")),
             )
             _append_log(_TRADES_FILE, record)
+            notify.trade(
+                symbol, qty, side, "ACCEPTED",
+                live=self._live,
+                price=price,
+                tp_ladder=tp_ladder,
+                stop=stop,
+            )
             return order_dict
 
         except Exception as exc:
