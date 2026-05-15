@@ -186,9 +186,13 @@ class AlpacaBroker:
         """
         try:
             history = self._client.get_portfolio_history(period=period, timeframe=timeframe)
+            pairs = [
+                (int(ts), float(v) if v is not None else None)
+                for ts, v in zip(history.timestamp, history.equity)
+            ]
             return {
-                "timestamps": [int(ts) for ts in history.timestamp],
-                "equity": [float(v) if v is not None else None for v in history.equity],
+                "timestamps": [p[0] for p in pairs],
+                "equity": [p[1] for p in pairs],
             }
         except Exception as exc:
             raise RuntimeError(f"get_portfolio_history failed: {exc}") from exc

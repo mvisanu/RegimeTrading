@@ -147,10 +147,12 @@ elif hist and hist.get("timestamps") and hist.get("equity"):
     eq = hist["equity"]
 
     valid_eq = [e for e in eq if e is not None]
-    if valid_eq:
+    if not valid_eq:
+        st.info("No equity data available for this period.")
+    else:
         start_eq, end_eq = valid_eq[0], valid_eq[-1]
         change = end_eq - start_eq
-        change_pct = (change / start_eq * 100) if start_eq else 0.0
+        change_pct = (change / start_eq * 100) if start_eq != 0 else 0.0
         hl_color = _pnl_color(change)
         st.markdown(
             f"<span style='font-size:1.3rem;font-weight:700;color:#f8fafc'>"
