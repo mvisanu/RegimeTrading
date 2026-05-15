@@ -9,6 +9,7 @@ Card radius: 2px  No glow effects.
 """
 from __future__ import annotations
 
+import html as _html
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -222,7 +223,7 @@ def _render_table(outcomes: list[dict]) -> None:
     rows = []
     for r in recent:
         badge_cls = _BADGE_MAP.get(r.get("outcome", ""), "badge-break")
-        badge = f'<span class="{badge_cls}">{r.get("outcome","")}</span>'
+        badge = f'<span class="{badge_cls}">{_html.escape(r.get("outcome",""))}</span>'
         rows.append({
             "Symbol": r.get("symbol", ""),
             "Pattern": r.get("pattern", ""),
