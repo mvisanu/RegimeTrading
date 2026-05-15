@@ -10,6 +10,40 @@ RegimeTrading classifies the market into volatility regimes in real time — Low
 
 ---
 
+## How to Use This App to Buy Stocks
+
+RegimeTrading combines regime-aware signals with live TradingView technical analysis to give you a structured, data-driven process before placing any order.
+
+### Suggested buying workflow
+
+| Step | Tool | What you learn |
+|------|------|----------------|
+| 1 | **Dashboard 1 — Regime Detection** | Confirms current market regime (Bull / Bear / Uncertain) — determines whether to buy at all |
+| 2 | **TradingView screen / top_gainers** | Screens live stocks by momentum, volume, or technicals to build a shortlist |
+| 3 | **TradingView combined_analysis** | Multi-timeframe technical analysis on each candidate ticker |
+| 4 | **Dashboard 5 — Multi-Asset Backtest** | Walk-forward backtest of the HMM strategy vs buy-and-hold for your ticker |
+| 5 | **Dashboard 4 — Portfolio Risk** | Stress-tests the position against 2008 GFC, 2020 COVID crash, 2022 rate shock |
+| 6 | **Dashboard 6 — Sentiment** | VADER sentiment on Google News RSS — catches negative news before you commit |
+| 7 | **Dashboard 7 — Correlation Breaks** | Detects divergence from correlated assets — early warning of regime shifts |
+| 8 | **Alpaca paper trade** | Places order through `broker.py` with all five safety circuit breakers active |
+
+### What each dashboard contributes
+
+| Dashboard | Buying signal it provides |
+|-----------|--------------------------|
+| **1 — Regime Detection** | Only buy in Low/Medium Vol regimes; avoid Extreme Vol or Uncertain |
+| **2 — Monte Carlo** | Probability distribution of future returns — right-sizes position |
+| **3 — Sensitivity** | Finds the optimal SMA entry/exit parameters for the ticker |
+| **4 — Portfolio Risk** | Max drawdown and concentration risk before adding the position |
+| **5 — Multi-Asset Backtest** | Confirms HMM strategy beats buy-and-hold on this specific ticker |
+| **6 — Sentiment** | Recency-weighted news sentiment with momentum arrows |
+| **7 — Correlation Breaks** | Z-score break alerts across five asset pairs — spot divergence early |
+
+### Safety guardrails
+All orders route through five independent circuit breakers in `core/safety.py` — daily loss limit (2%), weekly loss limit (5%), max drawdown (15%), single-asset concentration (25%), and order rate (20 per 60 s). These fire regardless of what the HMM model believes. Paper trading is the default; live orders require `LIVE_TRADING=true` in `.env` plus an explicit in-code confirmation.
+
+---
+
 ## What this demonstrates
 
 This project was built to show a coherent set of production-readiness practices in a single codebase:

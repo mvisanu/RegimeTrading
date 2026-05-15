@@ -312,46 +312,30 @@ def _article_weight(published: datetime) -> float:
 # RSS + scoring
 # ---------------------------------------------------------------------------
 
+def _empty_raw(ticker: str) -> dict:
+    return {"ticker": ticker, "weighted_score": 0.0, "momentum": 0.0, "article_count": 0, "articles": []}
+
+
 @st.cache_data(ttl=900)
-def fetch_and_score(ticker: str) -> TickerSentiment:
-    """Fetch Google News RSS for *ticker*, score with VADER, and aggregate.
-
-    Args:
-        ticker: Stock or crypto ticker symbol (e.g. ``"AAPL"``, ``"BTC-USD"``).
-
-    Returns:
-        A :class:`TickerSentiment` with weighted aggregate score, momentum,
-        and the list of scored :class:`ArticleData` objects.
-    """
+def _fetch_and_score_raw(ticker: str) -> dict:
+    """Cached fetch — returns plain dicts so pickle can always serialize them."""
     safe_ticker = urllib.parse.quote_plus(ticker)
     url = f"https://news.google.com/rss/search?q={safe_ticker}+stock"
 
     try:
         feed = feedparser.parse(url)
     except Exception:
-        return TickerSentiment(
-            ticker=ticker,
-            weighted_score=0.0,
-            momentum=0.0,
-            article_count=0,
-            articles=[],
-        )
+        return _empty_raw(ticker)
 
     # Bozo flag means feedparser encountered a parse error; if there are also
     # no entries the feed is unusable (e.g. network failure or blocked host).
     if getattr(feed, "bozo", False) and not list(getattr(feed, "entries", [])):
-        return TickerSentiment(
-            ticker=ticker,
-            weighted_score=0.0,
-            momentum=0.0,
-            article_count=0,
-            articles=[],
-        )
+        return _empty_raw(ticker)
 
     entries = list(getattr(feed, "entries", []))
 
     sia = _get_sia()
-    articles: list[ArticleData] = []
+    raw_articles: list[dict] = []
 
     for entry in entries:
         # Unescape HTML entities BEFORE scoring — feedparser sometimes delivers
@@ -366,45 +350,60 @@ def fetch_and_score(ticker: str) -> TickerSentiment:
         compound = sia.polarity_scores(text)["compound"]
         weight = _article_weight(published)
 
-        articles.append(
-            ArticleData(
-                title=raw_title,
-                source=source,
-                published=published,
-                snippet=raw_snippet,
-                compound_score=compound,
-                weight=weight,
-            )
+        raw_articles.append({
+            "title": raw_title,
+            "source": source,
+            "published": published.isoformat(),
+            "snippet": raw_snippet,
+            "compound_score": compound,
+            "weight": weight,
+        })
+
+    if not raw_articles:
+        return _empty_raw(ticker)
+
+    total_weight = sum(a["weight"] for a in raw_articles)
+    weighted_score = (
+        sum(a["compound_score"] * a["weight"] for a in raw_articles) / total_weight
+        if total_weight > 0 else 0.0
+    )
+
+    recent = [a["compound_score"] for a in raw_articles if a["weight"] == 2.0]
+    old = [a["compound_score"] for a in raw_articles if a["weight"] == 0.5]
+    momentum = (sum(recent) / len(recent) if recent else 0.0) - (sum(old) / len(old) if old else 0.0)
+
+    return {
+        "ticker": ticker,
+        "weighted_score": weighted_score,
+        "momentum": momentum,
+        "article_count": len(raw_articles),
+        "articles": raw_articles,
+    }
+
+
+def fetch_and_score(ticker: str) -> TickerSentiment:
+    """Fetch and score sentiment for *ticker*, returning a typed result.
+
+    The network fetch and scoring are cached via :func:`_fetch_and_score_raw`;
+    this wrapper converts the cache-safe dict back into a :class:`TickerSentiment`.
+    """
+    raw = _fetch_and_score_raw(ticker)
+    articles = [
+        ArticleData(
+            title=a["title"],
+            source=a["source"],
+            published=datetime.fromisoformat(a["published"]),
+            snippet=a["snippet"],
+            compound_score=a["compound_score"],
+            weight=a["weight"],
         )
-
-    if not articles:
-        return TickerSentiment(
-            ticker=ticker,
-            weighted_score=0.0,
-            momentum=0.0,
-            article_count=0,
-            articles=[],
-        )
-
-    # Weighted aggregate score
-    total_weight = sum(a.weight for a in articles)
-    if total_weight > 0:
-        weighted_score = sum(a.compound_score * a.weight for a in articles) / total_weight
-    else:
-        weighted_score = 0.0
-
-    # Momentum: mean(recent < 24h) - mean(older > 3d)
-    recent = [a.compound_score for a in articles if a.weight == 2.0]
-    old = [a.compound_score for a in articles if a.weight == 0.5]
-    mean_recent = sum(recent) / len(recent) if recent else 0.0
-    mean_old = sum(old) / len(old) if old else 0.0
-    momentum = mean_recent - mean_old
-
+        for a in raw["articles"]
+    ]
     return TickerSentiment(
-        ticker=ticker,
-        weighted_score=weighted_score,
-        momentum=momentum,
-        article_count=len(articles),
+        ticker=raw["ticker"],
+        weighted_score=raw["weighted_score"],
+        momentum=raw["momentum"],
+        article_count=raw["article_count"],
         articles=articles,
     )
 
@@ -625,7 +624,7 @@ def main() -> None:
         refresh = st.button("Refresh Sentiment", use_container_width=True)
 
         if refresh:
-            fetch_and_score.clear()
+            _fetch_and_score_raw.clear()
             st.rerun()
 
         st.markdown('<hr style="border-top:1px solid #2a2d35;margin:12px 0;">', unsafe_allow_html=True)

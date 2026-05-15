@@ -461,7 +461,7 @@ def _render_comparison_table(
       </table>
     </div>
     """
-    st.markdown(table_html, unsafe_allow_html=True)
+    st.html(table_html)
 
 
 # ---------------------------------------------------------------------------

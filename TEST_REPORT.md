@@ -7,12 +7,11 @@
 - **Failed:** 0
 - **Skipped / Blocked:** 0
 - **Test run date:** 2026-05-14
-- **Test runner:** `pytest` via `.venv/Scripts/python.exe -m pytest tests/ -v`
-- **Final command:** `301 passed in 5.25s`
+- **Test runner:** `C:\Python311\python.exe -m pytest tests/ -v`
+- **Final command:** `301 passed in 5.33s`
 
-All 301 tests pass after fixing 6 test infrastructure issues discovered during
-the run. Two real bugs in the production code were uncovered and are documented
-below.
+All 301 tests pass. Three real bugs in the production code are documented below
+(BUG-003 resolved 2026-05-14).
 
 ---
 
@@ -163,6 +162,18 @@ Covers `target_exposure()` for all regime × confidence combinations.
   "title": {"font": {"color": _TEXT_COLOR, "family": _FONT_FAMILY, "size": 12}},
   ```
   Apply the same substitution in `pages/2_Monte_Carlo.py` and `pages/3_Sensitivity.py` where `titlefont` is used directly in inline layout dicts.
+
+### RESOLVED — BUG-003: Dashboard 5 Asset Comparison table rendering raw HTML as text
+
+- **Severity:** Medium
+- **Affected:** `pages/5_Multi_Asset_Backtest.py` line 464 (previously)
+- **Description:** The `_render_comparison_table()` function called `st.markdown(table_html, unsafe_allow_html=True)` to render the comparison table. In Streamlit 1.55.0, `st.markdown` processes content through the Markdown renderer first; for multi-line `<table>`/`<tr>`/`<td>` HTML, this can cause the tags to appear as literal text in the browser rather than being rendered as HTML.
+- **Root cause:** `st.markdown` routes through the Markdown proto (`allow_html=True`), which the frontend processes via the Markdown pipeline. In Streamlit 1.55.0 the `st.html()` API (introduced in 1.31.0) is the correct, dedicated path for injecting raw HTML — it uses the separate `Html` proto with no Markdown processing step.
+- **Fixed in:** `pages/5_Multi_Asset_Backtest.py` line 464
+- **Resolution:** Replaced `st.markdown(table_html, unsafe_allow_html=True)` with `st.html(table_html)`.
+- **Tests:** 301/301 pass after fix (2026-05-14).
+
+---
 
 ### LOW — BUG-002: `test_no_hmm_import` tests were over-broad (string match included doc comments)
 
