@@ -16,4 +16,4 @@ filterwarnings = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["core*"]
+include = ["core*", "swing*"]
