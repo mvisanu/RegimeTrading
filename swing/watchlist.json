@@ -17,7 +17,10 @@
     "source": "swing-cycle",
     "ema8": 12.87,
     "atr20": 0.46,
-    "sma200": 12.59
+    "sma200": 12.59,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BCRX",
@@ -37,7 +40,10 @@
     "atr20": 0.44,
     "sma200": 7.9,
     "pattern": "downtrend-break",
-    "confidence": 0.76
+    "confidence": 0.76,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "WOLF",
@@ -53,7 +59,10 @@
     "source": "swing-cycle",
     "ema8": 53.25,
     "atr20": 6.18,
-    "sma200": 18.4
+    "sma200": 18.4,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SNAP",
@@ -69,7 +78,10 @@
     "source": "swing-cycle",
     "ema8": 5.71,
     "atr20": 0.32,
-    "sma200": 6.9
+    "sma200": 6.9,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PLTR",
@@ -85,7 +97,10 @@
     "source": "swing-cycle",
     "ema8": 135.31,
     "atr20": 5.84,
-    "sma200": 163.46
+    "sma200": 163.46,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NU",
@@ -101,7 +116,10 @@
     "source": "swing-cycle",
     "ema8": 13.51,
     "atr20": 0.4,
-    "sma200": 15.47
+    "sma200": 15.47,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "HIMS",
@@ -117,7 +135,10 @@
     "source": "swing-cycle",
     "ema8": 25.94,
     "atr20": 2.28,
-    "sma200": 36.06
+    "sma200": 36.06,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SOUN",
@@ -133,7 +154,10 @@
     "source": "swing-cycle",
     "ema8": 8.58,
     "atr20": 0.63,
-    "sma200": 11.54
+    "sma200": 11.54,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NKE",
@@ -149,7 +173,10 @@
     "source": "swing-cycle",
     "ema8": 43.02,
     "atr20": 1.0,
-    "sma200": 62.57
+    "sma200": 62.57,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PATH",
@@ -165,7 +192,10 @@
     "source": "swing-cycle",
     "ema8": 10.17,
     "atr20": 0.53,
-    "sma200": 13.01
+    "sma200": 13.01,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "QS",
@@ -181,7 +211,10 @@
     "source": "swing-cycle",
     "ema8": 8.09,
     "atr20": 0.7,
-    "sma200": 10.14
+    "sma200": 10.14,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NCLH",
@@ -197,7 +230,10 @@
     "source": "swing-cycle",
     "ema8": 16.64,
     "atr20": 0.9,
-    "sma200": 21.79
+    "sma200": 21.79,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CPNG",
@@ -213,7 +249,10 @@
     "source": "swing-cycle",
     "ema8": 17.15,
     "atr20": 0.83,
-    "sma200": 24.72
+    "sma200": 24.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "TTD",
@@ -229,7 +268,10 @@
     "source": "swing-cycle",
     "ema8": 21.81,
     "atr20": 1.27,
-    "sma200": 38.85
+    "sma200": 38.85,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BSX",
@@ -245,7 +287,10 @@
     "source": "swing-cycle",
     "ema8": 54.61,
     "atr20": 2.11,
-    "sma200": 87.72
+    "sma200": 87.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PINS",
@@ -261,7 +306,10 @@
     "source": "swing-cycle",
     "ema8": 20.24,
     "atr20": 0.99,
-    "sma200": 26.58
+    "sma200": 26.58,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PYPL",
@@ -277,7 +325,10 @@
     "source": "swing-cycle",
     "ema8": 46.05,
     "atr20": 1.45,
-    "sma200": 57.96
+    "sma200": 57.96,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CAG",
@@ -293,7 +344,10 @@
     "source": "swing-cycle",
     "ema8": 14.08,
     "atr20": 0.37,
-    "sma200": 17.49
+    "sma200": 17.49,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "OKLO",
@@ -309,7 +363,10 @@
     "source": "swing-cycle",
     "ema8": 71.24,
     "atr20": 7.0,
-    "sma200": 86.45
+    "sma200": 86.45,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "LYFT",
@@ -325,7 +382,10 @@
     "source": "swing-cycle",
     "ema8": 13.79,
     "atr20": 0.58,
-    "sma200": 17.4
+    "sma200": 17.4,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BULL",
@@ -341,7 +401,10 @@
     "source": "swing-cycle",
     "ema8": 7.13,
     "atr20": 0.38,
-    "sma200": 9.33
+    "sma200": 9.33,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PTON",
@@ -357,7 +420,10 @@
     "source": "swing-cycle",
     "ema8": 5.31,
     "atr20": 0.29,
-    "sma200": 6.26
+    "sma200": 6.26,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CRM",
@@ -373,7 +439,10 @@
     "source": "swing-cycle",
     "ema8": 174.7,
     "atr20": 7.21,
-    "sma200": 224.64
+    "sma200": 224.64,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ABT",
@@ -389,7 +458,10 @@
     "source": "swing-cycle",
     "ema8": 85.45,
     "atr20": 2.08,
-    "sma200": 118.75
+    "sma200": 118.75,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DKNG",
@@ -405,7 +477,10 @@
     "source": "swing-cycle",
     "ema8": 24.63,
     "atr20": 1.08,
-    "sma200": 32.28
+    "sma200": 32.28,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "TSCO",
@@ -421,7 +496,10 @@
     "source": "swing-cycle",
     "ema8": 31.32,
     "atr20": 1.43,
-    "sma200": 51.87
+    "sma200": 51.87,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "TOST",
@@ -437,7 +515,10 @@
     "source": "swing-cycle",
     "ema8": 24.89,
     "atr20": 1.3,
-    "sma200": 34.18
+    "sma200": 34.18,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SHOP",
@@ -453,7 +534,10 @@
     "source": "swing-cycle",
     "ema8": 104.02,
     "atr20": 5.96,
-    "sma200": 141.15
+    "sma200": 141.15,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "FRSH",
@@ -469,7 +553,10 @@
     "source": "swing-cycle",
     "ema8": 8.52,
     "atr20": 0.45,
-    "sma200": 10.76
+    "sma200": 10.76,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "COIN",
@@ -485,7 +572,10 @@
     "source": "swing-cycle",
     "ema8": 204.76,
     "atr20": 13.39,
-    "sma200": 255.34
+    "sma200": 255.34,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "AVTR",
@@ -501,7 +591,10 @@
     "source": "swing-cycle",
     "ema8": 8.05,
     "atr20": 0.38,
-    "sma200": 10.96
+    "sma200": 10.96,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "MDT",
@@ -517,7 +610,10 @@
     "source": "swing-cycle",
     "ema8": 77.15,
     "atr20": 1.81,
-    "sma200": 93.51
+    "sma200": 93.51,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "TEAM",
@@ -533,7 +629,10 @@
     "source": "swing-cycle",
     "ema8": 84.08,
     "atr20": 6.11,
-    "sma200": 129.47
+    "sma200": 129.47,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "MOS",
@@ -549,7 +648,10 @@
     "source": "swing-cycle",
     "ema8": 22.6,
     "atr20": 0.79,
-    "sma200": 28.07
+    "sma200": 28.07,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "GIS",
@@ -565,7 +667,10 @@
     "source": "swing-cycle",
     "ema8": 34.09,
     "atr20": 0.86,
-    "sma200": 44.84
+    "sma200": 44.84,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CELH",
@@ -581,7 +686,10 @@
     "source": "swing-cycle",
     "ema8": 30.65,
     "atr20": 1.78,
-    "sma200": 47.94
+    "sma200": 47.94,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "GT",
@@ -597,7 +705,10 @@
     "source": "swing-cycle",
     "ema8": 6.24,
     "atr20": 0.29,
-    "sma200": 8.05
+    "sma200": 8.05,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "VISN",
@@ -613,7 +724,10 @@
     "source": "swing-cycle",
     "ema8": 12.01,
     "atr20": 1.12,
-    "sma200": 16.91
+    "sma200": 16.91,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SNOW",
@@ -629,7 +743,10 @@
     "source": "swing-cycle",
     "ema8": 149.78,
     "atr20": 7.55,
-    "sma200": 204.11
+    "sma200": 204.11,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CHWY",
@@ -645,7 +762,10 @@
     "source": "swing-cycle",
     "ema8": 22.88,
     "atr20": 1.13,
-    "sma200": 32.04
+    "sma200": 32.04,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SBET",
@@ -661,7 +781,10 @@
     "source": "swing-cycle",
     "ema8": 7.3,
     "atr20": 0.39,
-    "sma200": 11.57
+    "sma200": 11.57,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CPB",
@@ -677,7 +800,10 @@
     "source": "swing-cycle",
     "ema8": 20.52,
     "atr20": 0.58,
-    "sma200": 27.87
+    "sma200": 27.87,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BKNG",
@@ -693,7 +819,10 @@
     "source": "swing-cycle",
     "ema8": 161.4,
     "atr20": 6.39,
-    "sma200": 197.51
+    "sma200": 197.51,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "IP",
@@ -709,7 +838,10 @@
     "source": "swing-cycle",
     "ema8": 32.38,
     "atr20": 1.46,
-    "sma200": 41.55
+    "sma200": 41.55,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CPRT",
@@ -725,7 +857,10 @@
     "source": "swing-cycle",
     "ema8": 33.29,
     "atr20": 0.67,
-    "sma200": 40.25
+    "sma200": 40.25,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ADMA",
@@ -741,7 +876,10 @@
     "source": "swing-cycle",
     "ema8": 8.82,
     "atr20": 0.59,
-    "sma200": 15.45
+    "sma200": 15.45,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ASAN",
@@ -757,7 +895,10 @@
     "source": "swing-cycle",
     "ema8": 6.22,
     "atr20": 0.45,
-    "sma200": 11.13
+    "sma200": 11.13,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "GPK",
@@ -773,7 +914,10 @@
     "source": "swing-cycle",
     "ema8": 10.23,
     "atr20": 0.44,
-    "sma200": 15.34
+    "sma200": 15.34,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CSGP",
@@ -789,7 +933,10 @@
     "source": "swing-cycle",
     "ema8": 33.29,
     "atr20": 1.51,
-    "sma200": 63.87
+    "sma200": 63.87,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DT",
@@ -805,7 +952,10 @@
     "source": "swing-cycle",
     "ema8": 37.91,
     "atr20": 1.71,
-    "sma200": 43.04
+    "sma200": 43.04,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "FIS",
@@ -821,7 +971,10 @@
     "source": "swing-cycle",
     "ema8": 43.78,
     "atr20": 1.38,
-    "sma200": 59.9
+    "sma200": 59.9,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "KVYO",
@@ -837,7 +990,10 @@
     "source": "swing-cycle",
     "ema8": 15.91,
     "atr20": 1.44,
-    "sma200": 25.41
+    "sma200": 25.41,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CTSH",
@@ -853,7 +1009,10 @@
     "source": "swing-cycle",
     "ema8": 48.98,
     "atr20": 1.88,
-    "sma200": 69.86
+    "sma200": 69.86,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "GTLB",
@@ -869,7 +1028,10 @@
     "source": "swing-cycle",
     "ema8": 23.55,
     "atr20": 1.36,
-    "sma200": 36.33
+    "sma200": 36.33,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "IBM",
@@ -885,7 +1047,10 @@
     "source": "swing-cycle",
     "ema8": 222.82,
     "atr20": 7.06,
-    "sma200": 270.6
+    "sma200": 270.6,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "FISV",
@@ -901,7 +1066,10 @@
     "source": "swing-cycle",
     "ema8": 55.35,
     "atr20": 1.9,
-    "sma200": 84.43
+    "sma200": 84.43,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BX",
@@ -917,7 +1085,10 @@
     "source": "swing-cycle",
     "ema8": 122.53,
     "atr20": 3.97,
-    "sma200": 145.54
+    "sma200": 145.54,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "TEM",
@@ -933,7 +1104,10 @@
     "source": "swing-cycle",
     "ema8": 48.53,
     "atr20": 3.0,
-    "sma200": 66.64
+    "sma200": 66.64,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "COUR",
@@ -949,7 +1123,10 @@
     "source": "swing-cycle",
     "ema8": 5.61,
     "atr20": 0.39,
-    "sma200": 8.17
+    "sma200": 8.17,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ZTS",
@@ -965,7 +1142,10 @@
     "source": "swing-cycle",
     "ema8": 85.33,
     "atr20": 4.33,
-    "sma200": 129.46
+    "sma200": 129.46,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BBWI",
@@ -981,7 +1161,10 @@
     "source": "swing-cycle",
     "ema8": 18.84,
     "atr20": 1.03,
-    "sma200": 22.86
+    "sma200": 22.86,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "IOT",
@@ -997,7 +1180,10 @@
     "source": "swing-cycle",
     "ema8": 28.72,
     "atr20": 1.44,
-    "sma200": 34.31
+    "sma200": 34.31,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ACN",
@@ -1013,7 +1199,10 @@
     "source": "swing-cycle",
     "ema8": 170.73,
     "atr20": 6.74,
-    "sma200": 235.59
+    "sma200": 235.59,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "STNE",
@@ -1029,7 +1218,10 @@
     "source": "swing-cycle",
     "ema8": 10.45,
     "atr20": 0.61,
-    "sma200": 15.63
+    "sma200": 15.63,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "GEHC",
@@ -1045,7 +1237,10 @@
     "source": "swing-cycle",
     "ema8": 62.54,
     "atr20": 2.16,
-    "sma200": 75.78
+    "sma200": 75.78,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "KKR",
@@ -1061,7 +1256,10 @@
     "source": "swing-cycle",
     "ema8": 100.18,
     "atr20": 3.31,
-    "sma200": 118.5
+    "sma200": 118.5,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "FLO",
@@ -1077,7 +1275,10 @@
     "source": "swing-cycle",
     "ema8": 8.05,
     "atr20": 0.32,
-    "sma200": 11.34
+    "sma200": 11.34,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ADBE",
@@ -1093,7 +1294,10 @@
     "source": "swing-cycle",
     "ema8": 243.58,
     "atr20": 8.88,
-    "sma200": 308.74
+    "sma200": 308.74,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "WDAY",
@@ -1109,7 +1313,10 @@
     "source": "swing-cycle",
     "ema8": 121.38,
     "atr20": 6.36,
-    "sma200": 190.67
+    "sma200": 190.67,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "INTR",
@@ -1125,7 +1332,10 @@
     "source": "swing-cycle",
     "ema8": 6.56,
     "atr20": 0.36,
-    "sma200": 8.49
+    "sma200": 8.49,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "HRL",
@@ -1141,7 +1351,10 @@
     "source": "swing-cycle",
     "ema8": 20.41,
     "atr20": 0.49,
-    "sma200": 23.9
+    "sma200": 23.9,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DHR",
@@ -1157,7 +1370,10 @@
     "source": "swing-cycle",
     "ema8": 169.28,
     "atr20": 4.73,
-    "sma200": 207.48
+    "sma200": 207.48,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "RDDT",
@@ -1173,7 +1389,10 @@
     "source": "swing-cycle",
     "ema8": 157.0,
     "atr20": 9.22,
-    "sma200": 193.57
+    "sma200": 193.57,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "MAT",
@@ -1189,7 +1408,10 @@
     "source": "swing-cycle",
     "ema8": 15.02,
     "atr20": 0.49,
-    "sma200": 17.92
+    "sma200": 17.92,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "AEO",
@@ -1205,7 +1427,10 @@
     "source": "swing-cycle",
     "ema8": 16.03,
     "atr20": 0.68,
-    "sma200": 19.23
+    "sma200": 19.23,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SRAD",
@@ -1221,7 +1446,10 @@
     "source": "swing-cycle",
     "ema8": 12.9,
     "atr20": 1.08,
-    "sma200": 22.25
+    "sma200": 22.25,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BRBR",
@@ -1237,7 +1465,10 @@
     "source": "swing-cycle",
     "ema8": 10.61,
     "atr20": 1.18,
-    "sma200": 27.14
+    "sma200": 27.14,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "UPWK",
@@ -1253,7 +1484,10 @@
     "source": "swing-cycle",
     "ema8": 8.99,
     "atr20": 0.63,
-    "sma200": 15.72
+    "sma200": 15.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CHYM",
@@ -1269,7 +1503,10 @@
     "source": "swing-cycle",
     "ema8": 18.82,
     "atr20": 1.04,
-    "sma200": 22.83
+    "sma200": 22.83,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DASH",
@@ -1285,7 +1522,10 @@
     "source": "swing-cycle",
     "ema8": 159.21,
     "atr20": 7.58,
-    "sma200": 213.46
+    "sma200": 213.46,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DXC",
@@ -1301,7 +1541,10 @@
     "source": "swing-cycle",
     "ema8": 9.49,
     "atr20": 0.76,
-    "sma200": 13.36
+    "sma200": 13.36,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "AI",
@@ -1317,7 +1560,10 @@
     "source": "swing-cycle",
     "ema8": 9.13,
     "atr20": 0.45,
-    "sma200": 13.78
+    "sma200": 13.78,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "MKC",
@@ -1333,7 +1579,10 @@
     "source": "swing-cycle",
     "ema8": 47.33,
     "atr20": 1.4,
-    "sma200": 63.65
+    "sma200": 63.65,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ALK",
@@ -1349,7 +1598,10 @@
     "source": "swing-cycle",
     "ema8": 38.99,
     "atr20": 1.98,
-    "sma200": 48.26
+    "sma200": 48.26,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "KD",
@@ -1365,7 +1617,10 @@
     "source": "swing-cycle",
     "ema8": 12.03,
     "atr20": 0.67,
-    "sma200": 23.06
+    "sma200": 23.06,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "VST",
@@ -1381,7 +1636,10 @@
     "source": "swing-cycle",
     "ema8": 148.77,
     "atr20": 6.63,
-    "sma200": 176.04
+    "sma200": 176.04,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "KSS",
@@ -1397,7 +1655,10 @@
     "source": "swing-cycle",
     "ema8": 13.11,
     "atr20": 0.78,
-    "sma200": 16.52
+    "sma200": 16.52,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "KTOS",
@@ -1413,7 +1674,10 @@
     "source": "swing-cycle",
     "ema8": 57.1,
     "atr20": 3.5,
-    "sma200": 80.82
+    "sma200": 80.82,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ATEC",
@@ -1429,7 +1693,10 @@
     "source": "swing-cycle",
     "ema8": 7.97,
     "atr20": 0.78,
-    "sma200": 15.27
+    "sma200": 15.27,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "W",
@@ -1445,7 +1712,10 @@
     "source": "swing-cycle",
     "ema8": 63.17,
     "atr20": 4.1,
-    "sma200": 87.02
+    "sma200": 87.02,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "HD",
@@ -1461,7 +1731,10 @@
     "source": "swing-cycle",
     "ema8": 311.91,
     "atr20": 7.74,
-    "sma200": 368.19
+    "sma200": 368.19,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "WVE",
@@ -1477,7 +1750,10 @@
     "source": "swing-cycle",
     "ema8": 7.07,
     "atr20": 0.35,
-    "sma200": 10.16
+    "sma200": 10.16,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "GPGI",
@@ -1493,7 +1769,10 @@
     "source": "swing-cycle",
     "ema8": 13.58,
     "atr20": 1.1,
-    "sma200": 19.51
+    "sma200": 19.51,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PGY",
@@ -1509,7 +1788,10 @@
     "source": "swing-cycle",
     "ema8": 13.98,
     "atr20": 0.85,
-    "sma200": 22.75
+    "sma200": 22.75,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "FSK",
@@ -1525,7 +1807,10 @@
     "source": "swing-cycle",
     "ema8": 10.9,
     "atr20": 0.33,
-    "sma200": 14.22
+    "sma200": 14.22,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DJT",
@@ -1541,7 +1826,10 @@
     "source": "swing-cycle",
     "ema8": 8.97,
     "atr20": 0.45,
-    "sma200": 13.12
+    "sma200": 13.12,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "REAL",
@@ -1557,7 +1845,10 @@
     "source": "swing-cycle",
     "ema8": 10.35,
     "atr20": 0.83,
-    "sma200": 11.55
+    "sma200": 11.55,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "OTIS",
@@ -1573,7 +1864,10 @@
     "source": "swing-cycle",
     "ema8": 74.67,
     "atr20": 1.84,
-    "sma200": 86.73
+    "sma200": 86.73,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "VRDN",
@@ -1589,7 +1883,10 @@
     "source": "swing-cycle",
     "ema8": 16.75,
     "atr20": 0.93,
-    "sma200": 24.32
+    "sma200": 24.32,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "VEEV",
@@ -1605,7 +1902,10 @@
     "source": "swing-cycle",
     "ema8": 160.92,
     "atr20": 6.24,
-    "sma200": 231.99
+    "sma200": 231.99,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SMPL",
@@ -1621,7 +1921,10 @@
     "source": "swing-cycle",
     "ema8": 11.86,
     "atr20": 0.52,
-    "sma200": 20.06
+    "sma200": 20.06,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ABR",
@@ -1637,7 +1940,10 @@
     "source": "swing-cycle",
     "ema8": 6.68,
     "atr20": 0.34,
-    "sma200": 9.28
+    "sma200": 9.28,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "DLTR",
@@ -1653,7 +1959,10 @@
     "source": "swing-cycle",
     "ema8": 91.33,
     "atr20": 3.96,
-    "sma200": 110.33
+    "sma200": 110.33,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "QS",
@@ -1673,7 +1982,10 @@
     "source": "swing-cycle",
     "ema8": 8.09,
     "atr20": 0.7,
-    "sma200": 10.14
+    "sma200": 10.14,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SNAP",
@@ -1693,7 +2005,10 @@
     "source": "swing-cycle",
     "ema8": 5.72,
     "atr20": 0.32,
-    "sma200": 6.9
+    "sma200": 6.9,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SOFI",
@@ -1713,7 +2028,10 @@
     "source": "swing-cycle",
     "ema8": 15.93,
     "atr20": 0.8,
-    "sma200": 23.51
+    "sma200": 23.51,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PLTR",
@@ -1733,7 +2051,10 @@
     "source": "swing-cycle",
     "ema8": 135.43,
     "atr20": 5.9,
-    "sma200": 163.47
+    "sma200": 163.47,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ONDS",
@@ -1753,7 +2074,10 @@
     "source": "swing-cycle",
     "ema8": 9.76,
     "atr20": 0.86,
-    "sma200": 8.53
+    "sma200": 8.53,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ONDS",
@@ -1773,7 +2097,10 @@
     "source": "swing-cycle",
     "ema8": 9.76,
     "atr20": 0.86,
-    "sma200": 8.53
+    "sma200": 8.53,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NU",
@@ -1793,7 +2120,10 @@
     "source": "swing-cycle",
     "ema8": 13.5,
     "atr20": 0.4,
-    "sma200": 15.47
+    "sma200": 15.47,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SMR",
@@ -1813,7 +2143,10 @@
     "source": "swing-cycle",
     "ema8": 12.29,
     "atr20": 1.26,
-    "sma200": 24.06
+    "sma200": 24.06,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ACHR",
@@ -1833,7 +2166,10 @@
     "source": "swing-cycle",
     "ema8": 6.34,
     "atr20": 0.38,
-    "sma200": 8.16
+    "sma200": 8.16,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "HIMS",
@@ -1853,7 +2189,10 @@
     "source": "swing-cycle",
     "ema8": 25.95,
     "atr20": 2.28,
-    "sma200": 36.06
+    "sma200": 36.06,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "HOOD",
@@ -1873,7 +2212,10 @@
     "source": "swing-cycle",
     "ema8": 78.62,
     "atr20": 4.39,
-    "sma200": 105.39
+    "sma200": 105.39,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "RGTI",
@@ -1893,7 +2235,10 @@
     "source": "swing-cycle",
     "ema8": 18.94,
     "atr20": 1.46,
-    "sma200": 22.99
+    "sma200": 22.99,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SOUN",
@@ -1913,7 +2258,10 @@
     "source": "swing-cycle",
     "ema8": 8.56,
     "atr20": 0.64,
-    "sma200": 11.54
+    "sma200": 11.54,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NKE",
@@ -1933,7 +2281,10 @@
     "source": "swing-cycle",
     "ema8": 43.0,
     "atr20": 1.01,
-    "sma200": 62.57
+    "sma200": 62.57,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PATH",
@@ -1953,7 +2304,10 @@
     "source": "swing-cycle",
     "ema8": 10.16,
     "atr20": 0.53,
-    "sma200": 13.01
+    "sma200": 13.01,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NCLH",
@@ -1973,7 +2327,10 @@
     "source": "swing-cycle",
     "ema8": 16.64,
     "atr20": 0.9,
-    "sma200": 21.79
+    "sma200": 21.79,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CPNG",
@@ -1993,7 +2350,10 @@
     "source": "swing-cycle",
     "ema8": 17.15,
     "atr20": 0.83,
-    "sma200": 24.72
+    "sma200": 24.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BSX",
@@ -2013,7 +2373,10 @@
     "source": "swing-cycle",
     "ema8": 54.6,
     "atr20": 2.11,
-    "sma200": 87.72
+    "sma200": 87.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "TTD",
@@ -2033,7 +2396,10 @@
     "source": "swing-cycle",
     "ema8": 21.82,
     "atr20": 1.27,
-    "sma200": 38.85
+    "sma200": 38.85,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PINS",
@@ -2053,7 +2419,10 @@
     "source": "swing-cycle",
     "ema8": 20.23,
     "atr20": 0.99,
-    "sma200": 26.58
+    "sma200": 26.58,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BMNR",
@@ -2073,7 +2442,10 @@
     "source": "swing-cycle",
     "ema8": 22.03,
     "atr20": 1.23,
-    "sma200": 34.29
+    "sma200": 34.29,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "OWL",
@@ -2093,7 +2465,10 @@
     "source": "swing-cycle",
     "ema8": 10.01,
     "atr20": 0.53,
-    "sma200": 14.27
+    "sma200": 14.27,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CMCSA",
@@ -2113,7 +2488,10 @@
     "source": "swing-cycle",
     "ema8": 25.6,
     "atr20": 0.96,
-    "sma200": 29.75
+    "sma200": 29.75,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NOW",
@@ -2133,7 +2511,10 @@
     "source": "swing-cycle",
     "ema8": 90.21,
     "atr20": 5.14,
-    "sma200": 145.3
+    "sma200": 145.3,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "RKT",
@@ -2153,7 +2534,10 @@
     "source": "swing-cycle",
     "ema8": 14.56,
     "atr20": 0.86,
-    "sma200": 17.74
+    "sma200": 17.74,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CSCO",
@@ -2169,7 +2553,10 @@
     "source": "swing-cycle",
     "ema8": 100.77,
     "atr20": 3.09,
-    "sma200": 76.4
+    "sma200": 76.4,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "QXO",
@@ -2189,7 +2576,10 @@
     "source": "swing-cycle",
     "ema8": 18.24,
     "atr20": 1.14,
-    "sma200": 20.74
+    "sma200": 20.74,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ENPH",
@@ -2209,7 +2599,10 @@
     "source": "swing-cycle",
     "ema8": 39.74,
     "atr20": 2.75,
-    "sma200": 36.34
+    "sma200": 36.34,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PCT",
@@ -2229,7 +2622,10 @@
     "source": "swing-cycle",
     "ema8": 9.81,
     "atr20": 0.72,
-    "sma200": 10.0
+    "sma200": 10.0,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "EOSE",
@@ -2249,7 +2645,10 @@
     "source": "swing-cycle",
     "ema8": 7.75,
     "atr20": 0.77,
-    "sma200": 10.55
+    "sma200": 10.55,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "JOBY",
@@ -2269,7 +2668,10 @@
     "source": "swing-cycle",
     "ema8": 10.38,
     "atr20": 0.72,
-    "sma200": 13.2
+    "sma200": 13.2,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ENVX",
@@ -2289,7 +2691,10 @@
     "source": "swing-cycle",
     "ema8": 6.76,
     "atr20": 0.5,
-    "sma200": 8.23
+    "sma200": 8.23,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "NFLX",
@@ -2309,7 +2714,10 @@
     "source": "swing-cycle",
     "ema8": 88.04,
     "atr20": 2.79,
-    "sma200": 102.72
+    "sma200": 102.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "CSCO",
@@ -2325,7 +2733,10 @@
     "source": "swing-cycle",
     "ema8": 100.77,
     "atr20": 3.09,
-    "sma200": 76.4
+    "sma200": 76.4,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "BA",
@@ -2345,7 +2756,10 @@
     "source": "swing-cycle",
     "ema8": 233.5,
     "atr20": 7.29,
-    "sma200": 219.69
+    "sma200": 219.69,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "SLS",
@@ -2361,7 +2775,10 @@
     "source": "swing-cycle",
     "ema8": 5.83,
     "atr20": 0.42,
-    "sma200": 3.14
+    "sma200": 3.14,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "ENB",
@@ -2377,7 +2794,10 @@
     "source": "swing-cycle",
     "ema8": 54.86,
     "atr20": 0.94,
-    "sma200": 49.72
+    "sma200": 49.72,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   },
   {
     "symbol": "PCT",
@@ -2397,6 +2817,9 @@
     "source": "swing-cycle",
     "ema8": 9.83,
     "atr20": 0.72,
-    "sma200": 10.0
+    "sma200": 10.0,
+    "status": "watching",
+    "tp_steps_hit": 0,
+    "regime_at_add": "Unknown"
   }
 ]
