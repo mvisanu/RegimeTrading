@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import datetime
+import os
 
 import plotly.graph_objects as go
 import streamlit as st
@@ -208,8 +209,8 @@ else:
 
     for pos in positions:
         sym = pos.get("symbol", "?")
-        side_raw = str(pos.get("side", "long"))
-        side = side_raw.upper()
+        side_raw = pos.get("side", "long")
+        side = (side_raw.value if hasattr(side_raw, "value") else str(side_raw)).upper()
         qty = _safe_float(pos, "qty")
         avg_entry = _safe_float(pos, "avg_entry_price")
         current = _safe_float(pos, "current_price")
@@ -232,7 +233,8 @@ else:
             f"<span style='color:{side_color}'>{side}</span>",
             unsafe_allow_html=True,
         )
-        row[2].write(f"{int(qty)}")
+        qty_display = f"{qty:.4f}".rstrip("0").rstrip(".") if qty != int(qty) else str(int(qty))
+        row[2].write(qty_display)
         row[3].write(f"${avg_entry:.2f}")
         row[4].write(f"${current:.2f}")
         row[5].markdown(
@@ -265,6 +267,7 @@ else:
             else:
                 if st.button("Close", key=f"pf_close_{sym}"):
                     try:
+                        # live_confirmed omitted — paper trading only; live requires explicit flag
                         AlpacaBroker().submit_order(
                             symbol=sym, qty=qty, side="sell"
                         )
@@ -276,5 +279,5 @@ else:
     st.markdown("<hr style='margin:8px 0 4px;border-color:#1e2535'>", unsafe_allow_html=True)
     st.caption(
         f"All close orders route through 5 safety circuit breakers. "
-        f"Paper trading active (LIVE_TRADING={__import__('os').getenv('LIVE_TRADING', 'false')})."
+        f"Paper trading active (LIVE_TRADING={os.getenv('LIVE_TRADING', 'false')})."
     )
