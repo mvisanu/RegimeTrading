@@ -109,7 +109,7 @@ if st.session_state.scan_results:
                         st.session_state.ordered.add(r.symbol)
                         st.success(f"Order placed: {r.shares} × {r.symbol} @ ~${r.entry:.2f}")
                         st.rerun()
-                    except RuntimeError as exc:
+                    except (RuntimeError, ValueError) as exc:
                         st.error(f"Order rejected: {exc}")
 
     st.markdown("<hr style='margin:8px 0 4px'>", unsafe_allow_html=True)
