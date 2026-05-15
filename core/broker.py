@@ -185,8 +185,9 @@ class AlpacaBroker:
     ) -> dict:
         """Submit an order after passing safety checks and live-trading guard.
 
-        Safety breakers are checked before every order. If any breaker fires,
-        the order is rejected and logged; no request is sent to Alpaca.
+        Safety breakers are checked before every order using live account data
+        fetched from Alpaca. If any breaker fires, the order is rejected and
+        logged; no request is sent to Alpaca.
 
         For live trading (``LIVE_TRADING=true``), ``live_confirmed=True`` must
         be supplied explicitly — this prevents accidental live execution from
@@ -196,9 +197,9 @@ class AlpacaBroker:
         atomically.
 
         Args:
-            symbol: Ticker symbol (e.g. "AAPL").
-            qty: Number of shares/units.
-            side: "buy" or "sell".
+            symbol: Ticker symbol, 1–5 alpha characters (e.g. "AAPL").
+            qty: Number of shares/units. Must be > 0.
+            side: "buy" or "sell" (case-insensitive).
             order_type: Currently only "market" is implemented.
             time_in_force: Alpaca TIF string ("day", "gtc", etc.).
             live_confirmed: Must be True when ``LIVE_TRADING=true`` in env.
@@ -207,20 +208,49 @@ class AlpacaBroker:
             Order dict from Alpaca on success.
 
         Raises:
+            ValueError: If symbol, qty, or side fail validation.
             RuntimeError: If a safety breaker fires, if live_confirmed is
                 missing for live trading, or if the Alpaca API call fails.
         """
         # ------------------------------------------------------------------
-        # Guard 1: Safety circuit breakers
+        # Guard 0: Input validation
         # ------------------------------------------------------------------
+        if not symbol or not symbol.isalpha() or len(symbol) > 5:
+            raise ValueError(f"Invalid symbol {symbol!r}: must be 1-5 alpha chars")
+        if not isinstance(qty, (int, float)) or qty <= 0:
+            raise ValueError(f"Invalid qty {qty!r}: must be a positive number")
+        if side.lower() not in {"buy", "sell"}:
+            raise ValueError(f"Invalid side {side!r}: must be 'buy' or 'sell'")
+
+        # ------------------------------------------------------------------
+        # Guard 1: Safety circuit breakers — use real account data
+        # ------------------------------------------------------------------
+        try:
+            account = self._client.get_account()
+            equity_now = float(account.equity)
+            portfolio_value = float(account.portfolio_value)
+            equity_open = float(account.last_equity)
+            positions = self._client.get_all_positions()
+            pos_value = sum(
+                float(p.market_value) for p in positions
+                if p.symbol == symbol
+            )
+        except Exception as exc:
+            raise RuntimeError(f"Failed to fetch account data for safety check: {exc}") from exc
+
+        state = safety._load_state()
+        peak_equity = float(state.get("peak_equity") or equity_now)
+        equity_history = [equity_open, equity_now]
+        recent_timestamps = [float(t) for t in state.get("order_timestamps", [])]
+
         breakers = safety.check_all(
-            equity_now=100_000.0,       # placeholder — dashboard passes real value
-            equity_open=100_000.0,
-            equity_history=[100_000.0],
-            peak_equity=100_000.0,
-            position_value=0.0,
-            portfolio_value=100_000.0,
-            recent_order_timestamps=[],
+            equity_now=equity_now,
+            equity_open=equity_open,
+            equity_history=equity_history,
+            peak_equity=peak_equity,
+            position_value=pos_value,
+            portfolio_value=portfolio_value,
+            recent_order_timestamps=recent_timestamps,
         )
         triggered = [(b, r) for b, r in breakers if b]
         if triggered:
