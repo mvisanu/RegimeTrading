@@ -26,7 +26,7 @@ def test_get_portfolio_history_returns_timestamps_and_equity():
     assert result["equity"] == [10000.0, 10200.0, 10150.0]
 
 
-def test_get_portfolio_history_filters_none_equity():
+def test_get_portfolio_history_preserves_none_equity():
     broker = _make_broker()
     fake_history = MagicMock()
     fake_history.timestamp = [1700000000, 1700086400]

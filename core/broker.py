@@ -187,7 +187,7 @@ class AlpacaBroker:
         try:
             history = self._client.get_portfolio_history(period=period, timeframe=timeframe)
             return {
-                "timestamps": list(history.timestamp),
+                "timestamps": [int(ts) for ts in history.timestamp],
                 "equity": [float(v) if v is not None else None for v in history.equity],
             }
         except Exception as exc:
