@@ -197,7 +197,15 @@ def execute_auto_buy() -> list[TradeAction]:
 
         try:
             broker = AlpacaBroker()
-            order = broker.submit_order(symbol=symbol, qty=1, side="buy", live_confirmed=True)
+            order = broker.submit_order(
+                symbol=symbol,
+                qty=1,
+                side="buy",
+                live_confirmed=True,
+                price=entry.get("entry") or None,
+                tp_ladder=entry.get("tp_ladder") or None,
+                stop=entry.get("stop") or None,
+            )
             entry["status"] = "active"
             daily_count += 1
             changed = True

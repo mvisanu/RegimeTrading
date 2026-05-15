@@ -10,6 +10,8 @@ _EXPOSURE_MAP: dict[str, float] = {
     "Medium Vol":  0.80,
     "High Vol":    0.60,
     "Extreme Vol": 0.30,
+    "Hyper Vol":   0.0,
+    "Ultra Vol":   0.0,
     "Uncertain":   0.50,
 }
 
@@ -29,7 +31,8 @@ def target_exposure(regime: str, confidence: float) -> float:
     Args:
         regime:     Volatility regime label.  Must be one of the keys in
                     ``_EXPOSURE_MAP``: ``"Low Vol"``, ``"Medium Vol"``,
-                    ``"High Vol"``, ``"Extreme Vol"``, or ``"Uncertain"``.
+                    ``"High Vol"``, ``"Extreme Vol"``, ``"Hyper Vol"``,
+                    ``"Ultra Vol"``, or ``"Uncertain"``.
         confidence: Classifier confidence in [0, 1].  Values outside this
                     range are clamped silently.
 

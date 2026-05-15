@@ -1,1 +1,25 @@
-﻿[]
+[
+  {
+    "id": "OUT-20260515-65b67198",
+    "symbol": "CPNG",
+    "pattern": "oversold-bounce",
+    "confidence": 0.73,
+    "entry": 16.38,
+    "stop": 15.64,
+    "tp_ladder": [
+      18.77,
+      18.95,
+      19.17
+    ],
+    "added_ts": "2026-05-14T11:35:31-0400",
+    "regime_at_add": "Unknown",
+    "close_ts": "2026-05-15 11:00:45.326981+00:00",
+    "close_price": 0.0,
+    "tp_steps_hit": 0,
+    "tp_steps_total": 3,
+    "tp_pct_complete": 0,
+    "pnl_pct": -100.0,
+    "outcome": "loss",
+    "triggered_by": "manual"
+  }
+]
