@@ -80,6 +80,7 @@ def _check_thresholds(new_stats: dict, old_stats: dict) -> None:
         if pattern == "_meta":
             continue
         for regime, cell in regime_map.items():
+            # Only alert on cells that newly crossed below the threshold (degradation)
             if cell["n"] < _MIN_SAMPLES or cell["win_rate"] >= _WARN_THRESHOLD:
                 continue
             old_win_rate = old_stats.get(pattern, {}).get(regime, {}).get("win_rate", 1.0)

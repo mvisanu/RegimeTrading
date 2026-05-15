@@ -81,6 +81,8 @@ def test_below_threshold_appends_to_rules(tmp_outcomes, tmp_stats, tmp_rules):
     assert tmp_rules.exists()
     content = tmp_rules.read_text()
     assert "downtrend-break" in content
+    assert "Low Vol" in content
+    assert "n=5" in content
 
 
 def test_meta_includes_total_outcomes(tmp_outcomes, tmp_stats, tmp_rules):
