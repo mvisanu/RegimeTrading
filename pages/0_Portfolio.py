@@ -178,3 +178,103 @@ elif hist and hist.get("timestamps") and hist.get("equity"):
                    "margin": {"l": 48, "r": 24, "t": 20, "b": 40}})
     fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True)
+
+st.divider()
+
+# ── holdings table ────────────────────────────────────────────────────────────
+section_header("Holdings")
+
+positions, pos_err = _fetch_positions()
+
+if pos_err:
+    st.warning(f"Could not load positions: {pos_err}")
+elif not positions:
+    st.info("No open positions — account is flat.")
+else:
+    _COL_W = [0.7, 0.5, 0.5, 0.8, 0.8, 0.65, 0.9, 0.9, 0.75, 0.65, 0.75, 0.65, 0.7]
+    _HEADERS = [
+        "Symbol", "Side", "Qty", "Avg Entry", "Price", "Day %",
+        "Mkt Val", "Cost", "P&L $", "P&L %", "Day P&L $", "Day P&L %", "",
+    ]
+
+    header_cols = st.columns(_COL_W)
+    for col, label in zip(header_cols, _HEADERS):
+        col.markdown(
+            f"<span style='color:#94a3b8;font-size:0.72rem;font-weight:600;"
+            f"text-transform:uppercase;letter-spacing:0.05em'>{label}</span>",
+            unsafe_allow_html=True,
+        )
+    st.markdown("<hr style='margin:2px 0 6px;border-color:#1e2535'>", unsafe_allow_html=True)
+
+    for pos in positions:
+        sym = pos.get("symbol", "?")
+        side_raw = str(pos.get("side", "long"))
+        side = side_raw.upper()
+        qty = _safe_float(pos, "qty")
+        avg_entry = _safe_float(pos, "avg_entry_price")
+        current = _safe_float(pos, "current_price")
+        change_today = _safe_float(pos, "change_today") * 100
+        market_val = _safe_float(pos, "market_value")
+        cost = _safe_float(pos, "cost_basis")
+        upl = _safe_float(pos, "unrealized_pl")
+        uplpc = _safe_float(pos, "unrealized_plpc") * 100
+        day_pl = _safe_float(pos, "unrealized_intraday_pl")
+        day_plpc = _safe_float(pos, "unrealized_intraday_plpc") * 100
+
+        side_color = "#10b981" if side == "LONG" else "#94a3b8"
+        row = st.columns(_COL_W)
+
+        row[0].markdown(
+            f"<b style='color:{ACCENT_CYAN};font-family:monospace'>{sym}</b>",
+            unsafe_allow_html=True,
+        )
+        row[1].markdown(
+            f"<span style='color:{side_color}'>{side}</span>",
+            unsafe_allow_html=True,
+        )
+        row[2].write(f"{int(qty)}")
+        row[3].write(f"${avg_entry:.2f}")
+        row[4].write(f"${current:.2f}")
+        row[5].markdown(
+            f"<span style='color:{_pnl_color(change_today)}'>"
+            f"{_fmt_pct(change_today, sign=True)}</span>",
+            unsafe_allow_html=True,
+        )
+        row[6].write(f"${market_val:,.2f}")
+        row[7].write(f"${cost:,.2f}")
+        row[8].markdown(
+            f"<span style='color:{_pnl_color(upl)}'>{_fmt_dollar(upl, sign=True)}</span>",
+            unsafe_allow_html=True,
+        )
+        row[9].markdown(
+            f"<span style='color:{_pnl_color(uplpc)}'>{_fmt_pct(uplpc, sign=True)}</span>",
+            unsafe_allow_html=True,
+        )
+        row[10].markdown(
+            f"<span style='color:{_pnl_color(day_pl)}'>{_fmt_dollar(day_pl, sign=True)}</span>",
+            unsafe_allow_html=True,
+        )
+        row[11].markdown(
+            f"<span style='color:{_pnl_color(day_plpc)}'>{_fmt_pct(day_plpc, sign=True)}</span>",
+            unsafe_allow_html=True,
+        )
+
+        with row[12]:
+            if sym in st.session_state.pf_closed:
+                st.success("Closed ✓")
+            else:
+                if st.button("Close", key=f"pf_close_{sym}"):
+                    try:
+                        AlpacaBroker().submit_order(
+                            symbol=sym, qty=qty, side="sell"
+                        )
+                        st.session_state.pf_closed.add(sym)
+                        st.rerun()
+                    except (RuntimeError, ValueError) as exc:
+                        st.error(f"Rejected: {exc}")
+
+    st.markdown("<hr style='margin:8px 0 4px;border-color:#1e2535'>", unsafe_allow_html=True)
+    st.caption(
+        f"All close orders route through 5 safety circuit breakers. "
+        f"Paper trading active (LIVE_TRADING={__import__('os').getenv('LIVE_TRADING', 'false')})."
+    )
