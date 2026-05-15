@@ -238,10 +238,19 @@ class AlpacaBroker:
         except Exception as exc:
             raise RuntimeError(f"Failed to fetch account data for safety check: {exc}") from exc
 
-        state = safety._load_state()
-        peak_equity = float(state.get("peak_equity") or equity_now)
-        equity_history = [equity_open, equity_now]
-        recent_timestamps = [float(t) for t in state.get("order_timestamps", [])]
+        try:
+            state = safety._load_state()
+            peak_equity = float(state.get("peak_equity") or equity_now)
+            recent_timestamps = [float(t) for t in state.get("order_timestamps", [])]
+        except Exception:
+            peak_equity = equity_now
+            recent_timestamps = []
+
+        try:
+            history = self._client.get_portfolio_history(period="1W", timeframe="1D")
+            equity_history = [float(v) for v in history.equity if v is not None] or [equity_open, equity_now]
+        except Exception:
+            equity_history = [equity_open, equity_now]
 
         breakers = safety.check_all(
             equity_now=equity_now,
