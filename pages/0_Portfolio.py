@@ -163,22 +163,22 @@ elif hist and hist.get("timestamps") and hist.get("equity"):
             unsafe_allow_html=True,
         )
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=ts,
-        y=eq,
-        mode="lines",
-        line=dict(color=ACCENT_CYAN, width=2),
-        fill="tozeroy",
-        fillcolor="rgba(0, 212, 255, 0.12)",
-        name="Equity",
-        hovertemplate="$%{y:,.2f}<extra></extra>",
-    ))
-    layout = get_plotly_layout()
-    layout.update({"height": 280, "showlegend": False,
-                   "margin": {"l": 48, "r": 24, "t": 20, "b": 40}})
-    fig.update_layout(**layout)
-    st.plotly_chart(fig, use_container_width=True)
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(
+            x=ts,
+            y=eq,
+            mode="lines",
+            line=dict(color=ACCENT_CYAN, width=2),
+            fill="tozeroy",
+            fillcolor="rgba(0, 212, 255, 0.12)",
+            name="Equity",
+            hovertemplate="$%{y:,.2f}<extra></extra>",
+        ))
+        layout = get_plotly_layout()
+        layout.update({"height": 280, "showlegend": False,
+                       "margin": {"l": 48, "r": 24, "t": 20, "b": 40}})
+        fig.update_layout(**layout)
+        st.plotly_chart(fig, use_container_width=True)
 
 st.divider()
 
@@ -268,8 +268,9 @@ else:
                 if st.button("Close", key=f"pf_close_{sym}"):
                     try:
                         # live_confirmed omitted — paper trading only; live requires explicit flag
+                        close_side = "sell" if side == "LONG" else "buy"
                         AlpacaBroker().submit_order(
-                            symbol=sym, qty=qty, side="sell"
+                            symbol=sym, qty=qty, side=close_side
                         )
                         st.session_state.pf_closed.add(sym)
                         st.rerun()

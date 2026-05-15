@@ -1,14 +1,13 @@
 """Tests for AlpacaBroker.get_portfolio_history()."""
 import pytest
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 
 def _make_broker():
     """Return an AlpacaBroker with a fully mocked Alpaca client."""
     from core.broker import AlpacaBroker
-    with patch("core.broker.TradingClient"):
-        broker = AlpacaBroker.__new__(AlpacaBroker)
-        broker._live = False
+    broker = AlpacaBroker.__new__(AlpacaBroker)
+    broker._live = False
     broker._client = MagicMock()
     return broker
 
