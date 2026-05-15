@@ -55,7 +55,9 @@ def _pnl_color(value: float) -> str:
 
 
 def _fmt_dollar(value: float, sign: bool = False) -> str:
-    prefix = ("+" if value >= 0 else "") if sign else ""
+    if value < 0:
+        return f"-${abs(value):,.2f}"
+    prefix = "+" if sign else ""
     return f"{prefix}${value:,.2f}"
 
 
@@ -65,8 +67,11 @@ def _fmt_pct(value: float, sign: bool = False) -> str:
 
 
 def _safe_float(d: dict, key: str, default: float = 0.0) -> float:
+    val = d.get(key)
+    if val is None:
+        return default
     try:
-        return float(d.get(key) or default)
+        return float(val)
     except (TypeError, ValueError):
         return default
 
