@@ -84,6 +84,8 @@ def _engineer_features(df: pd.DataFrame) -> np.ndarray:
         has near-zero variance (which would make the covariance matrix
         singular and cause hmmlearn to raise a positive-definite error).
     """
+    df = df.copy()
+    df.columns = df.columns.str.lower()
     close = df["close"]
     high = df["high"]
     low = df["low"]

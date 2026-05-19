@@ -27,4 +27,4 @@ actions = trader.execute_auto_buy()
 if not actions:
     print(f"[{ts}] No actions taken.")
 for a in actions:
-    print(f"[{ts}] {a.symbol} → {a.action}: {a.reason}")
+    print(f"[{ts}] {a.symbol} -> {a.action}: {a.reason}")

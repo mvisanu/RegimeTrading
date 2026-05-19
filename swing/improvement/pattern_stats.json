@@ -1,14 +1,36 @@
 {
   "oversold-bounce": {
     "Unknown": {
-      "n": 1,
+      "n": 20,
+      "avg_tp_pct": 9.9,
+      "avg_pnl_pct": -5.54,
+      "win_rate": 0.15
+    }
+  },
+  "gap-up": {
+    "High Vol": {
+      "n": 4,
       "avg_tp_pct": 0.0,
-      "avg_pnl_pct": -100.0,
+      "avg_pnl_pct": -5.33,
+      "win_rate": 0.0
+    }
+  },
+  "downtrend-break": {
+    "Unknown": {
+      "n": 2,
+      "avg_tp_pct": 0.0,
+      "avg_pnl_pct": -2.26,
+      "win_rate": 0.0
+    },
+    "High Vol": {
+      "n": 2,
+      "avg_tp_pct": 0.0,
+      "avg_pnl_pct": -5.33,
       "win_rate": 0.0
     }
   },
   "_meta": {
-    "last_rebuilt": "2026-05-15T11:02:15.597466+00:00",
-    "total_outcomes": 1
+    "last_rebuilt": "2026-05-18T22:50:45.063892+00:00",
+    "total_outcomes": 28
   }
 }

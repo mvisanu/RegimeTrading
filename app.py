@@ -11,7 +11,7 @@ from core.design_system import REGIME_COLORS
 from swing.scanner import scan, ScanResult
 
 st.set_page_config(
-    page_title="RegimeTrading",
+    page_title="Regime Trading",
     page_icon="📈",
     layout="wide",
 )
@@ -25,7 +25,7 @@ if "account_equity" not in st.session_state:
 if "broker_error" not in st.session_state:
     st.session_state.broker_error: str = ""
 
-st.title("RegimeTrading")
+st.title("Regime Trading")
 st.subheader("Adaptive algorithmic trading driven by market-regime detection")
 st.caption(
     "Use the sidebar to navigate between dashboards. "

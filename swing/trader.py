@@ -7,6 +7,8 @@ from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+from alpaca.data.historical import StockHistoricalDataClient
+from alpaca.data.requests import StockLatestTradeRequest
 from alpaca.trading.client import TradingClient
 from dotenv import load_dotenv
 
@@ -21,7 +23,9 @@ _OUTCOMES_PATH = _REPO_ROOT / "swing" / "outcomes.json"
 _SYNC_STATE_PATH = _REPO_ROOT / "swing" / "improvement" / "sync_state.json"
 _TP_PCT_TABLE = [0, 33, 66, 100]
 _EXIT_REGIMES = {"Extreme Vol", "Uncertain"}
-_MAX_DAILY_BUYS = 3
+_MAX_DAILY_BUYS = 10
+_POSITION_SIZE = 10_000
+_SWING_BUDGET = 100_000
 
 
 @dataclass
@@ -40,7 +44,6 @@ def check_stops() -> list[TradeAction]:
     if not active:
         return []
 
-    client = _make_client()
     actions: list[TradeAction] = []
     changed = False
 
@@ -48,14 +51,14 @@ def check_stops() -> list[TradeAction]:
         symbol = entry["symbol"]
         stop = entry.get("stop", 0)
         try:
-            live_price = float(client.get_latest_trade(symbol).price)
+            live_price = _get_latest_price(symbol)
         except Exception as exc:
             actions.append(TradeAction(symbol, "skip", "price_fetch_failed", error=str(exc)))
             continue
 
         if live_price > 0 and live_price <= stop:
             try:
-                qty = _get_position_qty(client, symbol)
+                qty = _get_position_qty(_make_client(), symbol)
                 broker = AlpacaBroker()
                 order = broker.submit_order(symbol=symbol, qty=qty, side="sell", live_confirmed=True)
                 _append_outcome(entry, live_price, "stop_auto", "loss", 0)
@@ -77,7 +80,6 @@ def check_tps() -> list[TradeAction]:
     if not active:
         return []
 
-    client = _make_client()
     actions: list[TradeAction] = []
     changed = False
 
@@ -92,7 +94,7 @@ def check_tps() -> list[TradeAction]:
             continue
 
         try:
-            live_price = float(client.get_latest_trade(symbol).price)
+            live_price = _get_latest_price(symbol)
         except Exception as exc:
             actions.append(TradeAction(symbol, "skip", "price_fetch_failed", error=str(exc)))
             continue
@@ -101,7 +103,7 @@ def check_tps() -> list[TradeAction]:
         if live_price < next_tp:
             continue
 
-        total_qty = _get_position_qty(client, symbol)
+        total_qty = _get_position_qty(_make_client(), symbol)
         is_last_tp = steps_hit == len(tp_ladder) - 1
         sell_qty = total_qty if is_last_tp else max(1.0, round(total_qty / 3))
         triggered_by = f"tp{steps_hit + 1}_auto"
@@ -139,15 +141,14 @@ def check_regime() -> list[TradeAction]:
     if not active:
         return []
 
-    client = _make_client()
     actions: list[TradeAction] = []
     changed = False
 
     for entry in active:
         symbol = entry["symbol"]
         try:
-            live_price = float(client.get_latest_trade(symbol).price)
-            qty = _get_position_qty(client, symbol)
+            live_price = _get_latest_price(symbol)
+            qty = _get_position_qty(_make_client(), symbol)
             broker = AlpacaBroker()
             order = broker.submit_order(symbol=symbol, qty=qty, side="sell", live_confirmed=True)
             steps_hit = entry.get("tp_steps_hit", 0)
@@ -177,11 +178,26 @@ def execute_auto_buy() -> list[TradeAction]:
     if not watching:
         return []
 
+    exposure = _swing_exposure()
+    try:
+        buying_power = float(_make_client().get_account().buying_power)
+    except Exception:
+        buying_power = 0.0
+
     actions: list[TradeAction] = []
     changed = False
 
     for entry in watching:
         if daily_count >= _MAX_DAILY_BUYS:
+            break
+
+        remaining = _SWING_BUDGET - exposure
+        if remaining < _POSITION_SIZE:
+            actions.append(TradeAction("*", "skip", f"budget_cap: ${exposure:,.0f} of ${_SWING_BUDGET:,} used"))
+            break
+
+        if buying_power < _POSITION_SIZE:
+            actions.append(TradeAction("*", "skip", f"insufficient_buying_power: ${buying_power:,.0f} available"))
             break
 
         symbol = entry["symbol"]
@@ -196,10 +212,12 @@ def execute_auto_buy() -> list[TradeAction]:
             continue
 
         try:
+            price = _get_latest_price(symbol)
+            qty = max(1, int(_POSITION_SIZE / price))
             broker = AlpacaBroker()
             order = broker.submit_order(
                 symbol=symbol,
-                qty=1,
+                qty=qty,
                 side="buy",
                 live_confirmed=True,
                 price=entry.get("entry") or None,
@@ -208,6 +226,8 @@ def execute_auto_buy() -> list[TradeAction]:
             )
             entry["status"] = "active"
             daily_count += 1
+            exposure += _POSITION_SIZE
+            buying_power -= _POSITION_SIZE
             changed = True
             actions.append(TradeAction(symbol, "buy", f"auto_buy in {warn_result.regime}", order_id=str(order.get("id", ""))))
         except Exception as exc:
@@ -241,6 +261,32 @@ def _make_client() -> TradingClient:
     secret = os.environ.get("ALPACA_SECRET", "")
     paper = os.environ.get("LIVE_TRADING", "false").lower() != "true"
     return TradingClient(api_key=key, secret_key=secret, paper=paper)
+
+
+def _swing_exposure() -> float:
+    """Return total market value of all active watchlist positions from Alpaca."""
+    watchlist = _load_watchlist()
+    active_symbols = {e["symbol"] for e in watchlist if e.get("status") == "active"}
+    if not active_symbols:
+        return 0.0
+    try:
+        client = _make_client()
+        positions = client.get_all_positions()
+        return sum(float(p.market_value) for p in positions if p.symbol in active_symbols)
+    except Exception:
+        return 0.0
+
+
+def _make_data_client() -> StockHistoricalDataClient:
+    key = os.environ.get("ALPACA_KEY_ID", "")
+    secret = os.environ.get("ALPACA_SECRET", "")
+    return StockHistoricalDataClient(api_key=key, secret_key=secret)
+
+
+def _get_latest_price(symbol: str) -> float:
+    client = _make_data_client()
+    trades = client.get_stock_latest_trade(StockLatestTradeRequest(symbol_or_symbols=symbol))
+    return float(trades[symbol].price)
 
 
 def _get_position_qty(client: TradingClient, symbol: str) -> float:

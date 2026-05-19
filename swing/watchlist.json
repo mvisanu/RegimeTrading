@@ -15,35 +15,11 @@
     ],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 12.87,
-    "atr20": 0.46,
-    "sma200": 12.59,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "BCRX",
-    "setup": "dip",
-    "added_ts": "2026-05-13T13:32:41-0400",
-    "added_ordinal": 739749,
-    "entry_estimate": 9.55,
-    "entry": 9.55,
-    "stop": 8.52,
-    "tp_ladder": [
-      9.6,
-      9.77,
-      10.07
-    ],
-    "source": "swing-cycle",
-    "ema8": 9.12,
-    "atr20": 0.44,
-    "sma200": 7.9,
-    "pattern": "downtrend-break",
-    "confidence": 0.76,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 12.98,
+    "atr20": 0.5,
+    "sma200": 12.6,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "WOLF",
@@ -57,12 +33,11 @@
     "tp_ladder": [],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 53.25,
-    "atr20": 6.18,
-    "sma200": 18.4,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 54.75,
+    "atr20": 6.76,
+    "sma200": 18.69,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "SNAP",
@@ -76,31 +51,11 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 5.71,
-    "atr20": 0.32,
-    "sma200": 6.9,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "PLTR",
-    "pattern": "gap-up",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:06:02-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 132.18,
-    "entry": 132.18,
-    "stop": 128.76,
-    "tp_ladder": [],
-    "confidence": 0.6,
-    "source": "swing-cycle",
-    "ema8": 135.31,
-    "atr20": 5.84,
-    "sma200": 163.46,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 5.67,
+    "atr20": 0.33,
+    "sma200": 6.88,
+    "regime_at_add": "High Vol",
+    "status": "active"
   },
   {
     "symbol": "NU",
@@ -114,12 +69,11 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 13.51,
-    "atr20": 0.4,
-    "sma200": 15.47,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 13.18,
+    "atr20": 0.44,
+    "sma200": 15.46,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "HIMS",
@@ -133,31 +87,11 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 25.94,
-    "atr20": 2.28,
-    "sma200": 36.06,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "SOUN",
-    "pattern": "gap-up",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:06:02-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 8.34,
-    "entry": 8.34,
-    "stop": 7.85,
-    "tp_ladder": [],
-    "confidence": 0.6,
-    "source": "swing-cycle",
-    "ema8": 8.58,
-    "atr20": 0.63,
-    "sma200": 11.54,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 25.64,
+    "atr20": 2.25,
+    "sma200": 35.85,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "NKE",
@@ -168,15 +102,18 @@
     "entry_estimate": 42.4,
     "entry": 42.4,
     "stop": 41.7,
-    "tp_ladder": [],
+    "tp_ladder": [
+      44.66,
+      45.71,
+      46.97
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 43.02,
+    "ema8": 42.82,
     "atr20": 1.0,
-    "sma200": 62.57,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 62.4,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "PATH",
@@ -187,34 +124,18 @@
     "entry_estimate": 9.65,
     "entry": 9.65,
     "stop": 9.21,
-    "tp_ladder": [],
+    "tp_ladder": [
+      10.99,
+      11.1,
+      11.24
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 10.17,
+    "ema8": 10.13,
     "atr20": 0.53,
-    "sma200": 13.01,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "QS",
-    "pattern": "gap-up",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:06:02-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 8.46,
-    "entry": 8.46,
-    "stop": 7.16,
-    "tp_ladder": [],
-    "confidence": 0.6,
-    "source": "swing-cycle",
-    "ema8": 8.09,
-    "atr20": 0.7,
-    "sma200": 10.14,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 13.0,
+    "regime_at_add": "High Vol",
+    "status": "active"
   },
   {
     "symbol": "NCLH",
@@ -228,12 +149,11 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 16.64,
-    "atr20": 0.9,
-    "sma200": 21.79,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 16.42,
+    "atr20": 0.83,
+    "sma200": 21.75,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "CPNG",
@@ -247,12 +167,11 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 17.15,
-    "atr20": 0.83,
-    "sma200": 24.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 16.92,
+    "atr20": 0.84,
+    "sma200": 24.65,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "TTD",
@@ -266,12 +185,11 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 21.81,
-    "atr20": 1.27,
-    "sma200": 38.85,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 21.58,
+    "atr20": 1.26,
+    "sma200": 38.52,
+    "regime_at_add": "High Vol",
+    "status": "active"
   },
   {
     "symbol": "BSX",
@@ -285,12 +203,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 54.61,
-    "atr20": 2.11,
-    "sma200": 87.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 54.27,
+    "atr20": 2.15,
+    "sma200": 87.46
   },
   {
     "symbol": "PINS",
@@ -304,12 +219,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 20.24,
-    "atr20": 0.99,
-    "sma200": 26.58,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 19.99,
+    "atr20": 1.01,
+    "sma200": 26.48
   },
   {
     "symbol": "PYPL",
@@ -323,12 +235,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 46.05,
-    "atr20": 1.45,
-    "sma200": 57.96,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 45.79,
+    "atr20": 1.44,
+    "sma200": 57.84
   },
   {
     "symbol": "CAG",
@@ -342,12 +251,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 14.08,
-    "atr20": 0.37,
-    "sma200": 17.49,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 13.9,
+    "atr20": 0.4,
+    "sma200": 17.46
   },
   {
     "symbol": "OKLO",
@@ -361,12 +267,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 71.24,
-    "atr20": 7.0,
-    "sma200": 86.45,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 69.21,
+    "atr20": 6.9,
+    "sma200": 86.39
   },
   {
     "symbol": "LYFT",
@@ -380,31 +283,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 13.79,
+    "ema8": 13.59,
     "atr20": 0.58,
-    "sma200": 17.4,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "BULL",
-    "pattern": "gap-up",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:06:02-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 7.3,
-    "entry": 7.3,
-    "stop": 6.73,
-    "tp_ladder": [],
-    "confidence": 0.6,
-    "source": "swing-cycle",
-    "ema8": 7.13,
-    "atr20": 0.38,
-    "sma200": 9.33,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 17.39
   },
   {
     "symbol": "PTON",
@@ -415,15 +296,16 @@
     "entry_estimate": 5.24,
     "entry": 5.24,
     "stop": 5.15,
-    "tp_ladder": [],
+    "tp_ladder": [
+      5.27,
+      5.62,
+      5.97
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 5.31,
-    "atr20": 0.29,
-    "sma200": 6.26,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 5.3,
+    "atr20": 0.3,
+    "sma200": 6.25
   },
   {
     "symbol": "CRM",
@@ -434,15 +316,16 @@
     "entry_estimate": 168.43,
     "entry": 168.43,
     "stop": 164.4,
-    "tp_ladder": [],
+    "tp_ladder": [
+      184.42,
+      188.58,
+      191.73
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 174.7,
-    "atr20": 7.21,
-    "sma200": 224.64,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 174.39,
+    "atr20": 7.34,
+    "sma200": 224.2
   },
   {
     "symbol": "ABT",
@@ -453,15 +336,16 @@
     "entry_estimate": 84.89,
     "entry": 84.89,
     "stop": 81.97,
-    "tp_ladder": [],
+    "tp_ladder": [
+      88.3,
+      94.79,
+      102.48
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 85.45,
-    "atr20": 2.08,
-    "sma200": 118.75,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 85.29,
+    "atr20": 2.12,
+    "sma200": 118.54
   },
   {
     "symbol": "DKNG",
@@ -472,15 +356,16 @@
     "entry_estimate": 24.96,
     "entry": 24.96,
     "stop": 23.76,
-    "tp_ladder": [],
+    "tp_ladder": [
+      25.64,
+      25.98,
+      26.5
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 24.63,
-    "atr20": 1.08,
-    "sma200": 32.28,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 24.72,
+    "atr20": 1.1,
+    "sma200": 32.18
   },
   {
     "symbol": "TSCO",
@@ -494,12 +379,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 31.32,
-    "atr20": 1.43,
-    "sma200": 51.87,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 31.11,
+    "atr20": 1.44,
+    "sma200": 51.73
   },
   {
     "symbol": "TOST",
@@ -513,12 +395,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 24.89,
-    "atr20": 1.3,
-    "sma200": 34.18,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 24.49,
+    "atr20": 1.33,
+    "sma200": 34.06
   },
   {
     "symbol": "SHOP",
@@ -532,12 +411,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 104.02,
-    "atr20": 5.96,
-    "sma200": 141.15,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 103.42,
+    "atr20": 6.05,
+    "sma200": 141.04
   },
   {
     "symbol": "FRSH",
@@ -548,15 +424,16 @@
     "entry_estimate": 8.25,
     "entry": 8.25,
     "stop": 7.93,
-    "tp_ladder": [],
+    "tp_ladder": [
+      8.29,
+      8.51,
+      8.69
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 8.52,
-    "atr20": 0.45,
-    "sma200": 10.76,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 8.6,
+    "atr20": 0.48,
+    "sma200": 10.73
   },
   {
     "symbol": "COIN",
@@ -567,15 +444,16 @@
     "entry_estimate": 205.85,
     "entry": 205.85,
     "stop": 182.9,
-    "tp_ladder": [],
+    "tp_ladder": [
+      206.01,
+      208.88,
+      213.47
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 204.76,
-    "atr20": 13.39,
-    "sma200": 255.34,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 201.95,
+    "atr20": 13.79,
+    "sma200": 254.41
   },
   {
     "symbol": "AVTR",
@@ -589,12 +467,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 8.05,
-    "atr20": 0.38,
-    "sma200": 10.96,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 7.98,
+    "atr20": 0.41,
+    "sma200": 10.93
   },
   {
     "symbol": "MDT",
@@ -605,15 +480,16 @@
     "entry_estimate": 76.9,
     "entry": 76.9,
     "stop": 74.4,
-    "tp_ladder": [],
+    "tp_ladder": [
+      79.11,
+      88.67,
+      91.85
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 77.15,
-    "atr20": 1.81,
-    "sma200": 93.51,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 76.99,
+    "atr20": 1.84,
+    "sma200": 93.43
   },
   {
     "symbol": "TEAM",
@@ -624,15 +500,16 @@
     "entry_estimate": 82.2,
     "entry": 82.2,
     "stop": 78.23,
-    "tp_ladder": [],
+    "tp_ladder": [
+      84.95,
+      95,
+      96.32
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 84.08,
-    "atr20": 6.11,
-    "sma200": 129.47,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 84.57,
+    "atr20": 6.27,
+    "sma200": 128.92
   },
   {
     "symbol": "MOS",
@@ -643,15 +520,16 @@
     "entry_estimate": 22.23,
     "entry": 22.23,
     "stop": 21.18,
-    "tp_ladder": [],
+    "tp_ladder": [
+      23.87,
+      24.79,
+      25.37
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 22.6,
-    "atr20": 0.79,
-    "sma200": 28.07,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 22.54,
+    "atr20": 0.83,
+    "sma200": 28.0
   },
   {
     "symbol": "GIS",
@@ -665,12 +543,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 34.09,
-    "atr20": 0.86,
-    "sma200": 44.84,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 33.91,
+    "atr20": 0.88,
+    "sma200": 44.76
   },
   {
     "symbol": "CELH",
@@ -684,12 +559,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 30.65,
-    "atr20": 1.78,
-    "sma200": 47.94,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 30.46,
+    "atr20": 1.8,
+    "sma200": 47.86
   },
   {
     "symbol": "GT",
@@ -703,12 +575,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 6.24,
-    "atr20": 0.29,
-    "sma200": 8.05,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 6.11,
+    "atr20": 0.28,
+    "sma200": 8.03
   },
   {
     "symbol": "VISN",
@@ -722,12 +591,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 12.01,
+    "ema8": 11.88,
     "atr20": 1.12,
-    "sma200": 16.91,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 16.93
   },
   {
     "symbol": "SNOW",
@@ -741,12 +607,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 149.78,
-    "atr20": 7.55,
-    "sma200": 204.11,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 151.42,
+    "atr20": 8.01,
+    "sma200": 203.79
   },
   {
     "symbol": "CHWY",
@@ -760,12 +623,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 22.88,
-    "atr20": 1.13,
-    "sma200": 32.04,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 22.55,
+    "atr20": 1.16,
+    "sma200": 31.96
   },
   {
     "symbol": "SBET",
@@ -776,15 +636,16 @@
     "entry_estimate": 7.17,
     "entry": 7.17,
     "stop": 6.89,
-    "tp_ladder": [],
+    "tp_ladder": [
+      7.32,
+      7.53,
+      7.88
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 7.3,
-    "atr20": 0.39,
-    "sma200": 11.57,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 7.21,
+    "atr20": 0.43,
+    "sma200": 11.51
   },
   {
     "symbol": "CPB",
@@ -798,12 +659,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 20.52,
-    "atr20": 0.58,
-    "sma200": 27.87,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 20.41,
+    "atr20": 0.61,
+    "sma200": 27.81
   },
   {
     "symbol": "BKNG",
@@ -817,12 +675,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 161.4,
-    "atr20": 6.39,
-    "sma200": 197.51,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 159.82,
+    "atr20": 6.29,
+    "sma200": 197.19
   },
   {
     "symbol": "IP",
@@ -836,12 +691,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 32.38,
+    "ema8": 31.99,
     "atr20": 1.46,
-    "sma200": 41.55,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 41.43
   },
   {
     "symbol": "CPRT",
@@ -852,15 +704,16 @@
     "entry_estimate": 33.1,
     "entry": 33.1,
     "stop": 32.56,
-    "tp_ladder": [],
+    "tp_ladder": [
+      33.65,
+      34.05,
+      34.52
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 33.29,
-    "atr20": 0.67,
-    "sma200": 40.25,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 33.08,
+    "atr20": 0.69,
+    "sma200": 40.18
   },
   {
     "symbol": "ADMA",
@@ -874,12 +727,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 8.82,
-    "atr20": 0.59,
-    "sma200": 15.45,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 8.71,
+    "atr20": 0.6,
+    "sma200": 15.4
   },
   {
     "symbol": "ASAN",
@@ -890,15 +740,16 @@
     "entry_estimate": 5.92,
     "entry": 5.92,
     "stop": 5.64,
-    "tp_ladder": [],
+    "tp_ladder": [
+      6.43,
+      6.62,
+      6.89
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 6.22,
-    "atr20": 0.45,
-    "sma200": 11.13,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 6.2,
+    "atr20": 0.46,
+    "sma200": 11.08
   },
   {
     "symbol": "GPK",
@@ -909,15 +760,16 @@
     "entry_estimate": 10.36,
     "entry": 10.36,
     "stop": 9.75,
-    "tp_ladder": [],
+    "tp_ladder": [
+      11.38,
+      11.92,
+      12.37
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 10.23,
-    "atr20": 0.44,
-    "sma200": 15.34,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.11,
+    "atr20": 0.47,
+    "sma200": 15.27
   },
   {
     "symbol": "CSGP",
@@ -928,15 +780,16 @@
     "entry_estimate": 32.53,
     "entry": 32.53,
     "stop": 31.36,
-    "tp_ladder": [],
+    "tp_ladder": [
+      35.59,
+      41.03,
+      41.63
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 33.29,
-    "atr20": 1.51,
-    "sma200": 63.87,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 33.06,
+    "atr20": 1.57,
+    "sma200": 63.55
   },
   {
     "symbol": "DT",
@@ -947,15 +800,16 @@
     "entry_estimate": 36.5,
     "entry": 36.5,
     "stop": 32.88,
-    "tp_ladder": [],
+    "tp_ladder": [
+      36.58,
+      37.48,
+      37.96
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 37.91,
-    "atr20": 1.71,
-    "sma200": 43.04,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 37.94,
+    "atr20": 1.8,
+    "sma200": 42.96
   },
   {
     "symbol": "FIS",
@@ -969,12 +823,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 43.78,
-    "atr20": 1.38,
-    "sma200": 59.9,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 43.43,
+    "atr20": 1.45,
+    "sma200": 59.71
   },
   {
     "symbol": "KVYO",
@@ -988,12 +839,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 15.91,
-    "atr20": 1.44,
-    "sma200": 25.41,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 15.6,
+    "atr20": 1.47,
+    "sma200": 25.33
   },
   {
     "symbol": "CTSH",
@@ -1007,12 +855,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 48.98,
-    "atr20": 1.88,
-    "sma200": 69.86,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 48.59,
+    "atr20": 1.95,
+    "sma200": 69.73
   },
   {
     "symbol": "GTLB",
@@ -1023,15 +868,16 @@
     "entry_estimate": 22.73,
     "entry": 22.73,
     "stop": 21.58,
-    "tp_ladder": [],
+    "tp_ladder": [
+      22.75,
+      23.22,
+      24.2
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 23.55,
-    "atr20": 1.36,
-    "sma200": 36.33,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 23.58,
+    "atr20": 1.38,
+    "sma200": 36.22
   },
   {
     "symbol": "IBM",
@@ -1042,15 +888,16 @@
     "entry_estimate": 218.3,
     "entry": 218.3,
     "stop": 212.35,
-    "tp_ladder": [],
+    "tp_ladder": [
+      231.82,
+      235.95,
+      245.96
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 222.82,
-    "atr20": 7.06,
-    "sma200": 270.6,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 221.93,
+    "atr20": 7.23,
+    "sma200": 270.37
   },
   {
     "symbol": "FISV",
@@ -1061,15 +908,16 @@
     "entry_estimate": 53.15,
     "entry": 53.15,
     "stop": 52.18,
-    "tp_ladder": [],
+    "tp_ladder": [
+      58.19,
+      59.56,
+      63.12
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 55.35,
-    "atr20": 1.9,
-    "sma200": 84.43,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 55.22,
+    "atr20": 1.95,
+    "sma200": 84.01
   },
   {
     "symbol": "BX",
@@ -1080,15 +928,16 @@
     "entry_estimate": 123.57,
     "entry": 123.57,
     "stop": 118.55,
-    "tp_ladder": [],
+    "tp_ladder": [
+      128.24,
+      133.25,
+      134.86
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 122.53,
-    "atr20": 3.97,
-    "sma200": 145.54,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 121.7,
+    "atr20": 4.05,
+    "sma200": 145.26
   },
   {
     "symbol": "TEM",
@@ -1102,12 +951,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 48.53,
-    "atr20": 3.0,
-    "sma200": 66.64,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 47.45,
+    "atr20": 3.06,
+    "sma200": 66.57
   },
   {
     "symbol": "COUR",
@@ -1121,12 +967,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 5.61,
+    "ema8": 5.49,
     "atr20": 0.39,
-    "sma200": 8.17,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 8.13
   },
   {
     "symbol": "ZTS",
@@ -1140,12 +983,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 85.33,
-    "atr20": 4.33,
-    "sma200": 129.46,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 83.1,
+    "atr20": 4.39,
+    "sma200": 129.1
   },
   {
     "symbol": "BBWI",
@@ -1159,12 +999,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 18.84,
-    "atr20": 1.03,
-    "sma200": 22.86,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 18.51,
+    "atr20": 1.0,
+    "sma200": 22.8
   },
   {
     "symbol": "IOT",
@@ -1175,15 +1012,16 @@
     "entry_estimate": 27.89,
     "entry": 27.89,
     "stop": 26.8,
-    "tp_ladder": [],
+    "tp_ladder": [
+      28.28,
+      31.61,
+      32.59
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 28.72,
-    "atr20": 1.44,
-    "sma200": 34.31,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 28.86,
+    "atr20": 1.55,
+    "sma200": 34.26
   },
   {
     "symbol": "ACN",
@@ -1194,15 +1032,16 @@
     "entry_estimate": 165.72,
     "entry": 165.72,
     "stop": 155.88,
-    "tp_ladder": [],
+    "tp_ladder": [
+      181.29,
+      183.9,
+      199.65
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 170.73,
-    "atr20": 6.74,
-    "sma200": 235.59,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 169.99,
+    "atr20": 6.99,
+    "sma200": 235.04
   },
   {
     "symbol": "STNE",
@@ -1216,12 +1055,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 10.45,
-    "atr20": 0.61,
-    "sma200": 15.63,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.29,
+    "atr20": 0.62,
+    "sma200": 15.61
   },
   {
     "symbol": "GEHC",
@@ -1232,15 +1068,16 @@
     "entry_estimate": 62.95,
     "entry": 62.95,
     "stop": 61.09,
-    "tp_ladder": [],
+    "tp_ladder": [
+      64.35,
+      70.88,
+      72
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 62.54,
-    "atr20": 2.16,
-    "sma200": 75.78,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 62.19,
+    "atr20": 2.17,
+    "sma200": 75.73
   },
   {
     "symbol": "KKR",
@@ -1251,15 +1088,16 @@
     "entry_estimate": 100.33,
     "entry": 100.33,
     "stop": 96.97,
-    "tp_ladder": [],
+    "tp_ladder": [
+      102.99,
+      105.41,
+      107.65
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 100.18,
-    "atr20": 3.31,
-    "sma200": 118.5,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 99.63,
+    "atr20": 3.43,
+    "sma200": 118.24
   },
   {
     "symbol": "FLO",
@@ -1273,12 +1111,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 8.05,
-    "atr20": 0.32,
-    "sma200": 11.34,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 7.89,
+    "atr20": 0.33,
+    "sma200": 11.3
   },
   {
     "symbol": "ADBE",
@@ -1289,15 +1124,16 @@
     "entry_estimate": 236.57,
     "entry": 236.57,
     "stop": 231.74,
-    "tp_ladder": [],
+    "tp_ladder": [
+      247.44,
+      251.02,
+      254.51
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 243.58,
-    "atr20": 8.88,
-    "sma200": 308.74,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 244.01,
+    "atr20": 9.02,
+    "sma200": 308.16
   },
   {
     "symbol": "WDAY",
@@ -1308,15 +1144,16 @@
     "entry_estimate": 120.07,
     "entry": 120.07,
     "stop": 112.59,
-    "tp_ladder": [],
+    "tp_ladder": [
+      123.37,
+      131,
+      132.69
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 121.38,
-    "atr20": 6.36,
-    "sma200": 190.67,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 121.9,
+    "atr20": 6.56,
+    "sma200": 190.1
   },
   {
     "symbol": "INTR",
@@ -1330,12 +1167,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 6.56,
-    "atr20": 0.36,
-    "sma200": 8.49,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 6.4,
+    "atr20": 0.37,
+    "sma200": 8.48
   },
   {
     "symbol": "HRL",
@@ -1346,15 +1180,16 @@
     "entry_estimate": 20.34,
     "entry": 20.34,
     "stop": 19.81,
-    "tp_ladder": [],
+    "tp_ladder": [
+      21.64,
+      22.02,
+      22.88
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 20.41,
-    "atr20": 0.49,
-    "sma200": 23.9,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 20.25,
+    "atr20": 0.52,
+    "sma200": 23.85
   },
   {
     "symbol": "DHR",
@@ -1368,12 +1203,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 169.28,
-    "atr20": 4.73,
-    "sma200": 207.48,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 167.83,
+    "atr20": 5.06,
+    "sma200": 207.26
   },
   {
     "symbol": "RDDT",
@@ -1384,15 +1216,16 @@
     "entry_estimate": 152.56,
     "entry": 152.56,
     "stop": 148.76,
-    "tp_ladder": [],
+    "tp_ladder": [
+      153.2,
+      154.77,
+      156.39
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 157.0,
-    "atr20": 9.22,
-    "sma200": 193.57,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 157.03,
+    "atr20": 9.61,
+    "sma200": 193.63
   },
   {
     "symbol": "MAT",
@@ -1403,15 +1236,16 @@
     "entry_estimate": 15.08,
     "entry": 15.08,
     "stop": 14.72,
-    "tp_ladder": [],
+    "tp_ladder": [
+      15.35,
+      15.56,
+      16.38
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 15.02,
-    "atr20": 0.49,
-    "sma200": 17.92,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 15.07,
+    "atr20": 0.51,
+    "sma200": 17.91
   },
   {
     "symbol": "AEO",
@@ -1425,12 +1259,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 16.03,
-    "atr20": 0.68,
-    "sma200": 19.23,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 15.89,
+    "atr20": 0.71,
+    "sma200": 19.25
   },
   {
     "symbol": "SRAD",
@@ -1441,15 +1272,16 @@
     "entry_estimate": 12.7,
     "entry": 12.7,
     "stop": 12.03,
-    "tp_ladder": [],
+    "tp_ladder": [
+      14.02,
+      14.44,
+      17.42
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 12.9,
+    "ema8": 12.84,
     "atr20": 1.08,
-    "sma200": 22.25,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 22.16
   },
   {
     "symbol": "BRBR",
@@ -1463,12 +1295,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 10.61,
-    "atr20": 1.18,
-    "sma200": 27.14,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.34,
+    "atr20": 1.2,
+    "sma200": 26.92
   },
   {
     "symbol": "UPWK",
@@ -1482,12 +1311,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 8.99,
+    "ema8": 8.79,
     "atr20": 0.63,
-    "sma200": 15.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 15.7
   },
   {
     "symbol": "CHYM",
@@ -1501,12 +1327,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 18.82,
-    "atr20": 1.04,
-    "sma200": 22.83,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 18.57,
+    "atr20": 1.06,
+    "sma200": 22.76
   },
   {
     "symbol": "DASH",
@@ -1517,15 +1340,16 @@
     "entry_estimate": 154.09,
     "entry": 154.09,
     "stop": 148.1,
-    "tp_ladder": [],
+    "tp_ladder": [
+      168,
+      174.06,
+      177.07
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 159.21,
-    "atr20": 7.58,
-    "sma200": 213.46,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 158.72,
+    "atr20": 7.54,
+    "sma200": 213.01
   },
   {
     "symbol": "DXC",
@@ -1539,12 +1363,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 9.49,
-    "atr20": 0.76,
-    "sma200": 13.36,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 9.34,
+    "atr20": 0.78,
+    "sma200": 13.33
   },
   {
     "symbol": "AI",
@@ -1555,15 +1376,16 @@
     "entry_estimate": 9.08,
     "entry": 9.08,
     "stop": 8.51,
-    "tp_ladder": [],
+    "tp_ladder": [
+      9.12,
+      9.31,
+      9.42
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 9.13,
-    "atr20": 0.45,
-    "sma200": 13.78,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 9.02,
+    "atr20": 0.46,
+    "sma200": 13.7
   },
   {
     "symbol": "MKC",
@@ -1574,15 +1396,16 @@
     "entry_estimate": 46.87,
     "entry": 46.87,
     "stop": 44.84,
-    "tp_ladder": [],
+    "tp_ladder": [
+      54.03,
+      54.71,
+      63.62
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 47.33,
-    "atr20": 1.4,
-    "sma200": 63.65,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 47.13,
+    "atr20": 1.45,
+    "sma200": 63.53
   },
   {
     "symbol": "ALK",
@@ -1596,12 +1419,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 38.99,
-    "atr20": 1.98,
-    "sma200": 48.26,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 38.65,
+    "atr20": 1.81,
+    "sma200": 48.19
   },
   {
     "symbol": "KD",
@@ -1615,12 +1435,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 12.03,
-    "atr20": 0.67,
-    "sma200": 23.06,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 11.86,
+    "atr20": 0.68,
+    "sma200": 22.92
   },
   {
     "symbol": "VST",
@@ -1634,12 +1451,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 148.77,
-    "atr20": 6.63,
-    "sma200": 176.04,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 146.62,
+    "atr20": 6.8,
+    "sma200": 175.7
   },
   {
     "symbol": "KSS",
@@ -1653,12 +1467,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 13.11,
-    "atr20": 0.78,
-    "sma200": 16.52,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 12.83,
+    "atr20": 0.8,
+    "sma200": 16.52
   },
   {
     "symbol": "KTOS",
@@ -1672,12 +1483,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 57.1,
-    "atr20": 3.5,
-    "sma200": 80.82,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 55.88,
+    "atr20": 3.51,
+    "sma200": 80.79
   },
   {
     "symbol": "ATEC",
@@ -1691,12 +1499,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 7.97,
-    "atr20": 0.78,
-    "sma200": 15.27,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 7.88,
+    "atr20": 0.8,
+    "sma200": 15.26
   },
   {
     "symbol": "W",
@@ -1710,12 +1515,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 63.17,
-    "atr20": 4.1,
-    "sma200": 87.02,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 62.36,
+    "atr20": 3.93,
+    "sma200": 86.99
   },
   {
     "symbol": "HD",
@@ -1729,12 +1531,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 311.91,
-    "atr20": 7.74,
-    "sma200": 368.19,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 309.38,
+    "atr20": 7.48,
+    "sma200": 367.82
   },
   {
     "symbol": "WVE",
@@ -1748,12 +1547,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 7.07,
+    "ema8": 6.97,
     "atr20": 0.35,
-    "sma200": 10.16,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 10.15
   },
   {
     "symbol": "GPGI",
@@ -1767,12 +1563,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 13.58,
-    "atr20": 1.1,
-    "sma200": 19.51,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 13.27,
+    "atr20": 1.13,
+    "sma200": 19.5
   },
   {
     "symbol": "PGY",
@@ -1786,12 +1579,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 13.98,
-    "atr20": 0.85,
-    "sma200": 22.75,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 13.81,
+    "atr20": 0.87,
+    "sma200": 22.67
   },
   {
     "symbol": "FSK",
@@ -1802,15 +1592,16 @@
     "entry_estimate": 10.82,
     "entry": 10.82,
     "stop": 10.56,
-    "tp_ladder": [],
+    "tp_ladder": [
+      10.93,
+      11.27,
+      11.42
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 10.9,
-    "atr20": 0.33,
-    "sma200": 14.22,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.89,
+    "atr20": 0.35,
+    "sma200": 14.17
   },
   {
     "symbol": "DJT",
@@ -1821,15 +1612,16 @@
     "entry_estimate": 8.91,
     "entry": 8.91,
     "stop": 8.57,
-    "tp_ladder": [],
+    "tp_ladder": [
+      9.24,
+      9.7,
+      9.88
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 8.97,
+    "ema8": 8.91,
     "atr20": 0.45,
-    "sma200": 13.12,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 13.07
   },
   {
     "symbol": "REAL",
@@ -1843,12 +1635,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 10.35,
-    "atr20": 0.83,
-    "sma200": 11.55,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.05,
+    "atr20": 0.84,
+    "sma200": 11.57
   },
   {
     "symbol": "OTIS",
@@ -1862,12 +1651,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 74.67,
-    "atr20": 1.84,
-    "sma200": 86.73,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 73.93,
+    "atr20": 1.93,
+    "sma200": 86.66
   },
   {
     "symbol": "VRDN",
@@ -1878,15 +1664,16 @@
     "entry_estimate": 17.64,
     "entry": 17.64,
     "stop": 16.44,
-    "tp_ladder": [],
+    "tp_ladder": [
+      17.79,
+      18.44,
+      18.8
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 16.75,
-    "atr20": 0.93,
-    "sma200": 24.32,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 16.76,
+    "atr20": 1.0,
+    "sma200": 24.32
   },
   {
     "symbol": "VEEV",
@@ -1897,15 +1684,16 @@
     "entry_estimate": 157.53,
     "entry": 157.53,
     "stop": 152.88,
-    "tp_ladder": [],
+    "tp_ladder": [
+      164.42,
+      174.97,
+      177.91
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 160.92,
-    "atr20": 6.24,
-    "sma200": 231.99,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 160.16,
+    "atr20": 6.43,
+    "sma200": 231.34
   },
   {
     "symbol": "SMPL",
@@ -1916,15 +1704,16 @@
     "entry_estimate": 11.57,
     "entry": 11.57,
     "stop": 11.01,
-    "tp_ladder": [],
+    "tp_ladder": [
+      12.73,
+      13.86,
+      14.71
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 11.86,
-    "atr20": 0.52,
-    "sma200": 20.06,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 11.81,
+    "atr20": 0.53,
+    "sma200": 19.97
   },
   {
     "symbol": "ABR",
@@ -1938,12 +1727,9 @@
     "tp_ladder": [],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 6.68,
-    "atr20": 0.34,
-    "sma200": 9.28,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 6.48,
+    "atr20": 0.35,
+    "sma200": 9.25
   },
   {
     "symbol": "DLTR",
@@ -1954,38 +1740,16 @@
     "entry_estimate": 88.92,
     "entry": 88.92,
     "stop": 85.92,
-    "tp_ladder": [],
+    "tp_ladder": [
+      90.83,
+      96.64,
+      98.66
+    ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 91.33,
-    "atr20": 3.96,
-    "sma200": 110.33,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "QS",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:18:41-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 8.45,
-    "entry": 8.45,
-    "stop": 7.16,
-    "tp_ladder": [
-      8.55,
-      9.45,
-      9.59
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 8.09,
-    "atr20": 0.7,
-    "sma200": 10.14,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 91.34,
+    "atr20": 3.87,
+    "sma200": 110.22
   },
   {
     "symbol": "SNAP",
@@ -2003,58 +1767,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 5.72,
-    "atr20": 0.32,
-    "sma200": 6.9,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "SOFI",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:35:31-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 15.59,
-    "entry": 15.59,
-    "stop": 15.21,
-    "tp_ladder": [
-      15.64,
-      16.32,
-      16.43
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 15.93,
-    "atr20": 0.8,
-    "sma200": 23.51,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "PLTR",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:35:31-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 133.03,
-    "entry": 133.03,
-    "stop": 128.75,
-    "tp_ladder": [
-      135.28,
-      140.0,
-      140.96
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 135.43,
-    "atr20": 5.9,
-    "sma200": 163.47,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 5.67,
+    "atr20": 0.33,
+    "sma200": 6.88
   },
   {
     "symbol": "ONDS",
@@ -2072,12 +1787,9 @@
     ],
     "confidence": 0.6,
     "source": "swing-cycle",
-    "ema8": 9.76,
-    "atr20": 0.86,
-    "sma200": 8.53,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 9.91,
+    "atr20": 0.9,
+    "sma200": 8.57
   },
   {
     "symbol": "ONDS",
@@ -2095,12 +1807,9 @@
     ],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 9.76,
-    "atr20": 0.86,
-    "sma200": 8.53,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 9.91,
+    "atr20": 0.9,
+    "sma200": 8.57
   },
   {
     "symbol": "NU",
@@ -2118,58 +1827,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 13.5,
-    "atr20": 0.4,
-    "sma200": 15.47,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "SMR",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:35:31-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 11.99,
-    "entry": 11.99,
-    "stop": 11.4,
-    "tp_ladder": [
-      12.52,
-      12.7,
-      13.3
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 12.29,
-    "atr20": 1.26,
-    "sma200": 24.06,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "ACHR",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T11:35:31-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 6.43,
-    "entry": 6.43,
-    "stop": 6.05,
-    "tp_ladder": [
-      6.49,
-      6.68,
-      7.28
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 6.34,
-    "atr20": 0.38,
-    "sma200": 8.16,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 13.18,
+    "atr20": 0.44,
+    "sma200": 15.46
   },
   {
     "symbol": "HIMS",
@@ -2187,12 +1847,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 25.95,
-    "atr20": 2.28,
-    "sma200": 36.06,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 25.63,
+    "atr20": 2.25,
+    "sma200": 35.85
   },
   {
     "symbol": "HOOD",
@@ -2204,18 +1861,15 @@
     "entry": 78.45,
     "stop": 74.25,
     "tp_ladder": [
-      79.38,
+      79.49,
       80.75,
       84.75
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 78.62,
-    "atr20": 4.39,
-    "sma200": 105.39,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 78.07,
+    "atr20": 4.34,
+    "sma200": 105.25
   },
   {
     "symbol": "RGTI",
@@ -2228,17 +1882,14 @@
     "stop": 17.75,
     "tp_ladder": [
       20.12,
-      25.85,
-      26.44
+      21.02,
+      26.5
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 18.94,
-    "atr20": 1.46,
-    "sma200": 22.99,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 18.66,
+    "atr20": 1.51,
+    "sma200": 23.01
   },
   {
     "symbol": "SOUN",
@@ -2258,10 +1909,7 @@
     "source": "swing-cycle",
     "ema8": 8.56,
     "atr20": 0.64,
-    "sma200": 11.54,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 11.53
   },
   {
     "symbol": "NKE",
@@ -2273,18 +1921,15 @@
     "entry": 42.33,
     "stop": 41.7,
     "tp_ladder": [
+      44.66,
       45.71,
-      46.78,
-      53.11
+      46.97
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 43.0,
-    "atr20": 1.01,
-    "sma200": 62.57,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 42.82,
+    "atr20": 1.0,
+    "sma200": 62.4
   },
   {
     "symbol": "PATH",
@@ -2297,17 +1942,14 @@
     "stop": 9.2,
     "tp_ladder": [
       10.99,
-      11.05,
-      11.19
+      11.1,
+      11.24
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 10.16,
+    "ema8": 10.13,
     "atr20": 0.53,
-    "sma200": 13.01,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 13.0
   },
   {
     "symbol": "NCLH",
@@ -2325,12 +1967,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 16.64,
-    "atr20": 0.9,
-    "sma200": 21.79,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 16.41,
+    "atr20": 0.83,
+    "sma200": 21.75
   },
   {
     "symbol": "CPNG",
@@ -2348,12 +1987,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 17.15,
-    "atr20": 0.83,
-    "sma200": 24.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 16.92,
+    "atr20": 0.84,
+    "sma200": 24.65
   },
   {
     "symbol": "BSX",
@@ -2371,12 +2007,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 54.6,
-    "atr20": 2.11,
-    "sma200": 87.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 54.27,
+    "atr20": 2.15,
+    "sma200": 87.46
   },
   {
     "symbol": "TTD",
@@ -2394,12 +2027,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 21.82,
-    "atr20": 1.27,
-    "sma200": 38.85,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 21.59,
+    "atr20": 1.26,
+    "sma200": 38.52
   },
   {
     "symbol": "PINS",
@@ -2417,12 +2047,9 @@
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 20.23,
-    "atr20": 0.99,
-    "sma200": 26.58,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 19.99,
+    "atr20": 1.01,
+    "sma200": 26.48
   },
   {
     "symbol": "BMNR",
@@ -2434,41 +2061,15 @@
     "entry": 22.12,
     "stop": 20.69,
     "tp_ladder": [
+      22.17,
       23.16,
-      23.44,
-      23.85
+      23.44
     ],
     "confidence": 0.72,
     "source": "swing-cycle",
-    "ema8": 22.03,
+    "ema8": 21.61,
     "atr20": 1.23,
-    "sma200": 34.29,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "OWL",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T15:18:32-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 9.91,
-    "entry": 9.91,
-    "stop": 9.35,
-    "tp_ladder": [
-      10.22,
-      10.33,
-      10.59
-    ],
-    "confidence": 0.72,
-    "source": "swing-cycle",
-    "ema8": 10.01,
-    "atr20": 0.53,
-    "sma200": 14.27,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 34.22
   },
   {
     "symbol": "CMCSA",
@@ -2480,64 +2081,15 @@
     "entry": 25.16,
     "stop": 24.53,
     "tp_ladder": [
-      27.22,
+      27.42,
       28.06,
       28.47
     ],
     "confidence": 0.72,
     "source": "swing-cycle",
-    "ema8": 25.6,
+    "ema8": 25.48,
     "atr20": 0.96,
-    "sma200": 29.75,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "NOW",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T15:18:32-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 91.06,
-    "entry": 91.06,
-    "stop": 85.44,
-    "tp_ladder": [
-      94.03,
-      95.56,
-      99.39
-    ],
-    "confidence": 0.72,
-    "source": "swing-cycle",
-    "ema8": 90.21,
-    "atr20": 5.14,
-    "sma200": 145.3,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "RKT",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T15:18:32-0400",
-    "added_ordinal": 739750,
-    "entry_estimate": 14.46,
-    "entry": 14.46,
-    "stop": 13.8,
-    "tp_ladder": [
-      14.57,
-      14.98,
-      15.18
-    ],
-    "confidence": 0.72,
-    "source": "swing-cycle",
-    "ema8": 14.56,
-    "atr20": 0.86,
-    "sma200": 17.74,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "sma200": 29.71
   },
   {
     "symbol": "CSCO",
@@ -2551,12 +2103,9 @@
     "tp_ladder": [],
     "confidence": 0.7,
     "source": "swing-cycle",
-    "ema8": 100.77,
-    "atr20": 3.09,
-    "sma200": 76.4,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 104.38,
+    "atr20": 3.26,
+    "sma200": 76.64
   },
   {
     "symbol": "QXO",
@@ -2574,12 +2123,9 @@
     ],
     "confidence": 0.72,
     "source": "swing-cycle",
-    "ema8": 18.24,
-    "atr20": 1.14,
-    "sma200": 20.74,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 17.85,
+    "atr20": 1.16,
+    "sma200": 20.72
   },
   {
     "symbol": "ENPH",
@@ -2597,12 +2143,9 @@
     ],
     "confidence": 0.68,
     "source": "swing-cycle",
-    "ema8": 39.74,
-    "atr20": 2.75,
-    "sma200": 36.34,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 42.21,
+    "atr20": 3.08,
+    "sma200": 36.43
   },
   {
     "symbol": "PCT",
@@ -2620,81 +2163,9 @@
     ],
     "confidence": 0.7,
     "source": "swing-cycle",
-    "ema8": 9.81,
-    "atr20": 0.72,
-    "sma200": 10.0,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "EOSE",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T15:34:06-0400",
-    "added_ordinal": 2,
-    "entry_estimate": 8.25,
-    "entry": 8.25,
-    "stop": 6.57,
-    "tp_ladder": [
-      11.35,
-      15.34,
-      19.04
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 7.75,
-    "atr20": 0.77,
-    "sma200": 10.55,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "JOBY",
-    "pattern": "oversold-bounce",
-    "setup": "dip",
-    "added_ts": "2026-05-14T15:34:06-0400",
-    "added_ordinal": 3,
-    "entry_estimate": 10.63,
-    "entry": 10.63,
-    "stop": 9.92,
-    "tp_ladder": [
-      11.15,
-      18.55,
-      20.94
-    ],
-    "confidence": 0.73,
-    "source": "swing-cycle",
-    "ema8": 10.38,
-    "atr20": 0.72,
-    "sma200": 13.2,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
-  },
-  {
-    "symbol": "ENVX",
-    "pattern": "downtrend-break",
-    "setup": "dip",
-    "added_ts": "2026-05-14T15:34:06-0400",
-    "added_ordinal": 6,
-    "entry_estimate": 6.28,
-    "entry": 6.28,
-    "stop": 5.84,
-    "tp_ladder": [
-      8.62,
-      9.05,
-      16.23
-    ],
-    "confidence": 0.76,
-    "source": "swing-cycle",
-    "ema8": 6.76,
-    "atr20": 0.5,
-    "sma200": 8.23,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.4,
+    "atr20": 0.75,
+    "sma200": 9.99
   },
   {
     "symbol": "NFLX",
@@ -2706,18 +2177,15 @@
     "entry": 87.08,
     "stop": 85.1,
     "tp_ladder": [
-      89.9,
-      91.57,
+      89.17,
+      91.58,
       94.7
     ],
     "confidence": 0.73,
     "source": "swing-cycle",
-    "ema8": 88.04,
-    "atr20": 2.79,
-    "sma200": 102.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 87.81,
+    "atr20": 2.32,
+    "sma200": 102.57
   },
   {
     "symbol": "CSCO",
@@ -2731,12 +2199,9 @@
     "tp_ladder": [],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 100.77,
-    "atr20": 3.09,
-    "sma200": 76.4,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 104.38,
+    "atr20": 3.26,
+    "sma200": 76.64
   },
   {
     "symbol": "BA",
@@ -2754,12 +2219,9 @@
     ],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 233.5,
-    "atr20": 7.29,
-    "sma200": 219.69,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 230.98,
+    "atr20": 7.19,
+    "sma200": 219.68
   },
   {
     "symbol": "SLS",
@@ -2773,12 +2235,9 @@
     "tp_ladder": [],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 5.83,
-    "atr20": 0.42,
-    "sma200": 3.14,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 6.13,
+    "atr20": 0.43,
+    "sma200": 3.16
   },
   {
     "symbol": "ENB",
@@ -2792,12 +2251,9 @@
     "tp_ladder": [],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 54.86,
-    "atr20": 0.94,
-    "sma200": 49.72,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 54.94,
+    "atr20": 1.01,
+    "sma200": 49.77
   },
   {
     "symbol": "PCT",
@@ -2815,11 +2271,28 @@
     ],
     "confidence": 0.76,
     "source": "swing-cycle",
-    "ema8": 9.83,
-    "atr20": 0.72,
-    "sma200": 10.0,
-    "status": "watching",
-    "tp_steps_hit": 0,
-    "regime_at_add": "Unknown"
+    "ema8": 10.4,
+    "atr20": 0.75,
+    "sma200": 9.99
+  },
+  {
+    "symbol": "FIG",
+    "pattern": "oversold-bounce",
+    "setup": "dip",
+    "entry_estimate": 22.96,
+    "entry": 22.96,
+    "stop": 18.52,
+    "tp_ladder": [
+      23.13,
+      25.17,
+      27.95
+    ],
+    "confidence": 0.72,
+    "source": "swing-cycle",
+    "ema8": 20.19,
+    "atr20": 1.36,
+    "sma200": 40.68,
+    "added_ts": "2026-05-15T11:22:36-0400",
+    "added_ordinal": 739751
   }
 ]

@@ -58,8 +58,9 @@ def test_check_stops_sells_when_price_at_stop(
     mock_broker = MagicMock()
     mock_broker.return_value.submit_order.return_value = {"id": "order1"}
     mock_client = MagicMock()
-    mock_client.return_value.get_latest_trade.return_value.price = 128.0
     mock_client.return_value.get_open_position.return_value.qty = "10"
+
+    monkeypatch.setattr(t, "_get_latest_price", lambda symbol: 128.0)
 
     with patch("swing.trader.TradingClient", mock_client), \
          patch("swing.trader.AlpacaBroker", mock_broker):
@@ -76,12 +77,9 @@ def test_check_stops_no_action_when_price_above_stop(
     import swing.trader as t
     _patch_trader(monkeypatch, tmp_path, watchlist_active, outcomes_path, sync_state_path)
 
-    mock_client = MagicMock()
-    mock_client.return_value.get_latest_trade.return_value.price = 135.0
-    mock_client.return_value.get_open_position.return_value.qty = "10"
+    monkeypatch.setattr(t, "_get_latest_price", lambda symbol: 135.0)
 
-    with patch("swing.trader.TradingClient", mock_client), \
-         patch("swing.trader.AlpacaBroker", MagicMock()):
+    with patch("swing.trader.AlpacaBroker", MagicMock()):
         actions = t.check_stops()
 
     assert len(actions) == 0
@@ -96,8 +94,9 @@ def test_check_tps_sells_partial_at_tp1(
     mock_broker = MagicMock()
     mock_broker.return_value.submit_order.return_value = {"id": "order2"}
     mock_client = MagicMock()
-    mock_client.return_value.get_latest_trade.return_value.price = 136.0
     mock_client.return_value.get_open_position.return_value.qty = "9"
+
+    monkeypatch.setattr(t, "_get_latest_price", lambda symbol: 136.0)
 
     with patch("swing.trader.TradingClient", mock_client), \
          patch("swing.trader.AlpacaBroker", mock_broker):
@@ -118,10 +117,10 @@ def test_check_regime_exits_all_on_extreme_vol(
     mock_broker = MagicMock()
     mock_broker.return_value.submit_order.return_value = {"id": "order3"}
     mock_client = MagicMock()
-    mock_client.return_value.get_latest_trade.return_value.price = 130.0
     mock_client.return_value.get_open_position.return_value.qty = "5"
 
     monkeypatch.setattr(t, "_get_current_regime", lambda: ("Extreme Vol", 0.90))
+    monkeypatch.setattr(t, "_get_latest_price", lambda symbol: 130.0)
 
     with patch("swing.trader.TradingClient", mock_client), \
          patch("swing.trader.AlpacaBroker", mock_broker):
@@ -155,7 +154,10 @@ def test_auto_buy_skips_when_daily_cap_reached(
     _patch_trader(monkeypatch, tmp_path, watchlist_watching, outcomes_path, sync_state_path)
 
     today = date.today().isoformat()
-    sync_state_path.write_text(json.dumps({"buy_date": today, "daily_buy_count": 3}))
+    sync_state_path.write_text(json.dumps({"buy_date": today, "daily_buy_count": t._MAX_DAILY_BUYS}))
+
+    monkeypatch.setattr(t, "_swing_exposure", lambda: 0.0)
+    monkeypatch.setattr(t, "_make_client", lambda: MagicMock(**{"get_account.return_value.buying_power": "999999"}))
 
     actions = t.execute_auto_buy()
     assert len(actions) == 1
@@ -175,6 +177,8 @@ def test_auto_buy_skips_when_warn_fires(
     fake_warn.message = "CAUTION: poor edge"
     fake_warn.regime = "High Vol"
     monkeypatch.setattr(w, "check", lambda *a, **kw: fake_warn)
+    monkeypatch.setattr(t, "_swing_exposure", lambda: 0.0)
+    monkeypatch.setattr(t, "_make_client", lambda: MagicMock(**{"get_account.return_value.buying_power": "999999"}))
 
     with patch("swing.trader.AlpacaBroker", MagicMock()):
         actions = t.execute_auto_buy()

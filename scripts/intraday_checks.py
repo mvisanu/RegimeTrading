@@ -31,4 +31,4 @@ all_actions = stop_actions + tp_actions + regime_actions
 if not all_actions:
     print(f"[{ts}] No triggers.")
 for a in all_actions:
-    print(f"[{ts}] {a.symbol} → {a.action}: {a.reason}")
+    print(f"[{ts}] {a.symbol} -> {a.action}: {a.reason}")
