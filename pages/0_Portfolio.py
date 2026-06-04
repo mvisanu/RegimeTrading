@@ -57,9 +57,9 @@ def _pnl_color(value: float) -> str:
 
 def _fmt_dollar(value: float, sign: bool = False) -> str:
     if value < 0:
-        return f"-${abs(value):,.2f}"
+        return f"-&#36;{abs(value):,.2f}"
     prefix = "+" if sign else ""
-    return f"{prefix}${value:,.2f}"
+    return f"{prefix}&#36;{value:,.2f}"
 
 
 def _fmt_pct(value: float, sign: bool = False) -> str:
@@ -109,11 +109,11 @@ else:
 
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        st.markdown(metric_card("Equity", f"${equity:,.2f}"), unsafe_allow_html=True)
+        st.markdown(metric_card("Equity", f"&#36;{equity:,.2f}"), unsafe_allow_html=True)
     with c2:
-        st.markdown(metric_card("Buying Power", f"${buying_power:,.2f}"), unsafe_allow_html=True)
+        st.markdown(metric_card("Buying Power", f"&#36;{buying_power:,.2f}"), unsafe_allow_html=True)
     with c3:
-        st.markdown(metric_card("Cash", f"${cash:,.2f}"), unsafe_allow_html=True)
+        st.markdown(metric_card("Cash", f"&#36;{cash:,.2f}"), unsafe_allow_html=True)
     with c4:
         st.markdown(metric_card("Day P&L", day_label, color=day_color), unsafe_allow_html=True)
 
@@ -157,7 +157,7 @@ elif hist and hist.get("timestamps") and hist.get("equity"):
         hl_color = _pnl_color(change)
         st.markdown(
             f"<span style='font-size:1.3rem;font-weight:700;color:#f8fafc'>"
-            f"${end_eq:,.2f}</span>"
+            f"&#36;{end_eq:,.2f}</span>"
             f"<span style='font-size:1rem;color:{hl_color};margin-left:10px'>"
             f"{_fmt_dollar(change, sign=True)} ({_fmt_pct(change_pct, sign=True)})</span>",
             unsafe_allow_html=True,

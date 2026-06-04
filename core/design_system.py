@@ -143,7 +143,7 @@ def metric_card(
     return (
         f'<div style="{container_style}">'
         f'<span style="{label_style}">{_html.escape(label)}</span>'
-        f'<span style="{value_style}">{_html.escape(value)}</span>'
+        f'<span style="{value_style}">{value}</span>'
         f"</div>"
     )
 

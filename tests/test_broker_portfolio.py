@@ -1,6 +1,6 @@
 """Tests for AlpacaBroker.get_portfolio_history()."""
 import pytest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, ANY
 
 
 def _make_broker():
@@ -46,7 +46,11 @@ def test_get_portfolio_history_passes_period_and_timeframe():
 
     broker.get_portfolio_history("3M", "1D")
 
-    broker._client.get_portfolio_history.assert_called_once_with(period="3M", timeframe="1D")
+    call_args = broker._client.get_portfolio_history.call_args
+    assert call_args is not None
+    req = call_args.args[0]
+    assert req.period == "3M"
+    assert req.timeframe == "1D"
 
 
 def test_get_portfolio_history_raises_runtime_error_on_api_failure():

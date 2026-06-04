@@ -55,7 +55,7 @@
     "atr20": 0.33,
     "sma200": 6.88,
     "regime_at_add": "High Vol",
-    "status": "active"
+    "status": "closed"
   },
   {
     "symbol": "NU",
@@ -135,7 +135,7 @@
     "atr20": 0.53,
     "sma200": 13.0,
     "regime_at_add": "High Vol",
-    "status": "active"
+    "status": "closed"
   },
   {
     "symbol": "NCLH",
@@ -189,7 +189,7 @@
     "atr20": 1.26,
     "sma200": 38.52,
     "regime_at_add": "High Vol",
-    "status": "active"
+    "status": "closed"
   },
   {
     "symbol": "BSX",
@@ -205,7 +205,9 @@
     "source": "swing-cycle",
     "ema8": 54.27,
     "atr20": 2.15,
-    "sma200": 87.46
+    "sma200": 87.46,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "PINS",
@@ -221,7 +223,9 @@
     "source": "swing-cycle",
     "ema8": 19.99,
     "atr20": 1.01,
-    "sma200": 26.48
+    "sma200": 26.48,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "PYPL",
@@ -237,7 +241,9 @@
     "source": "swing-cycle",
     "ema8": 45.79,
     "atr20": 1.44,
-    "sma200": 57.84
+    "sma200": 57.84,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "CAG",
@@ -253,7 +259,9 @@
     "source": "swing-cycle",
     "ema8": 13.9,
     "atr20": 0.4,
-    "sma200": 17.46
+    "sma200": 17.46,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "OKLO",
@@ -269,7 +277,9 @@
     "source": "swing-cycle",
     "ema8": 69.21,
     "atr20": 6.9,
-    "sma200": 86.39
+    "sma200": 86.39,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "LYFT",
@@ -285,7 +295,9 @@
     "source": "swing-cycle",
     "ema8": 13.59,
     "atr20": 0.58,
-    "sma200": 17.39
+    "sma200": 17.39,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "PTON",
@@ -305,7 +317,9 @@
     "source": "swing-cycle",
     "ema8": 5.3,
     "atr20": 0.3,
-    "sma200": 6.25
+    "sma200": 6.25,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "CRM",
@@ -325,7 +339,9 @@
     "source": "swing-cycle",
     "ema8": 174.39,
     "atr20": 7.34,
-    "sma200": 224.2
+    "sma200": 224.2,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "ABT",
@@ -345,7 +361,9 @@
     "source": "swing-cycle",
     "ema8": 85.29,
     "atr20": 2.12,
-    "sma200": 118.54
+    "sma200": 118.54,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "DKNG",
@@ -365,7 +383,9 @@
     "source": "swing-cycle",
     "ema8": 24.72,
     "atr20": 1.1,
-    "sma200": 32.18
+    "sma200": 32.18,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "TSCO",
@@ -381,7 +401,9 @@
     "source": "swing-cycle",
     "ema8": 31.11,
     "atr20": 1.44,
-    "sma200": 51.73
+    "sma200": 51.73,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "TOST",
@@ -397,7 +419,9 @@
     "source": "swing-cycle",
     "ema8": 24.49,
     "atr20": 1.33,
-    "sma200": 34.06
+    "sma200": 34.06,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "SHOP",
@@ -413,7 +437,9 @@
     "source": "swing-cycle",
     "ema8": 103.42,
     "atr20": 6.05,
-    "sma200": 141.04
+    "sma200": 141.04,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "FRSH",
@@ -433,7 +459,10 @@
     "source": "swing-cycle",
     "ema8": 8.6,
     "atr20": 0.48,
-    "sma200": 10.73
+    "sma200": 10.73,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed",
+    "tp_steps_hit": 3
   },
   {
     "symbol": "COIN",
@@ -453,7 +482,9 @@
     "source": "swing-cycle",
     "ema8": 201.95,
     "atr20": 13.79,
-    "sma200": 254.41
+    "sma200": 254.41,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "AVTR",
@@ -469,7 +500,9 @@
     "source": "swing-cycle",
     "ema8": 7.98,
     "atr20": 0.41,
-    "sma200": 10.93
+    "sma200": 10.93,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "MDT",
@@ -489,7 +522,9 @@
     "source": "swing-cycle",
     "ema8": 76.99,
     "atr20": 1.84,
-    "sma200": 93.43
+    "sma200": 93.43,
+    "regime_at_add": "Extreme Vol",
+    "status": "closed"
   },
   {
     "symbol": "TEAM",
@@ -509,7 +544,10 @@
     "source": "swing-cycle",
     "ema8": 84.57,
     "atr20": 6.27,
-    "sma200": 128.92
+    "sma200": 128.92,
+    "regime_at_add": "Medium Vol",
+    "status": "closed",
+    "tp_steps_hit": 1
   },
   {
     "symbol": "MOS",
@@ -529,7 +567,9 @@
     "source": "swing-cycle",
     "ema8": 22.54,
     "atr20": 0.83,
-    "sma200": 28.0
+    "sma200": 28.0,
+    "regime_at_add": "Medium Vol",
+    "status": "active"
   },
   {
     "symbol": "GIS",
@@ -545,7 +585,9 @@
     "source": "swing-cycle",
     "ema8": 33.91,
     "atr20": 0.88,
-    "sma200": 44.76
+    "sma200": 44.76,
+    "regime_at_add": "Medium Vol",
+    "status": "closed"
   },
   {
     "symbol": "CELH",
@@ -561,7 +603,9 @@
     "source": "swing-cycle",
     "ema8": 30.46,
     "atr20": 1.8,
-    "sma200": 47.86
+    "sma200": 47.86,
+    "regime_at_add": "Medium Vol",
+    "status": "active"
   },
   {
     "symbol": "GT",
@@ -577,7 +621,9 @@
     "source": "swing-cycle",
     "ema8": 6.11,
     "atr20": 0.28,
-    "sma200": 8.03
+    "sma200": 8.03,
+    "regime_at_add": "Medium Vol",
+    "status": "closed"
   },
   {
     "symbol": "VISN",
@@ -593,7 +639,9 @@
     "source": "swing-cycle",
     "ema8": 11.88,
     "atr20": 1.12,
-    "sma200": 16.93
+    "sma200": 16.93,
+    "regime_at_add": "Medium Vol",
+    "status": "active"
   },
   {
     "symbol": "SNOW",
@@ -609,7 +657,9 @@
     "source": "swing-cycle",
     "ema8": 151.42,
     "atr20": 8.01,
-    "sma200": 203.79
+    "sma200": 203.79,
+    "regime_at_add": "Medium Vol",
+    "status": "active"
   },
   {
     "symbol": "CHWY",
@@ -625,7 +675,9 @@
     "source": "swing-cycle",
     "ema8": 22.55,
     "atr20": 1.16,
-    "sma200": 31.96
+    "sma200": 31.96,
+    "regime_at_add": "Medium Vol",
+    "status": "active"
   },
   {
     "symbol": "SBET",
@@ -645,7 +697,9 @@
     "source": "swing-cycle",
     "ema8": 7.21,
     "atr20": 0.43,
-    "sma200": 11.51
+    "sma200": 11.51,
+    "regime_at_add": "Medium Vol",
+    "status": "closed"
   },
   {
     "symbol": "CPB",
@@ -661,7 +715,9 @@
     "source": "swing-cycle",
     "ema8": 20.41,
     "atr20": 0.61,
-    "sma200": 27.81
+    "sma200": 27.81,
+    "regime_at_add": "Medium Vol",
+    "status": "active"
   },
   {
     "symbol": "BKNG",
@@ -677,7 +733,8 @@
     "source": "swing-cycle",
     "ema8": 159.82,
     "atr20": 6.29,
-    "sma200": 197.19
+    "sma200": 197.19,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "IP",
@@ -693,7 +750,8 @@
     "source": "swing-cycle",
     "ema8": 31.99,
     "atr20": 1.46,
-    "sma200": 41.43
+    "sma200": 41.43,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "CPRT",
@@ -713,7 +771,8 @@
     "source": "swing-cycle",
     "ema8": 33.08,
     "atr20": 0.69,
-    "sma200": 40.18
+    "sma200": 40.18,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ADMA",
@@ -729,7 +788,8 @@
     "source": "swing-cycle",
     "ema8": 8.71,
     "atr20": 0.6,
-    "sma200": 15.4
+    "sma200": 15.4,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ASAN",
@@ -749,7 +809,8 @@
     "source": "swing-cycle",
     "ema8": 6.2,
     "atr20": 0.46,
-    "sma200": 11.08
+    "sma200": 11.08,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "GPK",
@@ -769,7 +830,8 @@
     "source": "swing-cycle",
     "ema8": 10.11,
     "atr20": 0.47,
-    "sma200": 15.27
+    "sma200": 15.27,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "CSGP",
@@ -789,7 +851,8 @@
     "source": "swing-cycle",
     "ema8": 33.06,
     "atr20": 1.57,
-    "sma200": 63.55
+    "sma200": 63.55,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "DT",
@@ -809,7 +872,8 @@
     "source": "swing-cycle",
     "ema8": 37.94,
     "atr20": 1.8,
-    "sma200": 42.96
+    "sma200": 42.96,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "FIS",
@@ -825,7 +889,8 @@
     "source": "swing-cycle",
     "ema8": 43.43,
     "atr20": 1.45,
-    "sma200": 59.71
+    "sma200": 59.71,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "KVYO",
@@ -841,7 +906,8 @@
     "source": "swing-cycle",
     "ema8": 15.6,
     "atr20": 1.47,
-    "sma200": 25.33
+    "sma200": 25.33,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "CTSH",
@@ -857,7 +923,8 @@
     "source": "swing-cycle",
     "ema8": 48.59,
     "atr20": 1.95,
-    "sma200": 69.73
+    "sma200": 69.73,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "GTLB",
@@ -877,7 +944,8 @@
     "source": "swing-cycle",
     "ema8": 23.58,
     "atr20": 1.38,
-    "sma200": 36.22
+    "sma200": 36.22,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "IBM",
@@ -897,7 +965,8 @@
     "source": "swing-cycle",
     "ema8": 221.93,
     "atr20": 7.23,
-    "sma200": 270.37
+    "sma200": 270.37,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "FISV",
@@ -917,7 +986,8 @@
     "source": "swing-cycle",
     "ema8": 55.22,
     "atr20": 1.95,
-    "sma200": 84.01
+    "sma200": 84.01,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "BX",
@@ -937,7 +1007,8 @@
     "source": "swing-cycle",
     "ema8": 121.7,
     "atr20": 4.05,
-    "sma200": 145.26
+    "sma200": 145.26,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "TEM",
@@ -953,7 +1024,8 @@
     "source": "swing-cycle",
     "ema8": 47.45,
     "atr20": 3.06,
-    "sma200": 66.57
+    "sma200": 66.57,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "COUR",
@@ -969,7 +1041,8 @@
     "source": "swing-cycle",
     "ema8": 5.49,
     "atr20": 0.39,
-    "sma200": 8.13
+    "sma200": 8.13,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ZTS",
@@ -985,7 +1058,8 @@
     "source": "swing-cycle",
     "ema8": 83.1,
     "atr20": 4.39,
-    "sma200": 129.1
+    "sma200": 129.1,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "BBWI",
@@ -1001,7 +1075,8 @@
     "source": "swing-cycle",
     "ema8": 18.51,
     "atr20": 1.0,
-    "sma200": 22.8
+    "sma200": 22.8,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "IOT",
@@ -1021,7 +1096,8 @@
     "source": "swing-cycle",
     "ema8": 28.86,
     "atr20": 1.55,
-    "sma200": 34.26
+    "sma200": 34.26,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ACN",
@@ -1041,7 +1117,8 @@
     "source": "swing-cycle",
     "ema8": 169.99,
     "atr20": 6.99,
-    "sma200": 235.04
+    "sma200": 235.04,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "STNE",
@@ -1057,7 +1134,8 @@
     "source": "swing-cycle",
     "ema8": 10.29,
     "atr20": 0.62,
-    "sma200": 15.61
+    "sma200": 15.61,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "GEHC",
@@ -1077,7 +1155,8 @@
     "source": "swing-cycle",
     "ema8": 62.19,
     "atr20": 2.17,
-    "sma200": 75.73
+    "sma200": 75.73,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "KKR",
@@ -1097,7 +1176,8 @@
     "source": "swing-cycle",
     "ema8": 99.63,
     "atr20": 3.43,
-    "sma200": 118.24
+    "sma200": 118.24,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "FLO",
@@ -1113,7 +1193,8 @@
     "source": "swing-cycle",
     "ema8": 7.89,
     "atr20": 0.33,
-    "sma200": 11.3
+    "sma200": 11.3,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ADBE",
@@ -1133,7 +1214,8 @@
     "source": "swing-cycle",
     "ema8": 244.01,
     "atr20": 9.02,
-    "sma200": 308.16
+    "sma200": 308.16,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "WDAY",
@@ -1153,7 +1235,8 @@
     "source": "swing-cycle",
     "ema8": 121.9,
     "atr20": 6.56,
-    "sma200": 190.1
+    "sma200": 190.1,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "INTR",
@@ -1169,7 +1252,8 @@
     "source": "swing-cycle",
     "ema8": 6.4,
     "atr20": 0.37,
-    "sma200": 8.48
+    "sma200": 8.48,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "HRL",
@@ -1189,7 +1273,8 @@
     "source": "swing-cycle",
     "ema8": 20.25,
     "atr20": 0.52,
-    "sma200": 23.85
+    "sma200": 23.85,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "DHR",
@@ -1205,7 +1290,8 @@
     "source": "swing-cycle",
     "ema8": 167.83,
     "atr20": 5.06,
-    "sma200": 207.26
+    "sma200": 207.26,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "RDDT",
@@ -1225,7 +1311,8 @@
     "source": "swing-cycle",
     "ema8": 157.03,
     "atr20": 9.61,
-    "sma200": 193.63
+    "sma200": 193.63,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "MAT",
@@ -1245,7 +1332,8 @@
     "source": "swing-cycle",
     "ema8": 15.07,
     "atr20": 0.51,
-    "sma200": 17.91
+    "sma200": 17.91,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "AEO",
@@ -1261,7 +1349,8 @@
     "source": "swing-cycle",
     "ema8": 15.89,
     "atr20": 0.71,
-    "sma200": 19.25
+    "sma200": 19.25,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "SRAD",
@@ -1281,7 +1370,8 @@
     "source": "swing-cycle",
     "ema8": 12.84,
     "atr20": 1.08,
-    "sma200": 22.16
+    "sma200": 22.16,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "BRBR",
@@ -1297,7 +1387,8 @@
     "source": "swing-cycle",
     "ema8": 10.34,
     "atr20": 1.2,
-    "sma200": 26.92
+    "sma200": 26.92,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "UPWK",
@@ -1313,7 +1404,8 @@
     "source": "swing-cycle",
     "ema8": 8.79,
     "atr20": 0.63,
-    "sma200": 15.7
+    "sma200": 15.7,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "CHYM",
@@ -1329,7 +1421,8 @@
     "source": "swing-cycle",
     "ema8": 18.57,
     "atr20": 1.06,
-    "sma200": 22.76
+    "sma200": 22.76,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "DASH",
@@ -1349,7 +1442,8 @@
     "source": "swing-cycle",
     "ema8": 158.72,
     "atr20": 7.54,
-    "sma200": 213.01
+    "sma200": 213.01,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "DXC",
@@ -1365,7 +1459,8 @@
     "source": "swing-cycle",
     "ema8": 9.34,
     "atr20": 0.78,
-    "sma200": 13.33
+    "sma200": 13.33,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "AI",
@@ -1385,7 +1480,8 @@
     "source": "swing-cycle",
     "ema8": 9.02,
     "atr20": 0.46,
-    "sma200": 13.7
+    "sma200": 13.7,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "MKC",
@@ -1405,7 +1501,8 @@
     "source": "swing-cycle",
     "ema8": 47.13,
     "atr20": 1.45,
-    "sma200": 63.53
+    "sma200": 63.53,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ALK",
@@ -1421,7 +1518,8 @@
     "source": "swing-cycle",
     "ema8": 38.65,
     "atr20": 1.81,
-    "sma200": 48.19
+    "sma200": 48.19,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "KD",
@@ -1437,7 +1535,8 @@
     "source": "swing-cycle",
     "ema8": 11.86,
     "atr20": 0.68,
-    "sma200": 22.92
+    "sma200": 22.92,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "VST",
@@ -1453,7 +1552,8 @@
     "source": "swing-cycle",
     "ema8": 146.62,
     "atr20": 6.8,
-    "sma200": 175.7
+    "sma200": 175.7,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "KSS",
@@ -1469,7 +1569,8 @@
     "source": "swing-cycle",
     "ema8": 12.83,
     "atr20": 0.8,
-    "sma200": 16.52
+    "sma200": 16.52,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "KTOS",
@@ -1485,7 +1586,8 @@
     "source": "swing-cycle",
     "ema8": 55.88,
     "atr20": 3.51,
-    "sma200": 80.79
+    "sma200": 80.79,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ATEC",
@@ -1501,7 +1603,8 @@
     "source": "swing-cycle",
     "ema8": 7.88,
     "atr20": 0.8,
-    "sma200": 15.26
+    "sma200": 15.26,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "W",
@@ -1517,7 +1620,8 @@
     "source": "swing-cycle",
     "ema8": 62.36,
     "atr20": 3.93,
-    "sma200": 86.99
+    "sma200": 86.99,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "HD",
@@ -1533,7 +1637,8 @@
     "source": "swing-cycle",
     "ema8": 309.38,
     "atr20": 7.48,
-    "sma200": 367.82
+    "sma200": 367.82,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "WVE",
@@ -1549,7 +1654,8 @@
     "source": "swing-cycle",
     "ema8": 6.97,
     "atr20": 0.35,
-    "sma200": 10.15
+    "sma200": 10.15,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "GPGI",
@@ -1565,7 +1671,8 @@
     "source": "swing-cycle",
     "ema8": 13.27,
     "atr20": 1.13,
-    "sma200": 19.5
+    "sma200": 19.5,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "PGY",
@@ -1581,7 +1688,8 @@
     "source": "swing-cycle",
     "ema8": 13.81,
     "atr20": 0.87,
-    "sma200": 22.67
+    "sma200": 22.67,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "FSK",
@@ -1601,7 +1709,8 @@
     "source": "swing-cycle",
     "ema8": 10.89,
     "atr20": 0.35,
-    "sma200": 14.17
+    "sma200": 14.17,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "DJT",
@@ -1621,7 +1730,8 @@
     "source": "swing-cycle",
     "ema8": 8.91,
     "atr20": 0.45,
-    "sma200": 13.07
+    "sma200": 13.07,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "REAL",
@@ -1637,7 +1747,8 @@
     "source": "swing-cycle",
     "ema8": 10.05,
     "atr20": 0.84,
-    "sma200": 11.57
+    "sma200": 11.57,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "OTIS",
@@ -1653,7 +1764,8 @@
     "source": "swing-cycle",
     "ema8": 73.93,
     "atr20": 1.93,
-    "sma200": 86.66
+    "sma200": 86.66,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "VRDN",
@@ -1673,7 +1785,8 @@
     "source": "swing-cycle",
     "ema8": 16.76,
     "atr20": 1.0,
-    "sma200": 24.32
+    "sma200": 24.32,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "VEEV",
@@ -1693,7 +1806,8 @@
     "source": "swing-cycle",
     "ema8": 160.16,
     "atr20": 6.43,
-    "sma200": 231.34
+    "sma200": 231.34,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "SMPL",
@@ -1713,7 +1827,8 @@
     "source": "swing-cycle",
     "ema8": 11.81,
     "atr20": 0.53,
-    "sma200": 19.97
+    "sma200": 19.97,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ABR",
@@ -1729,7 +1844,8 @@
     "source": "swing-cycle",
     "ema8": 6.48,
     "atr20": 0.35,
-    "sma200": 9.25
+    "sma200": 9.25,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "DLTR",
@@ -1749,7 +1865,8 @@
     "source": "swing-cycle",
     "ema8": 91.34,
     "atr20": 3.87,
-    "sma200": 110.22
+    "sma200": 110.22,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "SNAP",
@@ -1769,7 +1886,8 @@
     "source": "swing-cycle",
     "ema8": 5.67,
     "atr20": 0.33,
-    "sma200": 6.88
+    "sma200": 6.88,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ONDS",
@@ -1789,7 +1907,8 @@
     "source": "swing-cycle",
     "ema8": 9.91,
     "atr20": 0.9,
-    "sma200": 8.57
+    "sma200": 8.57,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "ONDS",
@@ -1809,7 +1928,9 @@
     "source": "swing-cycle",
     "ema8": 9.91,
     "atr20": 0.9,
-    "sma200": 8.57
+    "sma200": 8.57,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "NU",
@@ -1829,7 +1950,9 @@
     "source": "swing-cycle",
     "ema8": 13.18,
     "atr20": 0.44,
-    "sma200": 15.46
+    "sma200": 15.46,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "HIMS",
@@ -1849,7 +1972,9 @@
     "source": "swing-cycle",
     "ema8": 25.63,
     "atr20": 2.25,
-    "sma200": 35.85
+    "sma200": 35.85,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "HOOD",
@@ -1869,7 +1994,9 @@
     "source": "swing-cycle",
     "ema8": 78.07,
     "atr20": 4.34,
-    "sma200": 105.25
+    "sma200": 105.25,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "RGTI",
@@ -1889,7 +2016,9 @@
     "source": "swing-cycle",
     "ema8": 18.66,
     "atr20": 1.51,
-    "sma200": 23.01
+    "sma200": 23.01,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "SOUN",
@@ -1909,7 +2038,9 @@
     "source": "swing-cycle",
     "ema8": 8.56,
     "atr20": 0.64,
-    "sma200": 11.53
+    "sma200": 11.53,
+    "regime_at_add": "High Vol",
+    "status": "closed"
   },
   {
     "symbol": "NKE",
@@ -1929,7 +2060,10 @@
     "source": "swing-cycle",
     "ema8": 42.82,
     "atr20": 1.0,
-    "sma200": 62.4
+    "sma200": 62.4,
+    "regime_at_add": "High Vol",
+    "status": "closed",
+    "tp_steps_hit": 3
   },
   {
     "symbol": "PATH",
@@ -1949,7 +2083,8 @@
     "source": "swing-cycle",
     "ema8": 10.13,
     "atr20": 0.53,
-    "sma200": 13.0
+    "sma200": 13.0,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "NCLH",
@@ -1969,7 +2104,9 @@
     "source": "swing-cycle",
     "ema8": 16.41,
     "atr20": 0.83,
-    "sma200": 21.75
+    "sma200": 21.75,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "CPNG",
@@ -1989,7 +2126,9 @@
     "source": "swing-cycle",
     "ema8": 16.92,
     "atr20": 0.84,
-    "sma200": 24.65
+    "sma200": 24.65,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "BSX",
@@ -2009,7 +2148,9 @@
     "source": "swing-cycle",
     "ema8": 54.27,
     "atr20": 2.15,
-    "sma200": 87.46
+    "sma200": 87.46,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "TTD",
@@ -2029,7 +2170,8 @@
     "source": "swing-cycle",
     "ema8": 21.59,
     "atr20": 1.26,
-    "sma200": 38.52
+    "sma200": 38.52,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "PINS",
@@ -2049,7 +2191,9 @@
     "source": "swing-cycle",
     "ema8": 19.99,
     "atr20": 1.01,
-    "sma200": 26.48
+    "sma200": 26.48,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "BMNR",
@@ -2069,7 +2213,9 @@
     "source": "swing-cycle",
     "ema8": 21.61,
     "atr20": 1.23,
-    "sma200": 34.22
+    "sma200": 34.22,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "CMCSA",
@@ -2089,7 +2235,9 @@
     "source": "swing-cycle",
     "ema8": 25.48,
     "atr20": 0.96,
-    "sma200": 29.71
+    "sma200": 29.71,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "CSCO",
@@ -2105,7 +2253,8 @@
     "source": "swing-cycle",
     "ema8": 104.38,
     "atr20": 3.26,
-    "sma200": 76.64
+    "sma200": 76.64,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "QXO",
@@ -2125,7 +2274,9 @@
     "source": "swing-cycle",
     "ema8": 17.85,
     "atr20": 1.16,
-    "sma200": 20.72
+    "sma200": 20.72,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "ENPH",
@@ -2145,7 +2296,10 @@
     "source": "swing-cycle",
     "ema8": 42.21,
     "atr20": 3.08,
-    "sma200": 36.43
+    "sma200": 36.43,
+    "regime_at_add": "Uncertain",
+    "status": "closed",
+    "tp_steps_hit": 1
   },
   {
     "symbol": "PCT",
@@ -2165,7 +2319,8 @@
     "source": "swing-cycle",
     "ema8": 10.4,
     "atr20": 0.75,
-    "sma200": 9.99
+    "sma200": 9.99,
+    "regime_at_add": "Uncertain"
   },
   {
     "symbol": "NFLX",
@@ -2185,7 +2340,10 @@
     "source": "swing-cycle",
     "ema8": 87.81,
     "atr20": 2.32,
-    "sma200": 102.57
+    "sma200": 102.57,
+    "regime_at_add": "Uncertain",
+    "status": "closed",
+    "tp_steps_hit": 1
   },
   {
     "symbol": "CSCO",
@@ -2201,7 +2359,9 @@
     "source": "swing-cycle",
     "ema8": 104.38,
     "atr20": 3.26,
-    "sma200": 76.64
+    "sma200": 76.64,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "BA",
@@ -2221,7 +2381,9 @@
     "source": "swing-cycle",
     "ema8": 230.98,
     "atr20": 7.19,
-    "sma200": 219.68
+    "sma200": 219.68,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "SLS",
@@ -2237,7 +2399,9 @@
     "source": "swing-cycle",
     "ema8": 6.13,
     "atr20": 0.43,
-    "sma200": 3.16
+    "sma200": 3.16,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "ENB",
@@ -2253,7 +2417,9 @@
     "source": "swing-cycle",
     "ema8": 54.94,
     "atr20": 1.01,
-    "sma200": 49.77
+    "sma200": 49.77,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "PCT",
@@ -2273,7 +2439,9 @@
     "source": "swing-cycle",
     "ema8": 10.4,
     "atr20": 0.75,
-    "sma200": 9.99
+    "sma200": 9.99,
+    "regime_at_add": "Uncertain",
+    "status": "closed"
   },
   {
     "symbol": "FIG",
@@ -2293,6 +2461,7 @@
     "atr20": 1.36,
     "sma200": 40.68,
     "added_ts": "2026-05-15T11:22:36-0400",
-    "added_ordinal": 739751
+    "added_ordinal": 739751,
+    "regime_at_add": "Uncertain"
   }
 ]

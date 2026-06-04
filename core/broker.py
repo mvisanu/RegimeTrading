@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 from alpaca.trading.client import TradingClient
 from alpaca.trading.enums import OrderSide, TimeInForce
-from alpaca.trading.requests import MarketOrderRequest
+from alpaca.trading.requests import GetPortfolioHistoryRequest, MarketOrderRequest
 
 from core import notify, safety
 
@@ -185,7 +185,7 @@ class AlpacaBroker:
             RuntimeError: On API errors.
         """
         try:
-            history = self._client.get_portfolio_history(period=period, timeframe=timeframe)
+            history = self._client.get_portfolio_history(GetPortfolioHistoryRequest(period=period, timeframe=timeframe))
             pairs = [
                 (int(ts), float(v) if v is not None else None)
                 for ts, v in zip(history.timestamp, history.equity)
@@ -277,17 +277,20 @@ class AlpacaBroker:
             recent_timestamps = []
 
         try:
-            history = self._client.get_portfolio_history(period="1W", timeframe="1D")
+            history = self._client.get_portfolio_history(GetPortfolioHistoryRequest(period="1W", timeframe="1D"))
             equity_history = [float(v) for v in history.equity if v is not None] or [equity_open, equity_now]
         except Exception:
             equity_history = [equity_open, equity_now]
 
+        # Sells reduce concentration — pass 0 so the concentration breaker never
+        # blocks a sell that would bring an oversized position back under the limit.
+        concentration_value = 0.0 if side.lower() == "sell" else pos_value
         breakers = safety.check_all(
             equity_now=equity_now,
             equity_open=equity_open,
             equity_history=equity_history,
             peak_equity=peak_equity,
-            position_value=pos_value,
+            position_value=concentration_value,
             portfolio_value=portfolio_value,
             recent_order_timestamps=recent_timestamps,
         )

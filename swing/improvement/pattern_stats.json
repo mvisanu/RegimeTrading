@@ -1,18 +1,48 @@
 {
   "oversold-bounce": {
     "Unknown": {
-      "n": 20,
-      "avg_tp_pct": 9.9,
-      "avg_pnl_pct": -5.54,
-      "win_rate": 0.15
+      "n": 28,
+      "avg_tp_pct": 10.6,
+      "avg_pnl_pct": -1.72,
+      "win_rate": 0.214
+    },
+    "High Vol": {
+      "n": 21,
+      "avg_tp_pct": 19.0,
+      "avg_pnl_pct": -0.28,
+      "win_rate": 0.333
+    },
+    "Uncertain": {
+      "n": 29,
+      "avg_tp_pct": 8.0,
+      "avg_pnl_pct": -2.0,
+      "win_rate": 0.172
     }
   },
   "gap-up": {
     "High Vol": {
-      "n": 4,
+      "n": 9,
       "avg_tp_pct": 0.0,
-      "avg_pnl_pct": -5.33,
+      "avg_pnl_pct": 3.77,
       "win_rate": 0.0
+    },
+    "Uncertain": {
+      "n": 20,
+      "avg_tp_pct": 0.0,
+      "avg_pnl_pct": -3.08,
+      "win_rate": 0.0
+    },
+    "Extreme Vol": {
+      "n": 24,
+      "avg_tp_pct": 20.8,
+      "avg_pnl_pct": 5.6,
+      "win_rate": 0.25
+    },
+    "Medium Vol": {
+      "n": 14,
+      "avg_tp_pct": 16.6,
+      "avg_pnl_pct": 14.42,
+      "win_rate": 0.214
     }
   },
   "downtrend-break": {
@@ -23,14 +53,20 @@
       "win_rate": 0.0
     },
     "High Vol": {
-      "n": 2,
+      "n": 3,
       "avg_tp_pct": 0.0,
-      "avg_pnl_pct": -5.33,
+      "avg_pnl_pct": -8.48,
       "win_rate": 0.0
+    },
+    "Uncertain": {
+      "n": 28,
+      "avg_tp_pct": 13.1,
+      "avg_pnl_pct": 5.02,
+      "win_rate": 0.143
     }
   },
   "_meta": {
-    "last_rebuilt": "2026-05-18T22:50:45.063892+00:00",
-    "total_outcomes": 28
+    "last_rebuilt": "2026-06-03T02:44:22.310805+00:00",
+    "total_outcomes": 178
   }
 }
